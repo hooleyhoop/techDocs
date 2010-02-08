@@ -1,0 +1,13 @@
+REGEX HELP
+----------
+
+// find everything between quotes
+apple-part="[^"\r\n]*"
+
+apple-style="[^"\r\n]*"
+
+apple-default-image-visibility="[^"\r\n]*"
+
+apple-part="[^"\r\n]*"
+
+apple-default-image-visibility="[^"\r\n]*"

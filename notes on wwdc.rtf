@@ -1,0 +1,84 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf250
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 TrebuchetMS;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12280\viewh15220\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 session 116 - overlayview example - use tracking rect to get mouse moved events\
+\
+_subtreeDescription\
+\
+in keydown you should only call interpretKeyEvents\
+\
+and overide insertText\
+\
+you can control which view gets mouse down by overriding hitTEST\
+\
+mouse deltaX deltaY tells you how much the mouse moved but not how much the cursor moved. i.e. cursor could be butted up against the edge of the screen - you can still scroll by correct amount by getting deltaX but normally you should use location in window.\
+\
+You are meant o subclass NSImageRep  - just need to provide your own draw method - implement shaders this way. if your drawing method draw other cached images you should turn off caching for this image - use instruments to watch diskio and trace NSNewBitmapBackingStore\
+\
+// instead of lock focus - which destroys your original data\
+bitmap = [[NSBitmapImageRep alloc] initWithBimapData..\
+[NSGraphicsContext saveGraphicsState]\
+[NSGraphicsContext setContext:[NSGraphicsContext graphicsContextWithBitmapImageRep:bitmap]]\
+<drawing goes here>\
+[NSGraphicsContext restoreGraphicsState]\
+data = [bitmap bitmapData];\
+\
+// don't use tiffRepresentation to get data\
+// accessing bitmap data is <potentially> mutating the image so a copy is done here\
+\
+NSNewBitmapBackingStore is a good way to debug NSImage drawing - i.e. uneasily creating a new image\
+\
+same drawing - sae image   different dawning - different image\
+\
+A = It will rain tomorrow\
+B = The weather man predicts rain\
+\
+P(A) = 5/365 
+\f1\fs26 [It rains 5 days out of the year]
+\f0\fs24 \
+P(NOT A) = 360/365 
+\f1\fs26 [It does not rain 360 days out of the year]
+\f0\fs24 \
+P( B | A )  
+\f1\fs26 = 0.9 [When it rains, the weatherman predicts rain 90% of the time]
+\f0\fs24 \
+P( B | NOT A ) 
+\f1\fs26 = 0.1 [When it does not rain, the weatherman predicts rain 10% of the time]
+\f0\fs24 \
+\
+p(A | B) = ( p(A) * P( B | A ) ) / ( P(B)  )\
+\
+or\
+\
+p(A | B) = ( p(A) * P( B | A ) ) / ( P(A) * P( B | A ) + P( NOT A ) * P( B | NOT A ) )\
+\
+\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trmarl2620 \trmarr2620 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1600\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl0 \clpadr0 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth5280\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl0 \clpadr0 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\ql\qnatural
+
+\f1\fs26 \cf0 P( A
+\fs22 \sub 1
+\fs26 \nosupersub  | B ) = \'a0\cell 
+\pard\intbl\itap1\pardeftab720\sl400\qc
+\cf0 P( A
+\fs22 \sub 1
+\fs26 \nosupersub  ) P( B | A
+\fs22 \sub 1
+\fs26 \nosupersub  )\cb0 \
+\
+\cb1 P( A
+\fs22 \sub 1
+\fs26 \nosupersub  ) P( B | A
+\fs22 \sub 1
+\fs26 \nosupersub  ) + P( A
+\fs22 \sub 2
+\fs26 \nosupersub  ) P( B | A
+\fs22 \sub 2
+\fs26 \nosupersub  )\cell \lastrow\row
+}

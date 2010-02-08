@@ -1,0 +1,61 @@
+length 2 we have wave 2 long (2/2) 4 long (2)
+length 3 we have wave 2 long (2/3) 3 long (3/3) 6 long (2)
+length 4 we have wave 2 long (2/4) 3 long (3/4) 4 long(4/4) 8 long (2)
+length 5 we have wave 2 long (2/5) 3 long (3/5) 4 long(4/5) 5 long (5/5) 10 long (2)
+
+lowest fits in with 1/2 period
+next fits in with 1 period
+next fits in with 1 /12 period
+
+
+44,000 / wavelength in sample = Hz
+
+• with 2 length buffer
+
+4 long	44000/4		= 11000
+2 long	44000/2		= 22000
+
+• with 3 length buffer
+
+6 long	44000/6		= 7300
+3 long	44000/3		= 14666
+2 long	44000/2		= 22000
+
+• with 4 length buffer
+
+8 long	44000/8		= 5500
+4 long	44000/4		= 11000
+3 long	44000/3		= 14666
+2 long	44000/2		= 22000
+
+• with 5 length buffer
+
+10 long	44000/10	= 4400
+5 long	44000/5		= 8800
+4 long	44000/4		= 11000
+3 long	44000/3		= 14666
+2 long	44000/2		= 22000
+
+• with 6 length buffer
+
+12 long	44000/12		= 3666
+6 long	44000/6		= 7333
+5 long	44000/5		= 8800
+4 long	44000/4		= 11000
+3 long	44000/3		= 14666
+2 long	44000/2		= 22000
+
+• with 7 length buffer
+
+14 long
+7 long
+6 long
+5 long
+4 long
+3 long
+2 long
+
+
+so if we wanted to get 20 hz:-
+44000 / x = 20hz, x = 2200 we would need a buffer 1100 long
+

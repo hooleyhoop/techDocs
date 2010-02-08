@@ -1,0 +1,32 @@
+staticmatic
+-----------
+cd /Users/shooley/Sites/compass
+/Users/shooley/.gem/ruby/1.8/gems/staticmatic-0.10.7/bin/staticmatic setup my_site
+/Users/shooley/.gem/ruby/1.8/gems/staticmatic-0.10.7/bin/staticmatic preview my_site
+http://localhost:3000
+
+When you're happy with the website, you can tell StaticMatic to generate the HTML pages:
+staticmatic build my_site
+
+
+compass
+--------
+
+change config.rb to be relative
+
+auto background grid
+
+cd Desktop/blueprint/
+compass --watch .
+ /opt/local/lib/ruby/gems/1.8/gems/compass-0.10.0.pre4/bin/compass --watch .
+-- to serve a haml page
+
+cd Desktop/blueprint/
+/Users/shooley/.gem/ruby/1.8/gems/serve-0.10.0/bin/serve
+
+-- goto
+http://localhost:4000/
+
+
+
+cd /Users/shooley/Sites/compass/first_test 

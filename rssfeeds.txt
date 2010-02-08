@@ -1,0 +1,8 @@
+Handwriting-Dakota
+BTVision-Regular
+
+http://www.dapper.net/dapp-howto-use.php?dappName=TFL5dayWeather
+http://www.syndic8.com/feedlist.php
+http://www.newsisfree.com/pages/power/?cat=1
+feed://www.microsite.reuters.com/rss/worldNews/
+feed://www.microsite.reuters.com/rss/oddlyEnoughNews/

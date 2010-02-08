@@ -1,0 +1,455 @@
+bplist00Ò_WebMainResource_WebSubresourcesÕ	
+^WebResourceURL_WebResourceTextEncodingName_WebResourceMIMEType_WebResourceData_WebResourceFrameName_Hhttp://www.sciam.com/article.cfm?id=what-is-bayess-theorem-an&print=trueUUTF-8Ytext/htmlO8ı<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Scientific American: What is Bayes's theorem, and how can it be used to assign probabilities to questions such as the existence of God? What scientific value does it have?</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta http-equiv="imagetoolbar" content="false">
+	<link href="http://www.sciam.com/assets/css/print/printview.css" rel="stylesheet" type="text/css" media="all">
+	<script type="text/javascript">
+		sitepage = "sciam.com";
+		searchterm = "";
+	</script>
+
+	<!-- begin OAS browser test -->
+	<script type="text/javascript" language="JavaScript"><!--
+		_version=10; //-->
+	</script>
+	<script type="text/javascript" language="JavaScript1.1"><!--
+		_version=11;
+		if (navigator.userAgent.indexOf('Mozilla/3') != -1){
+			_version=10;
+		} // -->
+	</script>
+	<script type="text/javascript" src="http://www.sciam.com/assets/js/global.js"></script>
+</head><body>
+<div id="wrapper">
+	<div id="header">
+		<img src="http://www.sciam.com/assets/img/interface/logo.gif" alt="SciAm.com logo">
+	</div>
+	<div id="headline">
+		
+
+		
+
+		
+		<p><a href="http://www.sciam.com/askexpert_directory.cfm">Ask the Experts</a>Â -Â  December 4, 2006</p>
+		<h1>What is Bayes's theorem, and how can it be used to assign probabilities to questions such as the existence of God? What scientific value does it have?</h1>
+		<h2></h2>	
+		<p></p>
+	</div><!-- //end headline-->
+	<div id="content">
+		<div class="advertise">
+		  <script type="text/javascript">DisplayAds("Right1");</script><script language="JavaScript1.1" src="http://oascentral.sciam.com/RealMedia/ads/adstream_jx.cgi/sciam.com/1553243318@Right1"><!-- --></script><script language="JavaScript1.1">
+<!--
+var TFSMFlash_VERSION=6;
+var TFSMFlash_WMODE="window";
+var TFSMFlash_OASCLICK="http://oascentral.sciam.com/RealMedia/ads/click_lx.ads/sciam.com/269645168/Right1/sciam.com/p_2008-01_mind-market/300x250.txt/64393233363531613437393564663530?http://www.michaelshermer.com";
+var TFSMFlash_SWFCLICKVARIABLE="?clickTAG=http://oascentral.sciam.com/RealMedia/ads/click_lx.ads/sciam.com/269645168/Right1/sciam.com/p_2008-01_mind-market/300x250.txt/64393233363531613437393564663530?http://www.michaelshermer.com";
+var TFSMFlash_SWFFILE="http://a248.e.akamai.net/m/800/1129/1200607298/oascentral-s.realmedia.com/RealMedia/ads/Creatives/sciam.com/p_2008-01_mind-market/mind300x250.swf"+TFSMFlash_SWFCLICKVARIABLE;
+var TFSMFlash_IMAGEALTERNATE="";
+var TFSMFlash_OASALTTEXT="Click Here";
+var TFSMFlash_OASTARGET="_blank";
+var TFSMFlash_OASPROTOCOL="http://";
+var TFSMFlash_OASDIM="WIDTH='300' HEIGHT='250'";
+var TFSMFlash_OASADID="ad_banner";
+
+document.write('<scr'+'ipt src="http://a248.e.akamai.net/m/800/1129/1200607298/oascentral-s.realmedia.com/RealMedia/ads/Creatives/sciam.com/p_2008-01_mind-market/TFSMFlashWrapper201.js"></scr'+'ipt>');
+-->
+</script><script src="http://a248.e.akamai.net/m/800/1129/1200607298/oascentral-s.realmedia.com/RealMedia/ads/Creatives/sciam.com/p_2008-01_mind-market/TFSMFlashWrapper201.js"></script><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" id="ad_banner" width="300" height="250" align=""><param name="movie" value="http://a248.e.akamai.net/m/800/1129/1200607298/oascentral-s.realmedia.com/RealMedia/ads/Creatives/sciam.com/p_2008-01_mind-market/mind300x250.swf?clickTAG=http://oascentral.sciam.com/RealMedia/ads/click_lx.ads/sciam.com/269645168/Right1/sciam.com/p_2008-01_mind-market/300x250.txt/64393233363531613437393564663530?http://www.michaelshermer.com"><param name="quality" value="high"><param name="wmode" value="window"><embed src="http://a248.e.akamai.net/m/800/1129/1200607298/oascentral-s.realmedia.com/RealMedia/ads/Creatives/sciam.com/p_2008-01_mind-market/mind300x250.swf?clickTAG=http://oascentral.sciam.com/RealMedia/ads/click_lx.ads/sciam.com/269645168/Right1/sciam.com/p_2008-01_mind-market/300x250.txt/64393233363531613437393564663530?http://www.michaelshermer.com" quality="high" wmode="window" swliveconnect="FALSE" width="300" height="250" name="ad_banner" align="" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></object>
+<!-- -->
+		</div><!--/end advertise-->
+		
+		<b>Chris Wiggins, an associate professor of applied mathematics at Columbia University, offers this explanation.</b>
+
+<p>A patient goes to see a doctor. The doctor performs a test with 99 percent reliability--that is, 99 percent of people who are sick test positive and 99 percent of the healthy people test negative. The doctor knows that only 1 percent of the people in the country are sick. Now the question is: if the patient tests positive, what are the chances the patient is sick?</p>
+
+<p>The intuitive answer is 99 percent, but the correct answer is 50 percent, and Bayes's theorem gives us the relationship between what we know and what we want to know in this problem. What we are given--what we know--is p(+|s), which a mathematician would read as "the probability of testing positive given that you are sick"; what we want to know is p(s|+), or "the probability of being sick given that you tested positive." The theorem itself reads p(s|+)=p(+|s)p(s)/p(+), although what Reverend Bayes, who lived from 1702 to 1761, actually said was something simpler. Bayes stated the defining relationship expressing the probability you test positive AND are sick as the product of the likelihood that you test positive GIVEN that you are sick and the "prior" probability that you are sick (that is, the probability the patient is sick, prior to specifying a particular patient and administering the test).</p>
+
+<p>Rather than relying on Bayes's math to help us with this, let us consider another illustration. Imagine that the above story takes place in a small country, with 10,000 people. From the prior p(s)=0.01, we know that 1 percent, or 100 people, are sick, and 9,900 are healthy. If we administer the test to everyone, the most probable result is that 99 of the 100 sick people test positive. Since the test has a 1 percent error rate, however, it is also probable that 99 of the healthy people test positive. Now if the doctor sends everyone who tests positive to the national hospital, there will be an equal number of healthy and sick patients. If you meet one, even though you are armed with the information that the patient tested positive, there is only a 50 percent chance this person is sick.</p>
+
+<p>Now imagine the doctor moves to another country, performing the same test, with the same likelihood (p(+|s)) and, for that matter, the same success rate for healthy people, which we might call p(-|h), "the probability of scoring negative given that one is healthy." In this country, however, we suppose that only one in every 200 people is sick. If a new patient tests positive, it is actually more probable that the patient is healthy than sick. The doctor needs to update the prior. (The correct probability is left as a homework assignment for the reader.)</p>
+
+<p>The importance of accurate data in quantitative modeling is central to the subject raised in the question: using Bayes's theorem to calculate the probability of the existence of God. Scientific discussion of religion is a popular topic at present, with three new books arguing against theism and one, University of Oxford professor Richard Dawkins's book <i>The God Delusion,</i> arguing specifically against the use of Bayes's theorem for assigning a probability to God's existence. (A Google news search for "Dawkins" turns up 1,890 news items at the time of this writing.) Arguments employing Bayes's theorem calculate the probability of God given our experiences in the world (the existence of evil, religious experiences, etc.) and assign numbers to the likelihood of these facts given existence or nonexistence of God, as well as to the prior belief of God's existence--the probability we would assign to the existence of God if we had no data from our experiences. Dawkins's argument is not with the veracity of Bayes's theorem itself, whose proof is direct and unassailable, but rather with the lack of data to put into this formula by those employing it to argue for the existence of God. The equation is perfectly accurate, but the numbers inserted are, to quote Dawkins, "not measured quantities but &amp; personal judgments, turned into numbers for the sake of the exercise."</p> <p>Note that although this is receiving much attention now, quantifying one's judgments for use in Bayesian calculations of the existence of God is not new. Richard Swinburne, for example, a philosopher of science turned philosopher of religion (and Dawkins's colleague at Oxford), estimated the probability of God's existence to be more than 50 percent in 1979 and, in 2003, calculated the probability of the resurrection [presumably of both Jesus and his followers] to be "something like 97 percent." (Swinburne assigns God a prior probability of 50 percent since there are only two choices: God exists or does not. Dawkins, on the other hand, believes "there's an infinite number of things that some people at one time or another have believed in ... God, Flying Spaghetti Monster, fairies, or whatever," which would correspondingly lower each outcome's prior probability.) In reviewing the history of Bayes's theorem and theology, one might wonder what Reverend Bayes had to say about this, and whether Bayes introduced his theorem as part of a similar argument for the existence of God. But the good reverend said nothing on the subject, and his theorem was introduced posthumously as part of his solution to predicting the probability of an event given specific conditions. In fact, while there is plenty of material on lotteries and hyperbolic logarithms, there is no mention of God in Bayes's "Essay towards Solving a Problem in the Doctrine of Chances," presented after his death to the Royal Society of London in 1763 (and available online at www.stat.ucla.edu/history/essay.pdf ).</p>
+
+<p>One primary scientific value of Bayes's theorem today is in comparing models to data and selecting the best model given those data. For example, imagine two mathematical models, A and B, from which one can calculate the likelihood of any data given the model (p(D|A) and p(D|B)). For example, model A might be one in which spacetime is 11-dimensional, and model B one in which spacetime is 26-dimensional. Once I have performed a quantitative measurement and obtained some data D, one needs to calculate the relative probability of the two models: p(A|D)/p(B|D). Note that just as in relating p(+|s) to p(s|+), I can equate this relative probability to p(D|A)p(A)/p(D|B)p(B). To some, this relationship is the source of deep joy; to others, maddening frustration. 
+
+</p><p>The source of this frustration is the unknown priors, p(A) and p(B). What does it mean to have prior belief about the probability of a mathematical model? Answering this question opens up a bitter internecine can of worms between "the Bayesians" and "the frequentists," a mathematical gang war which is better not entered into here. To oversimplify, "Bayesian probability" is an interpretation of probability as the degree of belief in a hypothesis; "frequentist probability is an interpretation of probability as the frequency of a particular outcome in a large number of experimental trials. In the case of our original doctor, estimating the prior can mean the difference between more-than-likely and less-than-likely prognosis. In the case of model selection, particularly when two disputants have strong prior beliefs that are diametrically opposed (belief versus nonbelief), Bayes's theorem can lead to more conflict than clarity.</p>
+
+<p>More generally, Bayes's theorem is used in any calculation in which a "marginal" probability is calculated (e.g., p(+), the probability of testing positive in the example) from likelihoods (e.g., p(+|s) and p(+|h), the probability of testing positive given being sick or healthy) and prior probabilities (p(s) and p(h)): p(+)=p(+|s)p(s)+p(+|h)p(h). Such a calculation is so general that almost every application of probability or statistics must invoke Bayes's theorem at some point. In that sense Bayes's theorem is at the heart of everything from genetics to Google, from health insurance to hedge funds. It is a central relationship for thinking concretely about uncertainty, and--given quantitative data, which is sadly not always a given--for using mathematics as a tool for thinking clearly about the world. 
+	</p></div>
+	 
+		<!-- further reading START-->
+		
+			<div id="further-reading" class="clearfix">
+				<div class="reading-list">
+					<h2>Further Reading</h2>
+					<ul>
+					
+						<li><a href="http://www.sciam.com/article.cfm?id=can-fractals-spot-genuine">Pollock or Not? Can Fractals Spot a Fake Masterpiece?</a></li>
+					
+						<li><a href="http://www.sciam.com/article.cfm?id=how-the-brain-maps-symbol">How the Brain Maps Symbols to Numbers</a></li>
+					
+						<li><a href="http://www.sciam.com/article.cfm?id=climate-changes-uncertainty-principle">Climate Change's Uncertainty Principle</a></li>
+					
+						<li><a href="http://www.sciam.com/article.cfm?id=simplest-computer-new-kind-science"><i>A New Kind of Science</i> Author Pays Brainy Undergrad $25,000 for Identifying Simplest Computer</a></li>
+					
+					</ul>
+				</div><!--/end reading list-->
+				
+					<div class="related-books">
+						<h2>Â </h2>
+						<ul>
+						
+							<li><a href="http://www.sciam.com/article.cfm?id=how-to-win-an-election-ma">How to Win an Election: Make a Good First Impression (in Less than 250 Milliseconds)</a></li>
+						
+							<li><a href="http://www.sciam.com/article.cfm?id=coal-friendly-climate-changes-in-kansas">Coal-Friendly Climate Changes in Kansas</a></li>
+						
+							<li><a href="http://www.sciam.com/article.cfm?id=cave-speak-did-neandertal">Cave Speak: Did Neandertals Talk?</a></li>
+						
+							<li><a href="http://www.sciam.com/article.cfm?id=elephants-smell-fear">Elephants Use Smell of Fear to Sort Friend from Foe</a></li>
+						
+						</ul>
+					</div><!--/end related books-->
+				
+			</div>
+			<!-- further reading END -->
+		
+</div>
+
+ 
+
+	
+	</body></html>P¥#Ô_WebResourceResponse_3http://www.sciam.com/assets/css/print/printview.cssO=bplist00Ô	
+X$versionT$topY$archiverX$objects † Ñ_WebResourceResponse€_NSKeyedArchiver¯ &,-345OPQRSTUVWXYZ[\]^_`abcghU$nullİ !"#$%V$classR$3R$8S$10S$11R$5R$6R$4R$7R$2R$9R$0R$1€€€ €€€€€ Ó'()$+WNS.base[NS.relative€€ €_3http://www.sciam.com/assets/css/print/printview.cssÒ./01X$classesZ$classname¢12UNSURLXNSObject#AªŒ-¢Zª\ÈÓ6789DWNS.keysZNS.objects€ª:;<=>?@ABC€	€
+€€€€€€€€ªEFGHIJKLMN€€€€€€€€€€WX-Cache]Cache-ControlSAge]Accept-RangesVServer\Content-TypeTDate^Content-LengthZConnection]Last-Modified_ HIT from sciam-cache01.sciam.comVpublicT1018Ubytes_Sun-Java-System-Web-Server/7.0Xtext/css_Tue, 22 Jan 2008 12:01:45 GMTS789Zkeep-alive_Wed, 07 Nov 2007 15:55:25 GMTÒ./de£ef2_NSMutableDictionary\NSDictionaryÒ./ij£jk2_NSHTTPURLResponse]NSURLResponse     ) 2 7 : P R d ‡  ¨ ¯ ² µ ¹ ½ À Ã Æ É Ì Ï Ò Õ × Ù Û İ ß á ã å ç é ë í ô ü
+DIR]`foxz‰”–¡£¥§©«­¯±³µÀÂÄÆÈÊÌÎĞÒÔÜêîü$/=`glr“œ¼ÀËëğô
+#7             l              EXtext/cssOa:link, a:visited {text-decoration:underline;color: #0aa1dd;}
+ul,ol { list-style:none }
+ul,ol,li,h1,h2,h3,h4,h5,h6,body,html,fieldset,input,form{ margin:0; padding:0 }
+h1 {font-size:13pt}
+h2 {font-size:11pt}
+pre,p,blockquote { margin-bottom:8px; padding:0; }
+a img,:link img,:visited img { border:none }
+address { font-style:normal }
+
+#content_b, form, #nav-more, #discuss {display:none}
+
+html {
+	font-size:10pt
+}
+
+body {
+	margin: 5px 5px 0 5px;
+	padding: 0;
+	background-color: #fff;
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+	width:auto
+}
+
+#header {
+	background-color: #34302d;
+}
+
+#headline {
+	margin-top:8px
+}
+
+#content {
+	margin-top:8px
+}
+
+#further-reading {
+	margin-top:8px
+}
+
+.advertise {
+	float:right;
+	padding:0 0 5px 5px
+}Ô_(http://www.sciam.com/assets/js/global.jsOEbplist00Ô	
+X$versionT$topY$archiverX$objects † Ñ_WebResourceResponse€_NSKeyedArchiver¯ &,-345OPQRSTUVWXYZ[\]^_`abcghU$nullİ !"#$%V$classR$3R$8S$10S$11R$5R$6R$4R$7R$2R$9R$0R$1€€€ €€€€€ Ó'()$+WNS.base[NS.relative€€ €_(http://www.sciam.com/assets/js/global.jsÒ./01X$classesZ$classname¢12UNSURLXNSObject#AªŒ-¢aİÈÓ6789DWNS.keysZNS.objects€ª:;<=>?@ABC€	€
+€€€€€€€€ªEFGHIJKLMN€€€€€€€€€€WX-Cache]Cache-ControlSAge]Accept-RangesVServer\Content-TypeTDate^Content-LengthZConnection]Last-Modified_ HIT from sciam-cache02.sciam.comVpublicT2004Ubytes_Sun-Java-System-Web-Server/7.0_application/x-javascript_Tue, 22 Jan 2008 11:53:13 GMTT5089Zkeep-alive_Wed, 09 Jan 2008 16:28:08 GMTÒ./de£ef2_NSMutableDictionary\NSDictionaryáÒ./ij£jk2_NSHTTPURLResponse]NSURLResponse     ) 2 7 : P R d ‡  ¨ ¯ ² µ ¹ ½ À Ã Æ É Ì Ï Ò Õ × Ù Û İ ß á ã å ç é ë í ô ü
+9>GRU[dmov~‰‹–˜šœ ¢¤¦¨ªµ·¹»½¿ÁÃÅÇÉÑßãñø
+$2U\agˆ£ÃÈÓóøü"'+?             l              M_application/x-javascriptOá// sifr call
+function loadSifr() {
+	if(typeof sIFR == "function"){
+		sIFR.replaceElement(named({sSelector:"#featured-article h1", sFlashSrc:"assets/sIFR/DINOT-CondRegular.swf", sColor:"#34302D", sLinkColor:"#FFFFFF", sBgColor:"#FFFFFF", sHoverColor:"#CCCCCC", sFlashVars:"textalign=left", sWmode:"transparent"}));
+		sIFR.replaceElement(named({sSelector:"#footer h1", sFlashSrc:"assets/sIFR/DINNeuzeitGroteskLight.swf", sColor:"#34302D", sLinkColor:"#FFFFFF", sBgColor:"#FFFFFF", sHoverColor:"#CCCCCC", sFlashVars:"textalign=center", sWmode:"transparent"}));
+		sIFR.replaceElement(named({sSelector:"body h1", sFlashSrc:"assets/sIFR/DINNeuzeitGroteskLight.swf", sColor:"#34302D", sLinkColor:"#FFFFFF", sBgColor:"#FFFFFF", sHoverColor:"#CCCCCC", sCase:"upper", sFlashVars:"textalign=left", sWmode:"transparent"}));
+	};
+}
+
+<!--- begin OAS function definition --->
+var oas='http://oascentral.sciam.com/RealMedia/ads/';
+var RN = new String (Math.random());
+var RNS = RN.substring (2, 11);
+<!-- here is the ad insertion function -->
+function DisplayAds(position, width, height) {
+	var oaspage=sitepage + '/1' + RNS + '@' + position + searchterm;
+	if (_version < 11) {
+		document.write ('<a href="' + oas + 'click_nx.cgi/'+ oaspage + '" target="_top" ><img src="' + oas + 'adstream_nx.cgi/' + oaspage + '" border="0" width="' + width + '" height="' + height + '"/></a>');
+	} else {
+		document.write ('<script language="JavaScript1.1" SRC="' + oas + 'adstream_jx.cgi/' + oaspage + '">');
+		document.write ('\<\!-- --\>');
+		document.write ('\<\/script\>');
+		document.write ('\<\!-- --\>');
+	}
+}
+<!--- end OAS function definition --->
+
+/* ---------------------------
+// global functions - sciam.com
+------------------------------ */
+
+function DoOpen(url,win,w,h,left,top) {
+	if (!win) { win='_blank'; }
+	if (!w) { w=500; }
+	if (!h) { h=400; }
+	if (!left) { left=80; }
+	if (!top) { top=80; }
+	Win=window.open(url,win,'width='+w+',height='+h+',left='+left+',top='+top+',status=yes,toolbar=no,menubar=no,scrollbars=1,resizable=yes');
+	Win.focus();
+}
+
+// article image functions
+var thisImagePos = 0;
+function ArticleImageNext(){
+	thisImagePos++;
+	if (thisImagePos > aArticleImages.length-1) {
+		thisImagePos = 0;	
+	}
+	setArticleImage(thisImagePos);
+	return false;
+}
+
+function ArticleImagePrev(){
+	thisImagePos--;
+	if (thisImagePos < 0) {
+		thisImagePos = aArticleImages.length-1;
+	}
+	setArticleImage(thisImagePos);
+	return false;
+}
+
+function setArticleImage(pos){
+	document.getElementById('articleImg').src=aArticleImages[thisImagePos].src;
+	document.getElementById('articleImg').alt=aArticleImages[thisImagePos].alt;
+	var sCaption = '<strong>' + aArticleImages[thisImagePos].title + '</strong> ';
+	sCaption = sCaption + aArticleImages[thisImagePos].caption + '<br/>';
+	sCaption = sCaption + '<span>' + aArticleImages[thisImagePos].credit + '</span>';
+	document.getElementById('articleImgCap').innerHTML=unescape(sCaption);
+	return false;
+}
+// end article image functions
+
+// text counter
+function textCounter(field,cntfield,maxlimit) {
+	if (field.value.length > maxlimit) {
+		field.value = field.value.substring(0, maxlimit);
+	}
+	else {
+		document.getElementById(cntfield).innerHTML = maxlimit - field.value.length;	
+	}
+}
+
+//minitron
+var minitronPos = 0;
+var minitronItems = 5;
+var minitronStep = 3;
+function minitronSlide() {
+	if (minitronPos < minitronItems-minitronStep) { // increment
+		minitronPos = minitronPos + minitronStep;
+	} else { // reset
+		minitronPos = 0;
+	}
+	sp.showPanel(minitronPos);
+}
+
+// IE 6- nav dropdowns fix
+startList = function() {
+	if (document.all&&document.getElementById) {
+		navRoot = document.getElementById("nav");
+		for (i=0; i<navRoot.childNodes.length; i++) {
+			node = navRoot.childNodes[i];
+			if (node.nodeName=="LI") {
+				node.onmouseover=function() {
+					this.className+=" over";
+				}
+				node.onmouseout=function() {
+					this.className=this.className.replace(" over", "");
+				}
+			}
+		}
+	}
+}
+window.onload=startList
+
+// subscribe: a/b split
+var howMany = 1;  // max number of items listed below
+var page = new Array(howMany+1);
+
+page[0]="http://www.sciam.com/subscribe/subscribe_sciam.cfm?lsource=topnav";
+page[1]="http://www.sciam.com/subscribe/combo_sciam.cfm?lsource=topnav_sciam";
+
+function rndnumber(){
+	var randscript = -1;
+	while (randscript < 0 || randscript > howMany || isNaN(randscript)){
+		randscript = parseInt(Math.random()*(howMany+1));
+	}
+	return randscript;
+}
+
+quo = rndnumber();
+quox = page[quo];
+
+function subscribeLink(){
+	window.open(quox);
+}
+
+// check site search and comment forms
+function checkSiteSearch(thisform) {
+	if (thisform.q.value == "Search entire site" || thisform.q.value == ""){
+		alert("Please enter a search term");
+		thisform.q.focus();
+		return false}
+}
+
+function checkCommentForm(thisform) {
+	if (thisform.comment.value == "Enter Your Comment Here." || thisform.comment.value == ""){
+		alert("Please enter a comment");
+		thisform.comment.focus();
+		return false}
+}Ô_2http://www.sciam.com/assets/img/interface/logo.gifO>bplist00Ô	
+X$versionT$topY$archiverX$objects † Ñ_WebResourceResponse€_NSKeyedArchiver¯ &,-345OPQRSTUVWXYZ[\]^_`abcghU$nullİ !"#$%V$classR$3R$8S$10S$11R$5R$6R$4R$7R$2R$9R$0R$1€€€ €€€€€ Ó'()$+WNS.base[NS.relative€€ €_2http://www.sciam.com/assets/img/interface/logo.gifÒ./01X$classesZ$classname¢12UNSURLXNSObject#AªŒ-£ˆ¾ÈÓ6789DWNS.keysZNS.objects€ª:;<=>?@ABC€	€
+€€€€€€€€ªEFGHIJKLMN€€€€€€€€€€WX-Cache]Cache-ControlSAge]Accept-RangesVServer\Content-TypeTDate^Content-LengthZConnection]Last-Modified_ HIT from sciam-cache01.sciam.comVpublicT1053Ubytes_Sun-Java-System-Web-Server/7.0Yimage/gif_Tue, 22 Jan 2008 12:01:10 GMTT9409Zkeep-alive_Wed, 01 Aug 2007 18:23:58 GMTÒ./de£ef2_NSMutableDictionary\NSDictionary$ÁÒ./ij£jk2_NSHTTPURLResponse]NSURLResponse     ) 2 7 : P R d ‡  ¨ ¯ ² µ ¹ ½ À Ã Æ É Ì Ï Ò Õ × Ù Û İ ß á ã å ç é ë í ô ü
+CHQ\_enwy€ˆ“• ¢¤¦¨ª¬®°²´¿ÁÃÅÇÉËÍÏÑÓÛéíû#.<_fkq’œ¼ÁÌìñõ $8             l              FYimage/gifO$ÁGIF89aÀ P ÷  ‘ÁÀ¾ÕÕÓ863ööôæåä±±¯¾¾¾KGD\XU|{yWSQâáàåäâdcac_\¥¤¡iifxwuRPL²²²yxv€€~¹¹¶©¨¦XWTĞĞĞêéèMLIííëIHDÛÚÙúúüÃÂ¿áàŞ30+4..ÊÊÊb`^€|»»¸ÅÄÂ¦¦¤EDAqqoœš˜›˜•½¼ºCA>ÏÎÌmlj¢¡ÒÒĞëëéğïîèèèÜÜÚKIFÍÍËòòğÈÈÆ9852.-ŒŠôôôÇÆÄª©§îîîšš—2/*®®¬POL•”’>=8ôóñ742<85òòòèèæŒîîìÖÖÖ„ƒÙØÖ10,­¬ªŞİÜ‰ˆ†wurëêësrpÜÜÜœµ´²…„‚¼¼¼ƒ‚€431àßİwvsÒÒÒğğğYXV@<9~}ÊÆÃ––”UTRôôò]ZXŞŞŞÎÎÎœš32.ÌÌÌ‹Šˆ‡†„[ZX320£¢ WVT50-ùù÷51.41,21/50,10.øøöøúùúøù¿¾¼úù÷ÑÑÏúúøùùûZYW÷÷÷ÊÊÈ0/+²²°=<8ííí³²°21,ĞĞÎ40/lki?;8ùøöøùûù÷øûûû…„€ùûúÒÑÏÖÖÔ×ÖÔøøú÷ùø>=;52-‚„ƒûúø¾¾¼ËÊÈ³³±4/,´³±ìììûùúZYU620À¿½@?=¬«©ÌËÉØ×ÕYXT43/÷÷õ¨§¥kjhÉÉÇ÷øúĞÏÍÔÓÑÉÉÉ Ÿ=<:`^\VUS1-*764ËËÊ··¶¤£¡61-onlWVR××Öööö^][UTP°¯­üúûûûùÑĞÎ?><SROŒ‹‰ƒ‚~˜—•”’@?;B>;61.¿¿¿ËÊÆÜÛÙìîíîìí;:7ÒĞÑÕÕÕ?>:gfd†…ƒA=:WUQ³±²ãâáèçåõóô<;7[ZVµ´´ÃÃÁˆ‡…÷÷ùëéêøú÷ÓÑÒÍËÌéçèÍÍÍ„€~2.+21-øøøúúú3/,ùùù40-!ù     ,    À P  ÿ ÿ	ì÷`?‚æC(pÏAƒùäI51_*Š	æËÈ±`Á=EF,’OR“(OnÜˆ0ßB*#FPé—*¡M6p8`Ê”û…â³Ğ Ç|ö°äsğ'J‚Jÿñù·ˆc?–óñdØ³àÊ„f|¸ÕhĞ‚35f¤Òu­¾¢‹œõ:‚iBIAÏ:ŒÚojŸ?©ì©yS Å‡ÿRù	Ql^ÄqùØåZĞ®ÇÇgûéZ÷à#&öaû/OXµıxîQI4bƒ0´@À „6©YêËÈ2N\-„Ô%ä¶™ÿ\&ä`­™æpŞ
+‘õë×Ğ2c†‚äı8 ÿj•ìÏ"?…æa’Áúğ¸;¯Óûõú­úuæ@Ñ†Ù$Ğ-íÔgßxÜq ÕUI´—åXF{°ƒŒ/´§B9P±FšQ¸>8c‹zğãÏŠşğƒB=±T8Ö@Á?û´˜£?€ä‚KrıÓ!ûìclõ‡-üèa‹P®XJŠz Â‹>TPR‰?„T¢Æ„éõÓ‚9‚›>O\Ò" zDéæ>¥Œ±9î£Ç}¤Ï•â$ n²È&?läP”Oú³t—íƒ
+J$?;úƒb mÄ1jšÉĞ‹8êH•<Hb­a™ê¨G,µÿ	J›+2bÇ?X¶ª«?œP¡%„°h,”%DEş|2êúüAŠŠ»B™c‹ôs”¦ü±›>¦´¸b¥ÉÏ4›éÃ¥<‚’VAÀ4°ã>8ŞÈ¢“HxˆÓZä(å•ªÈ+),‘Xrà­¿èF¹O1K Ôˆ-ğî£ÊL#èÓ"´Ñª8ËfÀæˆ£/é%„ì!‡ğƒ‡fÏz[d«ñúS`”$lÊf¡èóÊ>˜@‹±›8ê±FjıœK©ìvP0Ÿz+(«;êáKU%dûÂ"î§­”òó~ôÓG:û³
+µağ†Ò”z!Õg™?HÅGĞBn«ûÄÿ °P®³BÈb
+bø%ôCÅ‚@Ùx´,tíŠ†˜BÂ
+Û­
+¯¸-ôÈ¼ÄÔ¼ ìOÔ&'+Rf›%Ä‡>W {È:×¸Ò@€à‰'ü¼°[>ìÓx z<r†BUP©ª|æÇä+R`Ø?´îSHÈ!7’£-›û‹i\¥"&”k€@Â¢œ†öşÒO°#?9 ~a˜×L3¬(Ÿ „/ ƒ}À#E+rš½¢Eø+¢oRÁØ°‹
+æÖ¢*8Æ+ı(Šj €$èçzPÒŞı¸W§ü¯0à‡&ô &$â=Ğ‹ÿØW,HábûÁeÎB?ûáïX‘ŠÎ@˜&$€`_pÀ@Ä¢,	Ìˆ ¯ĞQÙ8Q'„a#<ÈÔ ŠEìaé„%r´Dè5ú@Â5À±>„†,’¡iÅZ1!Iğ‡Õ T£õ¤¤ bÈ(E%6F,Mœa?ô‡.Jã‘W 7 ¯O4¡9¡¯fP$i#9ºøaÁE$m1H,±¢(HÍ,iüG]™½‚˜P”r$*sˆDøã+"ÂB•<A“é©†¿ö1	ùJN,È6"æsTñ‘X´”P¤Æ¥Àhb¹G´Âÿ~LCewØŒg¤â««à¯ ı1ı‘‹–œp‰	a¦?´7°6©Hš¼Ö'¶¢ô'›É$‹‚>)èlKœ:EEoQÂ¨Œ§´8¹KğƒdYD_–@I€ÉÊAâÀŒ`‰ « æ>ˆ‘Oœ`æ ¥¨úÚdÍm R gÈÑ“ˆ%‚G!ˆHWô³MF,‰aâJñ·‡m„Ê/½ê?dªÅ˜ñ£quëÈ	qù™~ÖÂ•º‚^“¤ÍìáJíEZ®2 ıÃ!Quf?ºÚ"ŒZ‘Ü@$Lì9É‹Êš“êH‰—<'‹Ò9J¥QQ®t5MÌ¸tÓ|ÿàï!2¨Y*£xë‚¸Pˆä XQ	›Ú¼l$²]™eoˆYKñC „ìJ¡ ÕdèÚiÃÉ¡ô“	å£ª¸^5¶ÖÊQ°‘È¡÷K‚e5m =ĞIZ_øG°¨rıtÂ«éaº9Ñg$wäWÀ_8ÃUô¡Llï´‰‡Y„ÒæşC½„&<a)Ş0(|€ïµ&IßƒE*àZ`8hè1°rY±HÒNrxjòt•äE£è2/4d‹ÈÄÊü±€'dÄæ-®JW;Ãt+›Ğm^>šÌ~ÈXÿ’+ªq‚2€bë[ğ„Da‡Ú=$È&2ıdX}h‚G{‹!ËD]£Øƒ>äà­t4WÕ`Ñ>€ËÂ€Ù%ŞTz×ZW@I[jÕg²‘7ÓØÆ)­…5¬É¶}ÀµK ‡,WèÎ‰
+”%TÔI($«]ó‚fÀ*VÌ¡5
+€R—CöéPçåÄ¤Şƒ) ¯A)â(Z\gXã6#ˆˆ™TT)hÜÁÇ÷Ûµ?ÜëAÉ‡Öq”
+ƒä›ƒV€í£à´ bjCÉÚj%3şò1ˆD*Q°¤âÈí9›[,}Xhêğê! ÿ”7½¯ZäBšºòRKÎ€1  å¥`‘5ò±ˆ…³hOôôÃÅ¬Ú¥ó¯À`‹ôpç@ñÂ5á¸Ç¯úÇ{¹„Vv0•:†Á·4€²›½ìf¨CĞ¸d¯ˆFyÄ>°iP¡ƒ?úMªMôQK¼ g¶TZqö³›á;‘:¬“ËƒH†)úXÂ>%/.É@^¯7ØÒ`mã©ú|ÈäTô„Ëp –ø„!êóM;=|71ŠûñŠóh¢½2oã„±1A2Çı‘Ü}ÔC¦qÄB{‘ßÜ7º5á„Áw­P]ãT@
+Ğ„L‚k‰s8ÿ‰ûí¿·–Eg€)<UÙÙª	õí§ÔrLƒt:7ÿèôP2åy@} 8BógàaĞÇ=,2}!3[Ä†+»ñ ,b20 >±'jågt,%é[ìwÖÄ
+û@¢Ôx×V® #áArT`ñÂXpC@<şÀ|öX9qB	(}r5zûĞo µ>+’ßÄn(~a&{¤v~+‚ïÅ~³%ü êÃx¯$Ò-a_!È i‚U`:‚`ù:DA¸€r3;Ò¸Rù€¬t˜ÒVDÿ°×6{-5…êgEğu…Ÿ†Nuıÿ„Ÿá|ĞPwhX	üpÑ†?o¸"˜ 7‡ŠC1ñ  /şğ8”Ò„°7tPh~ƒèTSìG'wåÅp€ÆåTùğxÊdT†qÔZ0QÖÀDÒ M$—Á‹èxŸè¡Xr¸"ÆP‡ˆÑpA‚ÀF-r2Njä'ˆ Xˆ7_ı ş`So@ÒèI@vô‹u±Ã`"}†{%¸@¹à˜ø	 $œ¼`¢FsÙxôs¸²†ÿ0
+OÂŸ/®(tã‹x[³X‹ë—E¦ñV°j’kV0Àfiÿ¥ ŠpĞqw€€	9²(A\"I@	^ÈÅ #b€]go‡W…=ûpš*Q8p@R~¯8’¨èÇÿã*‹şÀ„{+"³ Vùô E–.F0 L-Uğ"áğÈ"€ÙÇap—]³\p9ÿ 
+%÷}PÀnûà°™œÉ™¢`Ÿ¹ÿğÃ‡ ÷£	¬¸„° S‘^ğV2 J1899b
+y’7³"„ğ	öãh) 0@$,B€ÓÀü§"z „u°Ğ¢,«S°ì&E08x¤3ÿ°7Ë «P6·‘„Àn]ğêÓ:¢tÑ³P ĞC‡`ö×…ôĞ˜„0~è\SNÇpmí×˜ÙR}Pq8R
+.vU -zÓĞ&•R…@C Iµ"bPœóg6@B”‚	$´eù#|°…KóVx†g; š‘0Çu¦ñLãm ’,£Â	XÒßâ	 pñ0=Í )é1
+çµ6¡S³/¯0!T0è`ŒP'¥Ğ4!=Ğ	x	.u’#°œÿÀà1Aª#ş Ù~pıĞˆÒ2
+³`ıÙOrhªp?ùÿĞÁ¤n0°I`Q  
+˜“}Eàœ´QS£pgüPê'³e)ƒWAqUã†¦r…
+CJiùà
+¿€ë67u*† íÓTù 
+Ô°
+Ã#"@
+ @ñDDAÀ€@ ŠšöHPœFñKZ67:°	Ñ	…°®ìÊ®›°	»°®üù‘	p‘S­añZ›°X2@ÚYˆ zÕõª®…Ğ¹ÖëJ10 =hE×p°» 0A}à À]£iâp=à'1`‘'G€Éb/]Ø@}ˆÿ  ÉkğlvIùg`öÅa¾ÂaFk´Š£PãLú0«Lá
+l˜»£>š±dL6ö•qT¬´ÑT$6@«š6‘}ñ¡Ÿ)Ó ´‚¡NÕxá#P±¯´I‚û(¦ãò§SÑ¨‘‹õa4xGRA¸ah¥©aEù`XAzƒ¡×r•
+ù}M†FqŠQ|pJdk¹‡%Ùg[ØX"ñ{
+¶’»ƒX±YbA5A’ úx[æa!A8±º«üD¸›k5á¹êóÁjADeIb>5*W*’ÿÁ;±¸‹9öåeêÑ»U¹›aFz÷ƒµK!Ütê{?Oô­'d¼›q¼›†ÊÄ¿©€9ûzŠ‘©@1Šƒ»–qèˆ}Ñ…Üh–¡ca€!c·uÂ¨ò¾ÒÁ^è‡„ñ‚¥²ÆŠ>ÈA¿»Õød}ëºŠPz€GÑÀÑ·>û?½>rqÚ²Ë›¨RMûGé1¾Eë+U?Í Pá‡†¡q°ÄbÑ†oÑOXòpÅKÄµı0ğÂP–¸¶zò}àª¨ëâfK¶Z¼~&+fùàİ@€ÿ°çÀM
+$p"\’I8€í¹"UP_`U27oeq®G=@ NbQœ£:ĞuĞõT€,• Wúq0 WĞ ô.€`ÎplK6L@ı€ú’§Ğ!×«®a0‚@½¤¹7A û •à7VtP>† ±t€ùĞ¬Â%ˆ¶lï %ŒP;k€1Úš3¢ü úAÎÒ‚—qI)†  #²5ß’\qS Ap 0IìV	X©KÚ€1T˜3±/¶›¾ÿ0ŸğÂa¢ú  ¡’½B¶=‘†Ğ4Æ0ÌÿC9ÿ@ 8’#Œ ı°û¢<—ğÓåã& ˆú‘,ò?ı8oĞNEŠ`§~ÄÀJ>DŸ÷¼"(€FM5½]`§IºÂÃAy+¢›gš[& š’»ˆ}T@J£ı¬ûEp©ûS=Pqšú €‚3şĞÎE°ïœ#– –€ĞØ$I’Ù’ÊHl¤{ä– <Œ­2*R u½²ğ-†àGS›ÀÖ-N°	ë
+Xİé4¹F„Ì/5ğFú”
+%	0Nş ÷r;ğ-ÊPH!c€Ö-€	ñº¦
+ˆ
+%€€Ua–áH2zÿ˜ÓLÁÓ«H³`…wŞe'0Âºà	‚Ğ Ğf×XĞbÀ6îĞ‘´¢Íc°n+Â	Ìâ+T0 ‚½#Ğ`B´@Oâ1•`¨N…Ñá´"§0Ü6!dü@¤&ÿğhpÏğ
+¦ı 	Ø¬¨"Š'©à½a<	,¶KŒğğâí¨D¶"Š€|uØ»L[ÒØûp˜³²ğØşğQó×¦RŠ"b€Œ÷{š±}ûBT
+ş{;÷£¢ãÇÎ"P_XÛgf§M @2,..%†pg
+4BE(\RtS:Îã+ÿõã%CNÅJ iOĞq
+x*Ğ»Úş` »C%b  Dõˆ$#»"ÊÑMaæìáRÄ®
+»©ááÖéá=`Òr]=¼â-^š•Â«¿+ØÄm9¾ã=^?ZüÖAî^ä—]Ã_Ğ¹ /û€x 4:p<cÅŞ‹y±9Çmü @äL¬æ
+£¹\˜°2P7tââ³¨—‘çÿ°çsp ™‹Ò%*Éèd¦èÏí»‘Â{ ìd £.àmà/ts„ïiŠ“I9rçi'¤FyĞîB*û`ğÿ$ÿp+òæ+	>Û§"ğ>9R±ÒW /ğüp,"¸†{`XµrèËn?ÏèDñ•¡8ŸbM`§p#8‚ ñ •‚
+ë‰_Èæ:}©£" 
+;²á}Õòí‹æª¸
+»„4é°#@ZÜ{ß"-ĞJCá1ô³±À"A@¡ä E5p—ğ²ğQßìöğU¡hjQü`ù”í,!ÿğ 	ƒ
+Õ·ˆÅ5Lá¬¢ ¥*b.„².O)ûP8(Ğ4ÿÍ¨"}¿…!c/-xıÀ‡+ò˜©‰øRT81Gp€’öMy#\Ğ”Oÿ¯ì‰^¶‹Î"ÿèı`@,ò{Àµ¿"¤/öª]ØÓÉxîTº`ªPæsü%Â¤b!~şüıXôï_¿‡îëô/D‡3¶PèM~Åö%dç_¾~’ô9l$Èß¡}Hñ9£ß‡ù¨À`ãæ´A
+1úéßšşaÔØ4#Ä$IéËóoeª‡ÿtò§I!>|:DÓ‡ÒdD%+Ä~pãæt(×á ‘ş8­”¸Ï_¸yøèë—GŸ£„ûTØ GaPLÿ¥ëØ©°Ü¸s©ğ»ïÔ¿TRt@¸fD\•,]*ô²Â–?K7–ÔıGåŠÿÂJ§úH¨‡¨Q¤Mõ¡âö­>}‹âP1
+UêŸâ„uş9¢!iJY©äJŠ¶ßƒ¤æ¡"¹)Ä|YkØaV…[>÷5à0·ä‡tŒõ—­µ¬YÉ~¨ Ì'^@sK2ˆ<¨$! mM!dRêJíŸ–:*çŸ&Â"=‡ôùÀŸ}£b:úí¨¤n˜Ã‚D±@|DA&ÑgÁ¢ê¨ƒ'l´À0¸b‡Îü¹D¹úÑG‘î¯#ñ,*Ï©ºHdŠŠ1’òñŸ
+PLhûF "ŸTôYEPYd»DP´a…ü¨í99i¥‡ærh=üÄ„|´Éÿç†}ñ'¸6ìP¡Qş™¤£¤ûÇCágƒ¨8Å¬ƒ3“@ ÑÃ±K&Ò£“³²£}VÄAöY7ş€hrñK!ï®T(KòÌkŠÄºôad¢D`‰Ëƒ¤nÉo„«(!T¨Ğ‡Ç2&.”éˆ“~ÚÔ(³RoW2ŠÏ¯D¤á#%@;L aö( N=8Àé#ü	d.jù‡—‰JMjŸa}‚ÎY¶t.)Ÿ>ñŠŸ²’š!Ì¦¬ò»ğÆÛ’K/QÚ£Ÿ0jèH‡•¤´¢#ú(?aòXdšø1 9}P0‹æŠ¢#,Š9Ğ•Çym¤A¼Å§D±ÿ |US( úAá¸©% <â¤NXQÈá‰&–¸I*†+HŒÒ$…:Ş'-l´D*‡-¶d-•}ê¤¿1Ä¬4SÁL=Ö m°Â¨x“Ûòiæ5Ÿœ	4
+~ İáÊ'	òô‡@û™àVCöÙæ4I]¢é‰°8XÆ§f›Z¡\¨¸·›DbÛ' Èˆd“B")d“Mhx^Ä/(œh
+yÏa—ÉÁfv¥T$tb­$<Y.Õ#×!:r £~*ˆXÂÔí0ò_Ğge}œ	—€`@Ä\~aê¢™G$äşœ”Ò€ùƒ>YãK ‡øAïğ‡'¡ÿ*DE‚¨À?Fğäåxş@~„·Ç[‚²?bàÂí¡HŒ~ğ‡§Ä%Š€XùH†%“N#+”:¢„€"0ˆO¢ šP¸%–Ë‹),– HìqOĞEÚ<¤e.	D\—òô×$(¨/~©è‡üA„ á’Ç FÅùc…¯ NXNÃ‡ÓèƒDzª!1Ü2‚{õã~á‡¢á·(éƒ;—¾ÖeãG
+ú ‡ôf9KF°ˆÊ!Æ/¦ !B<@½˜È…“š )V - D ¢·òË{î…•_ÿäÍ-Ôœ€7[Á'†¸Cf !µFY
+*ÏC·Lå"åÉ:‚ª	˜P#"“X)¢Š~@~LCÏ?–}B>zHAùP$e™‘DztÉ/Ê6x	xğbpi+CÏ-†!Cè¥0Ä=÷‘8œ% HÈ!üA½ôèƒx[‹?ô0Œ@ârŠT§©”¢D§Ô0T©,¹3,$'#üôÒ£z=" §™[WÙu’EŒB
+¹DY±šÄl3ÿpÄ°Ş!¸èÃ>±).J0, ªuµ‘­0M¬3ü †Ql	
+ºŞ´uHÌ°Na”P!ÿŒ~Ya;İy¸Yùc*é)	%±)œpİÈòÂ­¦+k½	zöX m>qˆx`B!	Ù8æF…miH'Ç ÆH” 1ShÈ!²†±&…xÛmÒ‚æ ³ÖÒN	ŞV	 "Tğ‰ñŠšË^VVI	¯ÒXØ¢ˆ„H†døI¬¸ C·xhR‘ÖÂ2]|´ ­vë‰C€À´ô‹$)!F!ÄÀeëôAòúc²şÈë@­¢Ğˆ¢"f) ˆÄğc/ıÈ‘”nEI§ªA}P¢•aí£²H}gfA…<ä£!ÿÕG ZêÓ˜dªTÿ"ez`·¿d…‰Ìb"mâòŠ¤¬t¥•q)¡LK«:L<{yÀa n^ZzòÑ‡\¬eX b³¼µ‚Ù`1Ø!±8+ÿèA:rõpBüØ±ziãc*¤buˆÂµ4w´åE@\ìi–N”‡Y­ëÁ€m°‡§XC£DD ‚“5xx†¢“ˆYhpTb" \Â%ÿX'ı‘…0°8•µ1€_t[‡h·§Œ¢şñ8ŸNƒ†I€eÏËN¯
+QD"+Å€£=
+!„	öÉdüöÃYI­1Ã¯ö`C15a,ÅKøE+ÁIÿaM…N˜å`qĞÉ^(À'tÅ‰ ­—8:ä^^HJ ARˆ\$.©ƒ?‚—Pü¹#¯ g*ª‚ÀßY¡©¾­ô^¶†S‘´[ÒƒŸbÏ„0Æ»ÛÖé‡|¡g€àVbË‡PÁ&ºìà–ÇY‚&¤ğwÈIJ…öiB.¨¼!eˆ:+÷’„|ık ´ƒ¨“?Q©¹½ğ$Ùm‚—‹‡€b ğ QëôIâ!ÔB°?Ğ¡{­aX†h€Da##IóGbTöá	Oh¶|<€Y kİÀ“ÛÇ|ê’’#\(r‚V %*àá=ûcÿ²{ÀI&yëòpeÂ„[è&õá>Ú*RıC!¨‹"eÔ9#ìéˆr/a$²–ƒã’„Ø}‚KV¢ÏĞ#ğƒğşxÄ"Ncª‘DwÍ
+yÀ?üÌ1¿P;88‹€ˆaè€"‡“î <@Èñêƒ xB [H)9ã‡&h‡ †Vñ‰ØŸ|²¹P­ˆƒà‡Õ Áà(Ñi” ’Òr¸‰ é‹ %NX“Ö¡¡~  áÓª~h=à¯È…¿Aª€j†Bù'*8!ÉË¿ˆÉ‹ıë?íš½ã#¹>0~¨»X¸QZ:Èaø…‰Z,ÿ…x0>È¸-ú£¡ºø¯‡x8áR€}@@¿ø Pš›‡Ø ±â„WÒˆÇñ
+@ ¸‚0AÇ°p#†¼0„Sè:TŠ‹"H†[¡‰Gˆ£`ğ‡0“Û?x€|ÈÂà†H+ÄË(p¿¨1÷Ê y½·ÈX0„¸§³)Ÿ²	xˆ{é„Î „Z@ºh/P¼Yªâ04š`€ğ±²~x2Ÿx•3{Ğ€BĞ€h…ÒQÕÚ}xH ƒçA †‡æ€ÌÁôÁˆ	Ø„Hˆ¸¸XæiéiÔ„LÈ#ˆ‹%Ø‚„€Hƒ£= ½=°ƒA@ÈÿM ªÚ€€BpÈMh £‹@1i°U˜˜9Wˆ~ÜÈ†Âx‹‡HªX\pH…9Ñ‡ğÇH¸€Œ@	f™8èG0‚ÖÊŠEèƒ>ø@!DÚ¸±8xJäp¹éûâh8Xâˆ†ÚĞ‡?€ÊÌĞ§„ÊEx¡ä ¶D¡,§lˆª(¹‰A­ÜÊñÒ;ĞÊ•È&
+¨{Ñ‡@À<-˜oÑ'Íˆ_ñ/õ„2¸~pÊÕs.*àK¢|”¸ÜŸ%ÔŒ6¯ô¹±–óª JŸöÃ	‹)ÀšœJ9H¤KÍ€¬˜´‡´Öü•²£‚†ˆº¿·ˆÍ~(ñ»‰é?ÀŠX	…A‰ªˆ™ÌØL)«e£‹™»±tqˆ8†Óì¤I[­ã»ÍªĞˆã* ) “»Œ—S-ÿ2A.™9Ì(`‘$‹à£Tº‰VLÌ¹4·ğ¯L8¡(éHˆ.,Œ!#âø‡"¡„¼°Ã$ˆ(PÙüË=Ğñt4QQ-Q=QÑ€  ;Ô !"_Uhttp://oascentral.sciam.com/RealMedia/ads/adstream_jx.cgi/sciam.com/1553243318@Right1Ošbplist00Ô	
+X$versionT$topY$archiverX$objects † Ñ_WebResourceResponse€_NSKeyedArchiver¯ &,-345OPQRSTUVWXYZ[\]^_`aQbfgU$nullİ !"#$%V$classR$3R$8S$10S$11R$5R$6R$4R$7R$2R$9R$0R$1€€€ €€€€€ Ó'()$+WNS.base[NS.relative€€ €_Uhttp://oascentral.sciam.com/RealMedia/ads/adstream_jx.cgi/sciam.com/1553243318@Right1Ò./01X$classesZ$classname¢12UNSURLXNSObject#AªŒ-¥\™òÈÓ6789DWNS.keysZNS.objects€ª:;<=>?@ABC€	€
+€€€€€€€€ªEFGHIJKLMN€€€€€€€€€€SP3pWExpiresZKeep-AliveVPragmaVServer\Content-TypeTDate^Content-LengthZSet-CookieZConnection_CP="NON NID PSAa PSDa OUR IND UNI COM NAV STA",policyref="/w3c/p3p.xml", CP="NON NID PSAa PSDa OUR IND UNI COM NAV STA",policyref="/w3c/p3p.xml"_Tue, 25 Apr 1995 09:30:27 -0700[timeout=300Xno-cache_cApache/1.3.27 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.12 OpenSSL/0.9.6b mod_oas/5.8 with cap module/2.0_application/x-javascript_Tue, 22 Jan 2008 12:19:30 GMTT1978_…RMID=d923651a4795df50; expires=Fri, 31-Dec-2020 23:59:59 GMT; path=/; domain=.sciam.com, NSC_f32dfo1efm_qppm_iuuq=445c35333660;path=/Ò./cd£de2_NSMutableDictionary\NSDictionaryºÒ./hi£ij2_NSHTTPURLResponse]NSURLResponse     ) 2 7 : P R d ‡  ¨ ¯ ² µ ¹ ½ À Ã Æ É Ì Ï Ò Õ × Ù Û İ ß á ã å ç é ë í ô ü
+fkt‚ˆ‘šœ£«¶¸ÃÅÇÉËÍÏÑÓÕ×âäæèêìîğòôöú(-<GRå‚½ÂJOSivy~‚–             k              ¤Oºdocument.write ('<script language="JavaScript1.1">\n');
+document.write ('<!--\n');
+document.write ('var TFSMFlash_VERSION=6;\n');
+document.write ('var TFSMFlash_WMODE="window";\n');
+document.write ('var TFSMFlash_OASCLICK="http://oascentral.sciam.com/RealMedia/ads/click_lx.ads/sciam.com/269645168/Right1/sciam.com/p_2008-01_mind-market/300x250.txt/64393233363531613437393564663530?http://www.michaelshermer.com";\n');
+document.write ('var TFSMFlash_SWFCLICKVARIABLE="?clickTAG=http://oascentral.sciam.com/RealMedia/ads/click_lx.ads/sciam.com/269645168/Right1/sciam.com/p_2008-01_mind-market/300x250.txt/64393233363531613437393564663530?http://www.michaelshermer.com";\n');
+document.write ('var TFSMFlash_SWFFILE="http://a248.e.akamai.net/m/800/1129/1200607298/oascentral-s.realmedia.com/RealMedia/ads/Creatives/sciam.com/p_2008-01_mind-market/mind300x250.swf"+TFSMFlash_SWFCLICKVARIABLE;\n');
+document.write ('var TFSMFlash_IMAGEALTERNATE="";\n');
+document.write ('var TFSMFlash_OASALTTEXT="Click Here";\n');
+document.write ('var TFSMFlash_OASTARGET="_blank";\n');
+document.write ('var TFSMFlash_OASPROTOCOL="http://";\n');
+document.write ('var TFSMFlash_OASDIM="WIDTH=');
+document.write ("'");
+document.write ('300');
+document.write ("'");
+document.write (' HEIGHT=');
+document.write ("'");
+document.write ('250');
+document.write ("'");
+document.write ('";\n');
+document.write ('var TFSMFlash_OASADID="ad_banner";\n');
+document.write ('\n');
+document.write ('document.write(');
+document.write ("'");
+document.write ('<scr');
+document.write ("'");
+document.write ('+');
+document.write ("'");
+document.write ('ipt src="http://a248.e.akamai.net/m/800/1129/1200607298/oascentral-s.realmedia.com/RealMedia/ads/Creatives/sciam.com/p_2008-01_mind-market/TFSMFlashWrapper201.js"></scr');
+document.write ("'");
+document.write ('+');
+document.write ("'");
+document.write ('ipt>');
+document.write ("'");
+document.write (');\n');
+document.write ('-->\n');
+document.write ('</script>\n');
+Ô$%&_˜http://a248.e.akamai.net/m/800/1129/1200607298/oascentral-s.realmedia.com/RealMedia/ads/Creatives/sciam.com/p_2008-01_mind-market/TFSMFlashWrapper201.jsOTbplist00Ô	
+X$versionT$topY$archiverX$objects † Ñ_WebResourceResponse€_NSKeyedArchiver¯&,-345MNOPQRSTUVWXYZ[\]^_cdU$nullİ !"#$%V$classR$3R$8S$10S$11R$5R$6R$4R$7R$2R$9R$0R$1€€€ €€€€€ Ó'()$+WNS.base[NS.relative€€ €_˜http://a248.e.akamai.net/m/800/1129/1200607298/oascentral-s.realmedia.com/RealMedia/ads/Creatives/sciam.com/p_2008-01_mind-market/TFSMFlashWrapper201.jsÒ./01X$classesZ$classname¢12UNSURLXNSObject#AªŒ-¦ÂrÈÓ6789CWNS.keysZNS.objects€©:;<=>?@AB€	€
+€€€€€€€©DEFGHIJKL€€€€€€€€€SP3p]Accept-RangesVServer\Content-Type^Content-LengthTDateTEtagZConnection]Last-Modified_CP="NON NID PSAa PSDa OUR IND UNI COM NAV STA",policyref="/w3c/p3p.xml", CP="NON NID PSAa PSDa OUR IND UNI COM NAV STA",policyref="/w3c/p3p.xml"Ubytes_cApache/1.3.27 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.12 OpenSSL/0.9.6b mod_oas/5.8 with cap module/2.0_application/x-javascriptT1933_Tue, 22 Jan 2008 12:19:30 GMT_"b0011-78d-478fd08b"Zkeep-alive_Thu, 17 Jan 2008 22:02:51 GMTÒ./`a£ab2_NSMutableDictionary\NSDictionaryÒ./ef£fg2_NSHTTPURLResponse]NSURLResponse     ) 2 7 : P R d … ‹ ¦ ­ ° ³ · » ¾ Á Ä Ç Ê Í Ğ Ó Õ × Ù Û İ ß á ã å ç é ë ò ú
+§¬µÀÃÉÒÛİäì÷ù	!#%')+-/15CJWfkp{‰"ˆ£¨Èßê
+)69>BV             h              dOif (TFSMFlash_IMAGEALTERNATE){
+	var MM_contentVersion = TFSMFlash_VERSION;
+	var plugin = (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"]) ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
+	if ( plugin ) {
+		var words = navigator.plugins["Shockwave Flash"].description.split(" ");
+		    for (var i = 0; i < words.length; ++i)
+		    {
+			if (isNaN(parseInt(words[i])))
+			continue;
+			var MM_PluginVersion = words[i]; 
+		    }
+		var MM_FlashCanPlay = MM_PluginVersion >= MM_contentVersion;
+	}
+	else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0 && (navigator.appVersion.indexOf("Win") != -1)) {
+		document.write('<SCR' + 'IPT LANGUAGE=VBScript\> \n');
+		document.write('on error resume next \n');
+		document.write('MM_FlashCanPlay = ( IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash." & MM_contentVersion)))\n');
+		document.write('</SCR' + 'IPT\> \n');
+	}
+}
+if ( MM_FlashCanPlay || ! TFSMFlash_IMAGEALTERNATE ){
+document.write('<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="'+TFSMFlash_OASPROTOCOL+'download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version='+TFSMFlash_VERSION+',0,0,0" ID="'+TFSMFlash_OASADID+'" '+TFSMFlash_OASDIM+' ALIGN="">');
+document.write('<PARAM NAME=movie VALUE="'+TFSMFlash_SWFFILE+'"><PARAM NAME=quality VALUE=high><PARAM NAME="wmode" VALUE="'+TFSMFlash_WMODE+'">'); 
+document.write('<EMBED src="'+TFSMFlash_SWFFILE+'" quality=high wmode='+TFSMFlash_WMODE+' swLiveConnect=FALSE '+TFSMFlash_OASDIM+' NAME="'+TFSMFlash_OASADID+'" ALIGN="" TYPE="application/x-shockwave-flash" PLUGINSPAGE="'+TFSMFlash_OASPROTOCOL+'www.macromedia.com/go/getflashplayer">');
+document.write('</EMBED></OBJECT>');
+} else {
+document.write('<a href="'+TFSMFlash_OASCLICK+'" target="'+TFSMFlash_OASTARGET+'"><IMG SRC="'+TFSMFlash_IMAGEALTERNATE+'" '+TFSMFlash_OASDIM+' BORDER=0 alt="'+TFSMFlash_OASALTTEXT+'"></a>');
+}
+
+    1 < K i  ‘ ¨ ó ù:::::*:`>¡>ªAÃAÌA÷F@F[Z@ZIZ~^À^Êƒƒ˜ƒğ‰‘L‘U‘ğ—H             '              Ù

@@ -1,0 +1,72 @@
+photoshop shaders?
+
+uniform sampler2DRect ForegroundImage;
+uniform sampler2DRect BackgroundImage;
+
+void main(void)
+{   
+	vec4 yuvcolor;   
+	vec4 outcolor;   
+	vec4 overlaycolor = texture2DRect( ForegroundImage, gl_TexCoord[0].st );
+  vec4 incolor      = texture2DRect( BackgroundImage, gl_TexCoord[0].st );
+	if ( overlaycolor.a > 0.0)
+	{
+		yuvcolor.r =  incolor.r * 0.299 + incolor.g * 0.587 + incolor.b * 0.114;
+		yuvcolor.g = -incolor.r * 0.147 - incolor.g * 0.289 + incolor.b * 0.436;		yuvcolor.b =  incolor.r * 0.615 - incolor.g * 0.515 - incolor.b * 0.100;		float tg = 1.0 - yuvcolor.r;
+
+		if (abs(tg - yuvcolor.r) > .2)
+			yuvcolor.r = tg;
+		else if (tg < yuvcolor.r)
+			yuvcolor.r = fract(yuvcolor.r - 0.20);
+		else 
+			yuvcolor.r = fract(yuvcolor.r + 0.20);
+
+		outcolor.r = yuvcolor.r + 1.140 * yuvcolor.b;
+		outcolor.g = yuvcolor.r - 0.395 * yuvcolor.g - 0.581 * yuvcolor.b;
+		outcolor.b = yuvcolor.r + 2.032 * yuvcolor.g;
+		outcolor.rgb = mix(incolor.rgb, outcolor.rgb, overlaycolor.a);
+		outcolor.a = incolor.a;
+	}	else		
+		outcolor = incolor;
+	
+	gl_FragColor=outcolor;
+}
+
+
+void main(void)
+{
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+	gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
+	gl_TexCoord[3] = gl_TextureMatrix[3] * gl_MultiTexCoord0;
+}
+
+uniform sampler2DRect SourceImage;
+uniform sampler1D GaussianTable;
+uniform vec2	   BrushTranslate;
+uniform vec2      BrushScale;
+uniform float     BrushAngle;
+uniform float     BrushRadius;
+uniform vec4      BrushColor;
+uniform float     BrushHardness;
+uniform bool      BrushGaussian;
+
+void main(void)
+{
+	vec4 srcPixel = texture2DRect( SourceImage, gl_TexCoord[0].st );
+	vec2 dLocT = gl_TexCoord[0].st - BrushTranslate;
+	vec2 dLocR;
+	dLocR.x = dLocT.x * cos( BrushAngle ) - dLocT.y * sin( BrushAngle );
+	dLocR.y = dLocT.x * sin( BrushAngle ) + dLocT.y * cos( BrushAngle );
+	vec2 dLocS = dLocR / BrushScale;
+	float len = length( dLocS );
+	float len2 = BrushRadius - (BrushRadius - len) / ( 1.0 - BrushHardness);   len2 = clamp( len2, 0.0, BrushRadius );
+	float shape;	
+	if ( BrushGaussian )		
+		shape = texture1D( GaussianTable, len2 / BrushRadius ).g;
+	else
+		shape = 1.0 - len2 / BrushRadius;
+	float aaCutoff = clamp( BrushRadius - len, 0.0, 1.0);
+	float disc = mix( 0.0, shape, aaCutoff );
+	gl_FragColor = mix( srcPixel, BrushColor, disc );
+}
+

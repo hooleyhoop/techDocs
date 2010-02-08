@@ -1,0 +1,20 @@
+Flac Install
+------------
+
+env CFLAGS="-O -g -isysroot /Developer/SDKs/MacOSX10.5u.sdk -arch i386 -arch ppc -arch armv6" \
+  LDFLAGS="-arch i386 -arch ppc"   ./configure -enable-debug --disable-asm-optimizations --disable-dependency-tracking
+./configure --enable-debug --disable-asm-optimizations
+
+
+
+// PPC
+env CFLAGS="-O -g -isysroot /Developer/SDKs/MacOSX10.5u.sdk -arch ppc"
+env LDFLAGS="-arch ppc"
+./configure -enable-debug --disable-asm-optimizations --disable-dependency-tracking
+make
+make install
+
+lipo -detailed_info /usr/local/lib/libFLAC.a 
+#Non-fat file: /usr/local/lib/libFLAC.a is architecture: ppc
+
+lipo -create /usr/local/lib/libFLAC.a /Users/shooley/Desktop/Programming/Cocoa/AudioBoo/lib/libFLAC.a -output newFlac

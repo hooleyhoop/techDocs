@@ -1,0 +1,120 @@
+// Sass
+
+h1
+  height: 118px
+  margin-top: 1em
+
+.tagline
+  font-size: 26px
+  text-align: right
+
+
+// Sass
+
+table.hl
+  margin: 2em 0
+  td.ln
+    text-align: right
+
+li
+  font:
+    family: serif
+    weight: bold
+    size: 1.2em
+
+
+// Sass
+
+table.hl
+  margin: 2em 0
+  td.ln
+    text-align: right
+
+li
+  font:
+    family: serif
+    weight: bold
+    size: 1.2em
+/* CSS */
+
+table.hl {
+  margin: 2em 0;
+}
+table.hl td.ln {
+  text-align: right;
+}
+
+li {
+  font-family: serif;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+
+•variables
+
+!blue = #3bbfce
+!margin = 16px
+
+.content_navigation
+  border-color = !blue
+  color = !blue - #111
+
+.border
+  padding = !margin / 2
+  margin = !margin / 2
+  border-color = !blue
+
+
+• mixins
+
+// sass
+=table-scaffolding
+  th
+    text-align: center
+    font-weight: bold
+  td, th
+    padding: 2px
+
+=left(!dist)
+  float: left
+  margin-left = !dist
+
+#data
+  +left(10px)
+  +table-scaffolding
+
+
+
+// Sass
+
+=table-scaffolding
+  th
+    text-align: center
+    font-weight: bold
+  td, th
+    padding: 2px
+
+=left(!dist)
+  float: left
+  margin-left = !dist
+
+#data
+  +left(10px)
+  +table-scaffolding
+
+
+/* CSS */
+
+#data {
+  float: left;
+  margin-left: 10px;
+}
+#data th {
+  text-align: center;
+  font-weight: bold;
+}
+#data td, #data th {
+  padding: 2px;
+}
+

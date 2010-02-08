@@ -1,0 +1,49 @@
+FDKBu/J+
+
+
+App icon is horribly resampled
+
+Boos list
+	Displaying non-ascii characters?
+	Managed to play a boo twice at the same time, hitting stop only stopped one.
+	BooBot image is particularly badly aliased (different from boos without a gravatar)
+	Show more of the title when playing boos?
+
+Record screen
+	Go to boos list, come back, Play & Trash icons appear as though there's audio
+	can't seem to get back to the boos list once recording was started?
+  Buttons don't fit the background
+	Audio cuts out every 0.5seconds ish
+
+Publish screen
+	Add a bottom list item with icon for publishing?
+	Presumably upload isn't finished?
+
+Account screen
+	Login surely won't work?
+
+
+
+
+
+--------- UPDATE -----------
+App icon is horribly resampled
+
+Boos list
+	Displaying non-ascii characters?
+	Managed to play a boo twice at the same time, hitting stop only stopped one.
+	BooBot image is particularly badly aliased (different from boos without a gravatar)
+	Show more of the title when playing boos?
+
+Record screen
+	Go to boos list, come back, Play & Trash icons appear as though there's audio
+	can't seem to get back to the boos list once recording was started?
+  Buttons don't fit the background
+	Audio cuts out every 0.5seconds ish
+
+Publish screen
+	Add a bottom list item with icon for publishing?
+	Presumably upload isn't finished?
+
+Account screen
+	Login surely won't work?

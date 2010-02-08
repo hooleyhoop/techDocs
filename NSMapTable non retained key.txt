@@ -1,0 +1,24 @@
+
+
+static NSMapTable *_MYSimulatedIVarMapTable = NULL;
+
+_MYSimulatedIVarMapTable = NSCreateMapTable( NSNonRetainedObjectMapKeyCallBacks, NSObjectMapValueCallBacks, 16);
+
+NSMapRemove([[self class] _mySimulatedIVarMapTable], self);
+
+NSMapInsert([[self class] _mySimulatedIVarMapTable], self, newLabel);
+
+
+return NSMapGet([[self class] _mySimulatedIVarMapTable], self);
+
+
+NSMapTable *keyToObjectMapping = NSMapTable mapTableWithKeyOptions:NSMapTableCopyIn valueOptions:NSMapTableStrongMemory];
+
+will work much the same as an NSMutableDictionary, copying its "key" values and retaining its "object" values.
+
+NSMapTable *objectToObjectMapping = [NSMapTable mapTableWithStrongToStrongObjects];
+
+
+
+
+		_toolsAndToolRepresentations = [[NSMapTable alloc] initWithKeyOptions:NSMapTableStrongMemory valueOptions:NSMapTableZeroingWeakMemory capacity:[domainTools count]];

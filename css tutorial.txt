@@ -1,0 +1,243 @@
+    h4
+      font-size: 12px
+      color: #006cb5
+      + p // a paragraph that follows a h4
+        margin-top: 1em
+
+
+An absolute positioned div inside a relative positioned one can basically be placed anywhere you want inside the parent div. So we’ll just use this setup and absolute position a div with bottom:0 within a relative positioned one. The relative positioned div inherits its height from its parent.
+
+
+Block elements have width and height
+Inline elements are the size of their contents
+Inline-Block elements are both inline and can have width & height
+
+check out word-wrap, multi columns and box sizing
+
+-- oocss --
+
+// class "mod" with 4 properties
+<div class=”mod”>
+        <div class=”inner”>
+                <div class=”hd”>Block Head</div>
+                <div class=”bd”>Block Body</div>
+                <div class=”ft”>Block Foot</div>
+        </div>
+</div>
+-- oocss --
+
+
+
+Block-level elements, by default, take up the entire width of their containing element and the height of the default line-height. <div>, <pre>, <p>, <ul>, <ol>, <li>, etc
+
+Inline elements are, just as their name implies, in-line. They will stack up next to each other, left-to-right Given no content, they will collapse down and have no width or height. Some in-line elements are: <img>, <em>, <strong>, <a>, <span>, etc.
+
+A float will place an element outside the normal flow of elements and moves the element right or left until it reaches the margin or padding of another block-level element.
+
+Applying float to an element will automatically make it a block-level element. ) Giving an element both float:left; and display:block; is redundant and unnecessary
+
+lso, using display:inline on a floated image is actually a very popular method of fixing many cross-browser quirks.
+
+Floating a div to clear a div is one of those things you stumble upon with some experimenting and frustration. What basically happens is that you can apply a float to a parent element that contains other floated elements and they will all equalize and clear properly:
+
+<!--[if lte IE 7]>
+Target all versions of IE that are less than or equal to "7"
+load a specific css here to deal with ie6
+<![endif]-->
+
+Many-a-times when I’ve encountered a serious layout issue, a simple application of overflow:hidden on the offensive div would solve the problem.
+
+“You should always set a width on floated items (except if applied directly to an image – which has implicit width). If no width is set, the results can be unpredictable.”
+
+// fixes ie6 woes
+body { zoom:1; }
+
+a div containing floats will not have the corrct size unless you do
+div.container {
+	border: 1px solid #000000;
+	overflow: auto;
+	width: 100%
+}
+
+// Pseudo-elements
+first-line:
+first-letter:
+before:
+after: // not ie?
+
+p:first-line {text-transform: uppercase; }
+
+
+p.imgCap_number:before {
+	padding-right: 0.3em;
+	font-family: Wingdings;
+	content: "(";
+}
+p.imgCap_number:after {
+	font-style: italic;
+	content: " and some text after.";
+}
+
+
+// attribute selectors
+-- -- 
+
+// wow, you can style something depending that it follows
+
+h1 {color: black; font-size: 16pt; }
+h1 + p {color: blue; font-size: 14pt;}
+p {color: red; font-size: 12pt; }
+h1 + p + p {color: green;}
+
+
+Margins ans stuff collapse on some elements but not if you have borders or padding.
+
+Define the same element multiple times eg
+
+style.css
+----------
+h1 {}
+
+colour.css
+----------
+h1 { color:ff; }
+
+sidebar.css
+-----------
+#sidebar h1 { color:00ff;}
+
+
+• YOU CAN POSITION SOMETHING ABSOLSUTE ie position:absolute; top: -100px; relative to it's enclosing DIV!!!!!
+
+So we can assign multiple class names to a single element? 
+That means we can change the style sheet so it looks like this:
+
+<div class="boxOut oddBoxOut">
+
+.oddBoxOut, 
+.evenBoxOut {
+  width: 12em;
+  padding: 0.5em;
+  margin: 0.5em;
+  border: solid 1px black;
+}
+
+.oddBoxOut {
+  float: left;
+}
+
+.evenBoxOut {
+  float: right;
+}
+
+
+// Object Orientated
+
+.product .price {
+      font-size:24px;
+      color:red;
+      font-weight:bold;
+      text-align:right;
+}
+
+
+<div class="product">Hello</div>
+	<h1 class="product">Hello</h1>
+
+// To only match the div you would do:
+div.product {
+    bla bla bla ....
+}
+
+
+.product h1 {
+....  						any h1 elements inside the product object should have these properties.
+}
+.product .price {
+....							any price objects inside the product object should have these properties.
+}
+
+
+
+over-declared
+-------------
+
+For instance, let’s say you have a div that contains some other tags — h1, maybe a few customized anchor tags, etc. Some might say:
+
+<div id="stuff"><h1 class="red">Big Title<h1></div>
+
+#stuff { padding: 20px; border: 1px solid #000; }
+h1.big { color: red; }
+
+Let’s do this with less code by stripping out the class="red" declaration
+
+<div id="stuff"><h1>Big Title<h1><div>
+#stuff h1 { color: red; }
+
+
+// This is useful for some stuff… when clearing floating elements or something…
+overflow:auto;
+
+
+
+
+
+A simple selector, as you may recall, is made up by the following components:
+
+1	•	a type selector, or an implicit or explicit universal selector
+(h1, p, a)
+
+2	•	an optional ID selector
+#mynav - (this is really *#mynav - * is the universal selector)
+This can only match at most 1 item as id's should be unique
+
+3	•	zero or more class selectors
+4	•	zero or more pseudo-classes
+a.external:visited - a type selector, class selector and psuedo class 
+
+5	•	zero or more attribute selectors
+
+[title]
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"]
+{
+	background-color: #369;
+	color: #fff;
+	border: 2px solid;
+	border-color: #69c #036 #036 #69c;
+}
+
+
+Note that [id="nav"] is not equivalent to #nav.
+
+p[class~="literary"]	-- space separated eg <p class="somewhat literary sometimes">…</p>
+td[headers~="price"]
+
+[lang|="en"]					-- hyphen separated, <html lang="en-US">…</html>
+
+a[href^="http:"]			-- starts with..
+img[src$=".png"]			-- ends with..
+input[name*="choice"] -- contains..
+
+White space is the descendant combinator in CSS, so a [href] means a *[href], which is something quite different from a[href].
+
+
+// align images to text
+img.class-name { vertical-align: baseline; }
+img.class-name { vertical-align: text-top; }
+img.class-name { vertical-align: middle; }
+img.class-name { vertical-align: text-bottom; }
+img.class-name { vertical-align: 30% }
+img.class-name { vertical-align: 2px }
+
+  * { outline: 2px dotted red }
+  * * { outline: 2px dotted green }
+  * * * { outline: 2px dotted orange }
+  * * * * { outline: 2px dotted blue }
+  * * * * * { outline: 1px solid red }
+  * * * * * * { outline: 1px solid green }
+  * * * * * * * { outline: 1px solid orange }
+  * * * * * * * * { outline: 1px solid blue }

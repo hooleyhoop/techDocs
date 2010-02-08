@@ -1,0 +1,97 @@
+HTML Example
+<strong class="code" id="message">Hello, World!</strong>
+
+Haml Example
+%strong{:class => "code", :id => "message"} Hello, World!
+
+• because class and id are so common
+%strong.code#message Hello, World!
+
+• because divs are so common
+Haml
+.content Hello, World!
+HTML
+<div class='content'>Hello, World!</div>
+
+• self closing tags
+%br/
+%meta{'http-equiv' => 'Content-Type', :content => 'text/html'}/
+
+• allegators eat whitespace
+%blockquote<
+  %div
+    Foo!
+is compiled to:
+
+<blockquote><div>
+  Foo!
+</div></blockquote>
+
+• HTML is valid
+%p
+  <div id="blah">Blah!</div>
+
+• Attributes - terse
+%html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
+
+• Attributes - more complex
+%script{:type => "text/javascript",
+        :src  => "javascripts/script_#{2 + 7}"}
+
+
+def hash1
+  {:bread => 'white', :filling => 'peanut butter and jelly'}
+end
+
+def hash2
+  {:bread => 'whole wheat'}
+end
+
+%sandwich{hash1, hash2, :delicious => true}/
+
+would compile to:
+<sandwich bread='whole wheat' delicious='true' filling='peanut butter and jelly' />
+
+
+• class and id
+%div#things
+  %span#rice Chicken Fried
+  %p.beans{ :food => 'true' } The magical fruit
+  %h1.class.otherclass#id La La La
+is compiled to:
+
+<div id='things'>
+  <span id='rice'>Chicken Fried</span>
+  <p class='beans' food='true'>The magical fruit</p>
+  <h1 class='class otherclass' id='id'>La La La</h1>
+</div>
+
+
+• Haml Comments: -#
+
+• Running ruby - evaluated and inserted
+ = ['hi', 'there', 'reader!'].join " "
+
+• Running ruby - only evaluated
+- foo = "hello"
+- foo << " there"
+- foo << " you!"
+%p= foo
+
+• Ruby blocks
+- (42...47).each do |i|
+  %p= i
+%p See, I can count!
+
+
+%p This is #{h quality} cake!
+is the same as
+
+%p= "This is the #{h quality} cake!"
+and might compile to
+
+<p>This is scrumptious cake!</p>
+
+
+
+  #profilePic(style="-webkit-mask-box-image:url(../images/vignette-mask.png) 75 stretch;")

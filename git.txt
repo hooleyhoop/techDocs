@@ -1,0 +1,29 @@
+// show configuration
+prompt> git config --global --list
+
+// clone, new project, etc.
+git gui
+
+prompt> git help <command>
+
+git add index.html
+git status
+git commit -m "first paragraph" -m "second paragraph" -m "etc"
+git log -1
+
+// commit all changes
+git commit -a
+
+// change branch 
+git checkout RB_1.0
+
+git tag 1.0 branchname
+
+// show all tags
+git tag
+
+//rebase RB_1.0 onto current branch
+git rebase RB_1.0
+
+// delete branch
+ git branch -d RB_1.0

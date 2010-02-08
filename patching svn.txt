@@ -1,0 +1,5 @@
+-- make a patch
+svn diff /Users/shooley/Desktop/Programming/Cocoa/Blake/SHShared/SHShared.xcodeproj/shooley.mode1v3 > ~/myFirstPatch.diff
+
+-- apply a patch
+patch -p0 -i ~/fix_ugly_bug.diff

@@ -1,3 +1,18 @@
+// webkit box stuff is the wbest stuff ever
+-webkit-box-sizing = "border-box"
+display: -webkit-box
+// -webkit-box-orient: horizontal
+//-webkit-box-align: stretch
+-webkit-box-flex: 1
+
+
+
+check out the structural pseudo elements
+http://help.dottoro.com/lcmdfspk.php 
+
+  width: -webkit-calc(100%/2)
+
+
     h4
       font-size: 12px
       color: #006cb5

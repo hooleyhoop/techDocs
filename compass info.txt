@@ -9,6 +9,12 @@ When you're happy with the website, you can tell StaticMatic to generate the HTM
 staticmatic build my_site
 
 
+
+/Users/shooley/Desktop/Programming/Source_Code/staticmatic/bin/staticmatic  setup my_site
+/Users/shooley/Desktop/Programming/Source_Code/staticmatic/bin/staticmatic  preview my_site
+
+
+
 compass
 --------
 

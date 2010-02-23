@@ -1,3 +1,7 @@
+to put things in a row.. just float them all left
+
+careful! if no height is specified everyhting is overflow? right? careful with overflow hidden
+
 // webkit box stuff is the wbest stuff ever
 -webkit-box-sizing = "border-box"
 display: -webkit-box

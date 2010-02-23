@@ -3,6 +3,8 @@ staticmatic
 cd /Users/shooley/Sites/compass
 /Users/shooley/.gem/ruby/1.8/gems/staticmatic-0.10.7/bin/staticmatic setup my_site
 /Users/shooley/.gem/ruby/1.8/gems/staticmatic-0.10.7/bin/staticmatic preview my_site
+/Users/shooley/.gem/ruby/1.8/gems/staticmatic-0.10.7/bin/staticmatic build my_site
+
 http://localhost:3000
 
 When you're happy with the website, you can tell StaticMatic to generate the HTML pages:

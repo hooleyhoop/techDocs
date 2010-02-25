@@ -1,3 +1,12 @@
+• (static) Normal flow includes block formatting of block boxes, inline formatting of inline boxes, relative positioning of block or inline boxes, and positioning of run-in boxes.
+
+• Floats. In the float model, a box is first laid out according to the normal flow, then taken out of the flow and shifted to the left or right as far as possible. Content may flow along the side of a float.
+
+• Absolute positioning. In the absolute positioning model, a box is removed from the normal flow entirely (it has no impact on later siblings) and assigned a position with respect to a containing block.
+
+
+ONLY BLOCK ITEMS COLLAPSE MARGINS
+
 to put things in a row.. just float them all left
 
 careful! if no height is specified everyhting is overflow? right? careful with overflow hidden

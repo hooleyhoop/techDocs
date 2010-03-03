@@ -1,3 +1,11 @@
+//ok so we fetch..
+git merge origin/master
+git mergetool 			// fix conflicts
+$ git status | grep unmerged
+After resolving conflicts and staging the result, git ls-files -u
+git commit -m "sorting out conflicts"
+
+
 // show configuration
 prompt> git config --global --list
 

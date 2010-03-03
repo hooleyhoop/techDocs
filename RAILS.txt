@@ -1,0 +1,39 @@
+RAILS 
+-----
+http://articles.sitepoint.com/article/learn-ruby-on-rails
+http://articles.sitepoint.com/article/rails-for-beginners/3
+
+// crete a project
+$ sudo rails demo
+$ cd demo
+$ ruby script/server
+
+http://localhost:3000
+
+Model (ActiveRecord )
+View ( ActionView )
+Controller ( ActionController )
+
+ The controllers subdirectory is where Rails looks to find controller classes. A controller handles a web request from the user.
+
+ The views subdirectory holds the display templates to fill in with data from our application, convert to HTML, and return to the user's browser.
+
+ The models subdirectory holds the classes that model and wrap the data stored in our application's database. In most frameworks, this part of the application can grow pretty messy, tedious, verbose, and error-prone. Rails makes it dead simple.
+
+ The helpers subdirectory holds any helper classes used to assist the model, view, and controller classes. This helps to keep the model, view, and controller code small, focused, and uncluttered.
+
+Need 3 databases
+----------------
+ library_development
+ library_production
+ library_test
+
+database.yml
+
+
+'Story' objects are in 'stories' table
+'Story.title' is a column in that table
+
+// open a rails console so we can control and inspect our App
+$ cd demo
+$ ruby script/console

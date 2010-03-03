@@ -1,2 +1,76 @@
 RUBY
 ----
+
+irb> 1.class 
+=> Fixnum
+
+CONSTANT = "The quick brown fox in a constant"  
+#comment
+
+parens are optional if no arguments
+
+fox.upcase!	#exclamation mark indictes it modifies fox
+fox.empty?	#question mark indictes boolean
+
+@instanceVariable 	#don't even need declaring
+@@number_of_cars = 0	#class variable
+
+class Car < Vehicle
+  def open_trunk   
+    # code to open trunk goes here   
+  end   
+end  
+
+#accessors
+def mileage=(x)   
+  @mileage = x   
+end   
+def mileage   
+  @mileage   
+end 
+
+#called on each instance
+def initialize   
+  @@number_of_cars = @@number_of_cars + 1   
+end 
+
+#class method
+def self.count   
+  @@number_of_cars   
+end   
+
+# cant do var++ or var--, instead do
+@@number_of_cars+=1
+
+print "hello" #no newline
+puts "hello" #implicit newline
+
+service_mileage = [5000, 15000, 30000, 60000, 100000]
+service_mileage[0]
+
+#array shortcut - array of strings "red", "green", etc
+available_colors = %w( red green blue black ) 
+
+#look at documentation
+$ ri Array
+
+car_colors = {    
+  'kitt' => 'black',    
+  'herbie' => 'white',    
+  'batmobile' => 'black',    
+  'larry' => 'green'    
+}    
+irb> car_colors['kitt']    
+=> "black"
+
+#string shortcuts
+irb> %Q(Arnie said, "I'm back!")    
+=> "Arnie said, \"I'm back!\""
+
+irb> "The current time is: #{Time.now}"    
+=> "The current time is: Wed Aug 02 21:15:19 CEST 2006"
+
+http://articles.sitepoint.com/article/learn-ruby-on-rails/4
+
+
+

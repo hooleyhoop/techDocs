@@ -6,7 +6,10 @@ http://articles.sitepoint.com/article/rails-for-beginners/3
 // crete a project
 $ sudo rails demo
 $ cd demo
+$ sudo rake db:migrate    	-- create empty database
+$ sudo script/generate rspec	-- create files needed for testing
 $ ruby script/server
+$ ruby script/console
 
 http://localhost:3000
 
@@ -30,6 +33,7 @@ Need 3 databases
 
 database.yml
 
+$ rake -T db  -- see all available Rake Tasks
 
 'Story' objects are in 'stories' table
 'Story.title' is a column in that table
@@ -37,3 +41,28 @@ database.yml
 // open a rails console so we can control and inspect our App
 $ cd demo
 $ ruby script/console
+
+/* Static Pages */
+-----------------------------------
+http://localhost:3000/index.html
+
+is in 
+/public/index.html
+
+put your own static pages in public
+
+/* Dynamic Pages */
+-----------------------------------
+
+Rails actions, which are a more powerful way to define URLs than static files. 
+Rails actions come bundled together inside controllers.
+
+by default..
+http://localhost:3000/controller/action
+
+so
+$ sudo script/generate controller Pages home contact	-- Pages controller, home & contact are optional actions
+
+http://localhost:3000/pages/home
+http://localhost:3000/pages/contact
+

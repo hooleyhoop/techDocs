@@ -66,3 +66,15 @@ $ sudo script/generate controller Pages home contact	-- Pages controller, home &
 http://localhost:3000/pages/home
 http://localhost:3000/pages/contact
 
+
+/* Run Tests */
+-----------------------------------
+
+$ sudo script/generate rspec_controller Pages home contact
+
+$ spec spec/
+$ spec spec/controllers/
+$ spec spec/controllers/pages_controller_spec.rb
+
+$ /Users/shooley/Sites/rails/static/script/autospec
+

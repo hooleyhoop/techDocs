@@ -37,3 +37,6 @@ database.yml
 // open a rails console so we can control and inspect our App
 $ cd demo
 $ ruby script/console
+
+script/generate
+

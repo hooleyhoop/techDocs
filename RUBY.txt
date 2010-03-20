@@ -124,5 +124,4 @@ Instead of the do...end keywords that we used in previous examples, curly braces
 5.upto(7) { |i| puts i }
 
 
-http://articles.sitepoint.com/article/learn-ruby-on-rails/6
 

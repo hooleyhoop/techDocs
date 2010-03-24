@@ -35,3 +35,5 @@ git rebase RB_1.0
 
 // delete branch
  git branch -d RB_1.0
+
+$ git whatchanged -p /Users/shooley/Desktop/Programming/Cocoa/Blake/SHShared/Src/HooSenTestProbe.m

@@ -1,0 +1,58 @@
+mxmlc
+
+Single
+-------
+<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+<source-path path-element="${FLEX_HOME}/frameworks"/>
+
+Multiple Argument
+-----------------
+
+-default-size <width> <height>
+
+becomes
+
+<mxmlc ...>
+    <default-size width="800" height="600"/>
+</mxmlc>
+
+
+Repeatable options
+------------------
+
+-compiler.source-path [path-element] [...]
+
+becomes
+
+<mxmlc ...>
+    <compiler.source-path path-element="src"/>
+    <compiler.source-path path-element="../bar/src"/>
+</mxmlc>
+
+
+Nested elements
+---------------
+
+<mxmlc ...>
+    <metadata description="foo app">
+        <contributor name="Joe" />
+        <contributor name="Nick" />
+    </metadata>
+</mxmlc>
+
+Implicit FileSets
+------------------
+<include-sources dir="player/avmplus/core" includes="builtin.as, Date.as, Error.as, Math.as, RegExp.as, XML.as"/>
+
+<compiler.include-libraries dir="${swf.output}" append="true">
+    <include name="MyComponents.swc" />
+    <include name="AcmeComponents.swc" />
+    <include name="DharmaComponents.swc" />
+</compiler.include-libraries>
+
+
+compiler.external-library-path 
+compiler.include-libraries 
+compiler.library-path 
+compiler.theme 
+compiler.include-sources (compc only)

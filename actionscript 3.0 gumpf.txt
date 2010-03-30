@@ -1,0 +1,92 @@
+DEBUGGING IN FLEX
+-----------------
+
+to profile memory usage..
+Profile > Profile External Application
+
+standalone..
+java -jar /Applications/Adobe\ Flash\ CS4/Common/Configuration/ActionScript\ 3.0/fdb.jar
+(fdb) run /Users/shooley/Sites/flash/HeadlessPlayer/lib/HeadlessPlayer.swf
+
+in browser..
+java -jar /Applications/Adobe\ Flash\ CS4/Common/Configuration/ActionScript\ 3.0/fdb.jar
+(fdb) run
+
+step
+next
+continue
+
+break [args]
+clear [args]
+
+info breakpoints
+
+print [variable_name | object_name[.] | property]
+
+bt
+
+kill
+
+
+# To debbug in Flex, create a real flex app
+but change the debug path to about:blank (see here http://www.jeffryhouser.com/index.cfm/2007/12/4/Connecting-Flex-3-to-a-running-Debugger-session)
+start debugging - it will wait to attach to your swf
+
+UIComponent
+-----------
+
+The graphic at index 1 is removed automatically.
+
+
+//	
+//var textVariable:String = "some default value";
+//var numericVariable:Number = 17;
+//var dateVariable:Date;
+// x:Number
+// var birthday:Date = new Date(); 
+// var student:Student = new Student();
+
+    // do stuff to set initial values for properties
+    // and otherwise set up the object
+//    textVariable = "Hello there!";
+ //   dateVariable = new Date(2001, 5, 11);
+ 
+ // adgDoc.doSomething();
+	
+//	var animalCount:int = adGContentXML.animal.length();
+//	var firstAnimal:String = adGContentXML.animal[0].type;	
+//  xDoc.parseXML(adGContentXML.toXMLString());
+//  trace(xDoc.firstChild.childNodes[0]);
+
+
+
+			
+//			var bg:Shape = new Shape();
+//			var g:Graphics = bg.graphics;
+//			g.beginFill(0,1);
+//			g.drawRect(0,0,1000,1000);
+//			g.endFill();
+//			background = bg as DisplayObject;
+//			addChildAt(background,0);
+			
+//what the fuck is this shit?			addChild(_progress_small);
+
+
+STYLES
+-------
+Here's a list of the methods you can use to set, get, or clear styles:
+
+INSTANCE
+instance.setStyle(styleName, styleValue)
+instance.clearStyle(styleName)
+instance.getStyle(styleName)
+
+COMPONENT
+StyleManager.setComponentStyle(componentClass, styleName, styleValue)
+StyleManager.clearComponentStyle(componentClass, styleName)
+StyleManager.getComponentStyle(componentClass, styleName)
+
+GLOBAL
+StyleManager.setStyle(styleName, styleValue)
+StyleManager.clearStyle(styleName)
+StyleManager.getStyle(styleName)

@@ -1,0 +1,246 @@
+http://duriansoftware.com/joe/
+
+GLchar*, used by functions that handle strings and expect pointers to null-terminated, ASCII strings
+GLclampf and GLclampd, typedefs for GLfloat and GLdouble used when values are expected to be in the range zero to one
+GLsizei, an integer typedef suitable for holding the size of a memory buffer, akin to the standard C library's size_t
+GLboolean, a typedef for GLbyte intended to contain a GL_TRUE or GL_FALSE value, similar to C++ or C99's bool
+GLenum, a typedef of GLuint intended to contain a predefined GL_* constant
+GLbitfield, another GLuint typedef intended to contain the bitwise-or of one or more GL_*_BIT masks
+
+static GLuint make_buffer( GLenum target, const void *buffer_data, GLsizei buffer_size ) {
+    GLuint buffer;
+    glGenBuffers(1, &buffer);
+    glBindBuffer(target, buffer);
+    glBufferData(target, buffer_size, buffer_data, GL_STATIC_DRAW);
+    return buffer;
+}
+
+Buffer objects are handles to OpenGL-managed memory. Among other things, they are used to store vertex arrays (using the GL_ARRAY_BUFFER target) and element arrays (using the GL_ELEMENT_ARRAY_BUFFER target). When you allocate a buffer with glBufferData, you supply a usage hint that indicates how often you intend to access and change the data in the buffer, and OpenGL decides the best place in CPU or GPU memory to store its data based on that hint. 
+
+For our program, we have constant vertex and element arrays that never need to change, so we give glBufferData the GL_STATIC_DRAW hint. The STATIC part indicates that we don't ever intend to change the data. Buffers can also be hinted either DYNAMIC, which indicates we intend to write into the buffer frequently, or STREAM, which indicates we intend to regularly replace the entire contents of the buffer. The DRAW part indicates that we intend the buffer to be read from only by the GPU. The alternatives to DRAW are READ, which indicates a buffer which will be primarily read back by the CPU, and COPY, which indicates that the buffer will be a conduit between the CPU and GPU and that neither should be given preference. Vertex and element array buffers will almost always use a GL_*_DRAW hint.
+
+static const GLfloat g_vertex_buffer_data[] = { 
+    -1.0f, -1.0f,
+     1.0f, -1.0f,
+    -1.0f,  1.0f,
+     1.0f,  1.0f
+};
+static const GLuint g_element_buffer_data[] = { 0, 1, 2, 3 };
+
+glBufferData sees your source data much as memcpy does: just a dumb stream of bytes. We don't tell OpenGL the structure of our arrays until we actually render from them. This allows buffers to store vertex attributes and other data in almost any format, or to feed the same data in different ways to different render jobs.
+
+static int make_resources(void)
+{
+    g_resources.vertex_buffer = make_buffer( GL_ARRAY_BUFFER, g_vertex_buffer_data, sizeof(g_vertex_buffer_data) );
+    g_resources.element_buffer = make_buffer( GL_ELEMENT_ARRAY_BUFFER,  g_element_buffer_data,  sizeof(g_element_buffer_data)
+    );
+    /* ... make buffers */
+    g_resources.textures[0] = make_texture("hello1.tga");
+    g_resources.textures[1] = make_texture("hello2.tga");
+
+    if (g_resources.textures[0] == 0 || g_resources.textures[1] == 0)
+        return 0;
+    /* make shaders ... */
+}
+
+static GLuint make_texture(const char *filename)
+{
+    GLuint texture;
+    int width, height;
+    void *pixels = read_tga(filename, &width, &height);
+
+    if (!pixels)
+        return 0;
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+
+Texture objects are distinct from buffer objects, because the GPU handles texture memory very differently from buffer memory:
+
+Whereas the vertex array is fed to the vertex shader one element at a time, and there's no way for any execution of the vertex shader to access other elements, a texture makes its entire contents available to any invocation of either the vertex or fragment shaders. Shaders sample the texture at one or more floating-point texture coordinates.
+
+To distinguish from the x, y, z coordinates of object space, OpenGL labels the axes of texture space s, t, and r.
+
+How sampling behaves when a texture is sampled between the centers of texture cells, or at coordinates outside of the zero-to-one range, is controlled by texture parameters, set by the glTexParameteri function.
+
+glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER GL_LINEAR ); // If you sample at a higher resolution than the texture, interpolate linearly
+glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER GL_LINEAR );
+glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S GL_CLAMP_TO_EDGE ); // if you sample beyond the 0-1 range, clamp to those values
+glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T GL_CLAMP_TO_EDGE );
+
+    glTexImage2D(
+        GL_TEXTURE_2D, 0,           /* target, level of detail */
+        GL_RGB8,                    /* internal format */
+        width, height, 0,           /* width, height, border */
+        GL_BGR, GL_UNSIGNED_BYTE,   /* external format, type */
+        pixels                      /* pixels */
+    );
+    free(pixels);
+    return texture;
+}
+
+Buffers and textures contain the raw materials for an OpenGL program, but without shaders, they are inert lumps of bytes. 
+
+GLSL
+-----
+
+A vertex shader communicates with the surrounding graphics pipeline using specially-declared global variables in the GLSL program. Its inputs come from uniform variables, which supply values from the uniform state, and attribute variables, which supply per-vertex attributes from the vertex array. The shader assigns its per-vertex outputs to varying variables. GLSL predefines some varying variables to receive special outputs used by the graphics pipeline, including the gl_Position variable we used here.
+
+#version 110
+
+attribute vec2 position;
+
+varying vec2 texcoord;
+
+void main()
+{
+    gl_Position = vec4(position, 0.0, 1.0);
+    texcoord = position * vec2(0.5) + vec2(0.5);
+}
+
+
+
+In a fragment shader, some things change slightly. varying variables become inputs here: Each varying variable in the fragment shader is linked to the vertex shader's varying variable of the same name, and each invocation of the fragment shader receives a rasterized version of the vertex shader's outputs for that varying variable. Fragment shaders are also given a different set of predefined gl_* variables. gl_FragColor is the most important, a vec4 to which the shader assigns the RGBA color value for the fragment. The fragment shader has access to the same set of uniforms as the vertex shader, but cannot declare or access attribute variables.
+
+#version 110
+
+uniform float fade_factor;
+uniform sampler2D textures[2];
+
+varying vec2 texcoord;
+
+void main()
+{
+    gl_FragColor = mix(
+        texture2D(textures[0], texcoord),
+        texture2D(textures[1], texcoord),
+        fade_factor
+    );
+}
+
+
+Back in c..
+
+static struct {
+    /* ... fields for buffer and texture objects */
+    GLuint vertex_shader, fragment_shader, program;
+    
+    struct {
+        GLint fade_factor;
+        GLint textures[2];
+    } uniforms;
+
+    struct {
+        GLint position;
+    } attributes;
+
+    GLfloat fade_factor;
+} g_resources;
+
+
+static GLuint make_shader(GLenum type, const char *filename)
+{
+    GLint length;
+    GLchar *source = file_contents(filename, &length);
+    GLuint shader;
+    GLint shader_ok;
+
+    if (!source)
+        return 0;
+OpenGL compiles shader objects from their GLSL source code and keeps the generated GPU machine code to itself. There is no standard way to precompile a GLSL program into a binary—you build the shader from source every time. Here we read our shader source out of a separate file, which lets us change the shader source without recompiling our C.
+
+shader = glCreateShader(type);
+glShaderSource(shader, 1, (const GLchar**)&source, &length);
+free(source);
+glCompileShader(shader);
+
+Shader and program objects deviate from the glGen-and-glBind protocol that buffer and texture objects follow. Unlike buffer and texture functions, functions that operate on shaders and programs take the object's integer name directly as an argument. The objects don't need to be bound to any target to be modified. 
+
+penGL maintains an info log for every shader object that contains errors or warnings raised by the GLSL compiler.
+
+    glGetShaderiv(shader, GL_COMPILE_STATUS, &shader_ok);
+    if (!shader_ok) {
+        fprintf(stderr, "Failed to compile %s:\n", filename);
+        show_info_log(shader, glGetShaderiv, glGetShaderInfoLog);
+        glDeleteShader(shader);
+        return 0;
+    }
+    return shader;
+}
+
+static void show_info_log( GLuint object, PFNGLGETSHADERIVPROC glGet__iv,  PFNGLGETSHADERINFOLOGPROC glGet__InfoLog )
+{
+    GLint log_length;
+    char *log;
+
+    glGet__iv(object, GL_INFO_LOG_LENGTH, &log_length);
+    log = malloc(log_length);
+    glGet__InfoLog(object, log_length, NULL, log);
+    fprintf(stderr, "%s", log);
+    free(log);
+}
+
+Linking program objects
+-----------------------
+
+static GLuint make_program(GLuint vertex_shader, GLuint fragment_shader)
+{
+    GLint program_ok;
+
+    GLuint program = glCreateProgram();
+    glAttachShader(program, vertex_shader);
+    glAttachShader(program, fragment_shader);
+    glLinkProgram(program);
+	    glGetProgramiv(program, GL_LINK_STATUS, &program_ok);
+	    if (!program_ok) {
+	        fprintf(stderr, "Failed to link shader program:\n");
+	        show_info_log(program, glGetProgramiv, glGetProgramInfoLog);
+	        glDeleteProgram(program);
+	        return 0;
+	    }
+	    return program;
+	}
+
+	static int make_resources(void)
+	{
+	    /* make buffers and textures ... */
+	    g_resources.vertex_shader = make_shader(
+	        GL_VERTEX_SHADER,
+	        "hello-gl.v.glsl"
+	    );
+	    if (g_resources.vertex_shader == 0)
+	        return 0;
+
+	    g_resources.fragment_shader = make_shader(
+	        GL_FRAGMENT_SHADER,
+	        "hello-gl.f.glsl"
+	    );
+	    if (g_resources.fragment_shader == 0)
+	        return 0;
+
+	    g_resources.program = make_program(
+	        g_resources.vertex_shader,
+	        g_resources.fragment_shader
+	    );
+	    if (g_resources.program == 0)
+	        return 0;
+	
+Looking up shader variable locations
+--------------------------------------
+			
+			    g_resources.uniforms.fade_factor
+			        = glGetUniformLocation(g_resources.program, "fade_factor");
+			    g_resources.uniforms.textures[0]
+			        = glGetUniformLocation(g_resources.program, "textures[0]");
+			    g_resources.uniforms.textures[1]
+			        = glGetUniformLocation(g_resources.program, "textures[1]");
+
+			    g_resources.attributes.position
+			        = glGetAttribLocation(g_resources.program, "position");
+
+			    return 1;
+			}
+			
+The GLSL linker assigns a GLint location to every uniform value and vertex shader attribute. Structs and arrays of uniforms or attributes get further broken down, with each field getting its own location assigned. When we render using the program, we'll need to use these integer locations when we assign values to the uniform variables and when we map parts of the vertex array to attributes. Here, we use the functions glGetUniformLocation and glGetAttribLocation to look up these locations, giving them the variable, struct field, or array element name as a string.
+			
+
+	

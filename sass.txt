@@ -37,6 +37,16 @@ li
     size: 1.2em
 /* CSS */
 
+CHANGES
+-------
+$var, Not !var
+No More =
+
+SCSS files
+----------
+
+
+
 table.hl {
   margin: 2em 0;
 }

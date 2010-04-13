@@ -2,6 +2,21 @@ css moves right to left. Rightmost is called the key selector
 
 .editor_button img { // gets all images, selects those that are inside an element with class .editor_button 
 
+IE BOX FIX
+.box 
+{ 
+width: 75px; 
+height: 35px; 
+}
+
+html<body .box 
+{ 
+width: auto; 
+height: auto; 
+min-width: 75px; 
+min-height: 35px; 
+}
+
 
 • (static) Normal flow includes block formatting of block boxes, inline formatting of inline boxes, relative positioning of block or inline boxes, and positioning of run-in boxes.
 

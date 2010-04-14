@@ -1,0 +1,51 @@
+// called once when added to a layer or project is opened - for each instance of plugin
+static PF_Err SequenceSetup( PF_InData in_data, PF_OutData out_data, PF_ParamDef params[], PF_LayerDef output)
+{         
+
+// this is called all the fucking time
+static PF_Err QueryDynamicFlags( PF_InData *in_data, PF_OutData *out_data, PF_ParamDef *params[], void *extra) {
+// it's purpose is to modify ONLY these flags on the fly..
+PF_OutFlag_WIDE_TIME_INPUT
+PF_OutFlag_NON_PARAM_VARY
+PF_OutFlag_I_USE_SHUTTER_ANGLE
+PF_OutFlag2_I_USE_3D_CAMERA
+PF_OutFlag2_I_USE_3D_LIGHTS
+PF_OutFlag2_REVEALS_ZERO_ALPHA     -- what does this mean?                                      
+
+// the plugin must be re-entrant
+
+// do you want to apply yourself to he raw footage? or to the output of the previous effect?   Depending on which you want you must check them out diffrently
+                            
+
+61000 appears to be frame 0
+
+After Effects saves sequence data in the project file, but not global or frame data. Pointers within sequence data which point to external data are, in all likelihood, invalid upon re- opening the project, and must be re-connected. We call this process “flattening” and “un- flattening” the sequence data.
+
+params[0] is the input image   
+
+indata->inter          obtaining source frames and parameter values at times other than the current time being rendered
+
+indata->utils         Graphical and mathematical callbacks. This pointer is defined at all times.
+
+PF_OutFlag_NON_PARAM_VARY - no paramters change and input is still, yet we still need rerendering                           
+
+PF_OutFlag_I_SYNTHESIZE_AUDIO  - effect generates audio even when input is silence
+
+MACROS TO GET PIXEL VALUES
+PF_GET_PIXEL_DATA16 PF_GET_PIXEL_DATA8
+
+PF_CHECKOUT_PARAM		- Obtains parameter values, or the source video layer, at a specified time. 
+
+
+// experimental
+out_data->out_flags2 & = PF_OutFlag_I_USE_AUDIO;
+
+PF_LayerAudio audio = NULL;
+ERR( PF_CHECKOUT_LAYER_AUDIO( in_data, 0, in_data->start_sampL, in_data->dur_sampL, in_data->time_scale,
+								SND_RATE_44100, PF_SSS_4, PF_Channels_MONO, PF_SIGNED_FLOAT, &audio ));
+   //must check it back in
+
+PF_SndSamplePtr data0 = NULL;
+ERR( PF_GET_AUDIO_DATA( in_data, audio, &data0, &num_samples_bufferL, NULL, NULL, NULL, NULL));  
+// This function returns an extra zero sample at the end.
+

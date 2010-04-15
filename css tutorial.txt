@@ -1,3 +1,13 @@
+// select any list item anywhere under a list
+ul li { margin: 0 0 5px 0; }
+
+// select list items 1 level under a list only
+ul > li { margin: 0 0 5px 0; }
+
+/* Selects an unordered list that directly follows the element with ID title */
+#title + ul { margin-top: 0; } 
+
+
 css moves right to left. Rightmost is called the key selector
 
 .editor_button img { // gets all images, selects those that are inside an element with class .editor_button 

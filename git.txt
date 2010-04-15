@@ -1,3 +1,6 @@
+git diff | gitx
+
+
 //ok so we fetch..
 git merge origin/master
 git mergetool 			// fix conflicts

@@ -1,0 +1,44 @@
+Programming a Computer
+----------------------
+The instruction set
+An app that turns stuff you write into machine code
+An app the runs certain bits of code when it parses your code
+
+You can emulate machines. You could write any language in any language
+
+Lo level - Vs - Hi level
+------------------------
+
+requires a runtime vs doesn't require a runtime.
+
+What does this mean? What does this get you?
+
+no runtime - assembler, c
+
+
+runtime hides the complexity or variations in the services offered by the operating system
+
+java virtual machine
+
+Language Features
+-----------------
+
+Start a project with the same thing each time (like oo in c) - build it into the language
+- Could be a framework
+
+so..
+drip( tap1, 0.5, 7 )
+
+becomes..
+tap1.drip( 0.5, 7 ) // needs to add concept of self
+
+added benefit is namespace
+
+DO LANGUAGES EXIST?
+-------------------
+
+Learn a runtime
+Learn an operating system libraries
+Learn Libraries
+
+learn the format of the code

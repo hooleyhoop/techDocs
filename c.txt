@@ -1,0 +1,34 @@
+UNDERSTANDING STRUCTS
+---------------------
+
+Previously i thought that the were equivalent. ie. I thought an array was just a pointer to the first element.
+
+struct HooStruct1 {
+    UInt32 mNumberOfFloats;
+    CGFloat arggg[1024];
+};
+
+struct HooStruct2 {
+    UInt32 mNumberOfFloats;
+    CGFloat *arggg;
+};
+
+I was wrong. HooStruct1 allocates the memory as well
+
+NSUInteger test1 = sizeof(struct HooStruc1); // == 4100
+NSUInteger test2 = sizeof(struct HooStruc2); // == 8
+
+
+Sooo, you can use this to define a variable size array. Like so..
+
+struct HooStruct3 {
+    UInt32 mNumberOfFloats;
+    CGFloat arggg[1]; // This is key.. must come last in struct. Size of 1, then when we malloc we can multiply it by the quantity we want
+};
+
+int arraySize = 50;
+struct HooStruct3 *arrayOf50;
+arrayOf50 = malloc( sizeof *arrayOf50 + (arraySize - 1) * sizeof arrayOf50->arggg[0] );
+arrayOf50->mNumberOfFloats = arraySize;
+...
+free( arrayOf50 );

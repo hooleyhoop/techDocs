@@ -1,3 +1,15 @@
+git grep NSPointerArray $(git log -g --pretty=format:%h) | gitx
+
+2d0bcde:path/to/project/file.c: result = halfRemeberedNameOfFunction( data );
+65fc672:path/to/project/file.c: result = halfRemeberedNameOfFunction( data );
+24f2858:path/to/project/file.c: result = halfRemeberedNameOfFunction( data );
+252e3a5:path/to/project/file.c: result = halfRemeberedNameOfFunction( data, args );
+b58bc0b:path/to/project/file.c: result = _halfRemeberedNameOfFunction( data, options );
+dce8d9d:path/to/project/file.c: result = halfRemeberedNameOfFunction( data, moreData );
+
+git show 252e3a5:SHShared/Tests/SetUpAndTearDownTests.m:
+
+
 git diff | gitx
 
 

@@ -1,3 +1,9 @@
+// check out a file 
+git log doMenuItem.scpt
+> b2b363f13eecf1be5c6e0d721a492341c5b999f2
+git checkout b2b363f13eecf1be5c6e0d721a492341c5b999f2 /Users/shooley/Desktop/Programming/Cocoa/Blake/SHShared/Applescripts/doMenuItem.scpt
+
+// find a couple of lines
 git grep NSPointerArray $(git log -g --pretty=format:%h) | gitx
 
 2d0bcde:path/to/project/file.c: result = halfRemeberedNameOfFunction( data );

@@ -1,0 +1,8 @@
+old 
+ssh salami
+tail -f /var/log/httpd/error_log
+
+
+could you try ssh steve@sites.addleshawgoddard.com in terminal ?
+
+tail -f /storage/www-logs/error_log

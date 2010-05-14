@@ -1,3 +1,6 @@
+dt:nth-of-type(1) { background: #b44835; }
+dd:nth-of-type(1) { background: #b44835; }
+
 // select any list item anywhere under a list
 ul li { margin: 0 0 5px 0; }
 

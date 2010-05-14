@@ -77,3 +77,7 @@ $ spec spec/controllers/
 $ spec spec/controllers/pages_controller_spec.rb
 
 $ /Users/shooley/Sites/rails/static/script/autospec
+
+
+tail -f log/development.log
+

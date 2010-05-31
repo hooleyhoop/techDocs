@@ -1,0 +1,45 @@
+GDB
+     http://www.macshadows.com/kb/index.php?title=Intro_to_OS_X_Reversing
+       
+(gdb) x/s *(SEL*)($esp+4)
+tells you the message that’s about to be sent.
+
+(gdb) po *(id*)$esp
+tells you the target object that’s about to get the message.       
+  
+  po *(id*)($ebp+8)
+  
+       
+(gdb) p/a *(int *)($ebp+8)
+$3 = 0x18060e0
+(gdb) p/a *(int *)($ebp+16)
+$4 = 0xa07ec8ac
+(gdb) call (void) CFShow($3)
+<NSUserDefaults: 0x18060e0>
+(gdb) call (void) CFShow($4)
+NSWindowDepthLimit  
+
+                  
+                               
+// add a breakpoint at a line in the dissasembly                  
+gdb> b *00178c56
+ 
+        // look at symbol table         
+         otool -v -I /Applications/Sibelius\ 6.app/Contents/MacOS/Sibelius\ 6 
+                          
+                  
+                  
+                  
+> example dissasembly
+
+         (__TEXT,__text) section
+
+         start:
+         	+0	00002ac0  6a00					  pushl		  $0x00
+         	
+ so the app is loaded into memory at 0x00002ac0     
+ 
+ 
+  info symbol 0x96a9b6d7
+ -[NSAlert init] in section LC_SEGMENT.__TEXT.__text of /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+ 

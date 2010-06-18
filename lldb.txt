@@ -1,0 +1,51 @@
+lldb
+----
+
+/Users/shooley/Desktop/Programming/Source/lldb/build/Debug/lldb /Applications/6-386.app  --arch 'i386'
+breakpoint set --name=start
+breakpoint set --name='+[NSAlert alloc]'
+process launch    
+breakpoint delete 1     
+
+breakpoint set --address=00002ac2    
+breakpoint delete 2
+
+breakpoint list
+image list  // show all frameworks                
+
+disassemble --start-address=0x00002ac0  --end-address=00002ae9
+        
+image lookup --symbol=start
+image lookup --address=0x00002aea
+
+run
+
+
+
+run
+exit
+process interrupt
+help breakpoint set
+breakpoint set --name=start
+step
+status
+register read
+register read eax
+ x 0x00002ac0
+                
+process launch
+
+                                
+
+
+
+SBDebugger::Initialize();
+SBHostOS::ThreadCreated ("[main]");
+SBDebugger::SetAsync(true);                  
+
+SBDebugger::SetErrorFileHandle (stderr, false);
+SBDebugger::SetOutputFileHandle (stdout, false);
+SBDebugger::SetInputFileHandle (stdin, true);
+                           
+SBCommandInterpreter sb_interpreter = SBDebugger::GetCommandInterpreter();
+SBDebugger::HandleCommand ("file --arch=i386'/Applications/6-386.app'");

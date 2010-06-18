@@ -5,6 +5,7 @@ git checkout b2b363f13eecf1be5c6e0d721a492341c5b999f2 /Users/shooley/Desktop/Pro
 
 // find a couple of lines
 git grep NSPointerArray $(git log -g --pretty=format:%h) | gitx
+                               git grep rndomFontDesc $(git log -g --pretty=format:%h)
 
 2d0bcde:path/to/project/file.c: result = halfRemeberedNameOfFunction( data );
 65fc672:path/to/project/file.c: result = halfRemeberedNameOfFunction( data );

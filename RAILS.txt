@@ -1,9 +1,9 @@
-RAILS 
+RAILS
 -----
 http://articles.sitepoint.com/article/learn-ruby-on-rails
 http://articles.sitepoint.com/article/rails-for-beginners/3
 
-// crete a project
+// crete a project   Rails 2
 $ sudo rails demo
 $ cd demo
 $ sudo rake db:migrate    	-- create empty database
@@ -11,7 +11,77 @@ $ sudo script/generate rspec	-- create files needed for testing
 $ ruby script/server
 $ ruby script/console
 
+// Create a project Rails 3
+$ sudo rails new first_app
+$ cd first_app/
+$ mate Gemfile            // setup dependencies
+$ sudo bundle install         // install dependencies
+$ rails server            // run app
+$ git init
+$ git add .
+
+$ heroku open
+
 http://localhost:3000
+
+// Lets create The Users resource
+$ rails generate scaffold User name:string email:string 		// as id field is implicit
+$ rake db:migrate
+$ rails s														// shortcut for $rails server
+
+// show rake db tasks
+$ rake -T db
+
+// show all rake Tasks
+$ rake -T
+
+$ rails generate scaffold Micropost content:string user_id:integer
+$ rake db:migrate
+
+$ rails console
+first_user = User.first
+first_user.microposts
+
+$ git push heroku master
+$ heroku rake db:migrate
+
+// Optionally push our database content
+$ [sudo] gem install taps
+$ heroku db:push
+
+http://railstutorial.org/chapters/static-pages#top
+
+$ bundle install
+$ rails generate rspec:install
+
+// lets do some work on a new branch
+git checkout -b static-pages
+
+$ rails generate controller StaticPages home contact
+
+
+  describe "GET 'home'" do						#just a label
+    it "should be successful" do			#just another label!
+      get 'home'											#get home
+      response.should be_success			#server response should be http 200
+    end
+  end
+
+
+// I think you need to have spork running in another terminal window
+$ spork (cd to our project first, obviously)
+
+then
+
+$ rspec spec/
+$ rspec spec/controllers/
+$ rspec spec/controllers/pages_controller_spec.rb
+
+OR
+
+$ autotest
+
+
 
 Model (ActiveRecord )
 View ( ActionView )
@@ -46,7 +116,7 @@ $ ruby script/console
 -----------------------------------
 http://localhost:3000/index.html
 
-is in 
+is in
 /public/index.html
 
 put your own static pages in public
@@ -54,7 +124,7 @@ put your own static pages in public
 /* Dynamic Pages */
 -----------------------------------
 
-Rails actions, which are a more powerful way to define URLs than static files. 
+Rails actions, which are a more powerful way to define URLs than static files.
 Rails actions come bundled together inside controllers.
 
 by default..

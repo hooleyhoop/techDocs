@@ -1,5 +1,9 @@
 lldb
 ----
+          
+// see what architectures we have
+lipo -info /Volumes/Leopard/Developer/usr/lib/gcc/i686-apple-darwin9/4.0.1/libstdc++.dylib 
+
 
 /Users/shooley/Desktop/Programming/Source/lldb/build/Debug/lldb /Applications/6-386.app  --arch 'i386'
 breakpoint set --name=start

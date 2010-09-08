@@ -1,10 +1,10 @@
-RUBY
+﻿RUBY
 ----
 
-irb> 1.class 
+irb> 1.class
 => Fixnum
 
-CONSTANT = "The quick brown fox in a constant"  
+CONSTANT = "The quick brown fox in a constant"
 #comment
 
 parens are optional if no arguments
@@ -16,28 +16,28 @@ fox.empty?	#question mark indictes boolean
 @@number_of_cars = 0	#class variable
 
 class Car < Vehicle
-  def open_trunk   
-    # code to open trunk goes here   
-  end   
-end  
+  def open_trunk
+    # code to open trunk goes here
+  end
+end
 
 #accessors
-def mileage=(x)   
-  @mileage = x   
-end   
-def mileage   
-  @mileage   
-end 
+def mileage=(x)
+  @mileage = x
+end
+def mileage
+  @mileage
+end
 
 #called on each instance
-def initialize   
-  @@number_of_cars = @@number_of_cars + 1   
-end 
+def initialize
+  @@number_of_cars = @@number_of_cars + 1
+end
 
 #class method
-def self.count   
-  @@number_of_cars   
-end   
+def self.count
+  @@number_of_cars
+end
 
 # cant do var++ or var--, instead do
 @@number_of_cars+=1
@@ -49,74 +49,77 @@ service_mileage = [5000, 15000, 30000, 60000, 100000]
 service_mileage[0]
 
 #array shortcut - array of strings "red", "green", etc
-available_colors = %w( red green blue black ) 
+available_colors = %w( red green blue black )
 
 #look at documentation
 $ ri Array
 
-car_colors = {    
-  'kitt' => 'black',    
-  'herbie' => 'white',    
-  'batmobile' => 'black',    
-  'larry' => 'green'    
-}    
-irb> car_colors['kitt']    
+car_colors = {
+  'kitt' => 'black',
+  'herbie' => 'white',
+  'batmobile' => 'black',
+  'larry' => 'green'
+}
+irb> car_colors['kitt']
 => "black"
 
 #string shortcuts
-irb> %Q(Arnie said, "I'm back!")    
+irb> %Q(Arnie said, "I'm back!")
 => "Arnie said, \"I'm back!\""
 
-irb> "The current time is: #{Time.now}"    
+irb> "The current time is: #{Time.now}"
 => "The current time is: Wed Aug 02 21:15:19 CEST 2006"
 
 The main benefit of using a Symbol instead of a String is that a Symbol contains less functionality. This can be an advantage in certain situations.
-irb> :fox.class    
+
+As a result of having less baggage, symbols are easier to compare to each other; strings need to be compared character by character, while symbols can be compared all in one go. This makes them ideal for use as hash keys. ↑
+
+irb> :fox.class
 => Symbol
 
 nil is an object go NilClass
 
-if Car.count.zero?     
- puts "No cars have been produced yet."     
-elsif Car.count >= 10     
- puts "Production capacity has been reached."     
-else     
- puts "New cars can still be produced."     
+if Car.count.zero?
+ puts "No cars have been produced yet."
+elsif Car.count >= 10
+ puts "Production capacity has been reached."
+else
+ puts "New cars can still be produced."
 end
 
 puts "No cars have been produced yet." if Car.count.zero?
 
-unless kitt.is_a?(StretchLimo)     
- puts "This car is only licensed to seat two people."     
+unless kitt.is_a?(StretchLimo)
+ puts "This car is only licensed to seat two people."
 end
 
-while Car.count < 10     
- Car.new     
- puts "A new car instance was created."     
+while Car.count < 10
+ Car.new
+ puts "A new car instance was created."
 end
 
-until Car.count == 10     
- Car.new     
- puts "A new car instance was created."     
+until Car.count == 10
+ Car.new
+ puts "A new car instance was created."
 end
 
-for car in [ kitt, herbie, batmobile, larry ]     
- puts car.mileage     
+for car in [ kitt, herbie, batmobile, larry ]
+ puts car.mileage
 end
 
-[ kitt, herbie, batmobile, larry ].each do |car_name|     
- puts car_name.mileage     
+[ kitt, herbie, batmobile, larry ].each do |car_name|
+ puts car_name.mileage
 end
 
-car_colors = {     
- 'kitt' => 'black',     
- 'herbie' => 'white',     
- 'batmobile' => 'black',     
- 'larry' => 'green'     
-}   
+car_colors = {
+ 'kitt' => 'black',
+ 'herbie' => 'white',
+ 'batmobile' => 'black',
+ 'larry' => 'green'
+}
 
-car_colors.each do |car_name, color|     
- puts "#{car_name} is #{color}"     
+car_colors.each do |car_name, color|
+ puts "#{car_name} is #{color}"
 end
 
 Instead of the do...end keywords that we used in previous examples, curly braces are the preferred syntax for blocks that are very short,

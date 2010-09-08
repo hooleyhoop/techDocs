@@ -81,7 +81,85 @@ OR
 
 $ autotest
 
+$ rails console
 
+$ rails generate integration_test layout_links
+
+ROUTE STATIC PAGES
+match '/contact', :to => 'static_pages#contact'
+
+gives us magically
+
+about_path => '/about'
+about_url  => 'http://localhost:3000/about'
+root_path => '/'
+root_url  => 'http://localhost:3000/'
+
+
+
+¥ http://railstutorial.org/chapters/modeling-and-viewing-users-one#top
+
+$ rails generate model User name:string email:string
+$ rake db:migrate
+
+
+$ rails console --sandbox
+$ tail -f log/development.log
+
+>> user = User.new(:name => "Michael Hartl", :email => "mhartl@example.com")
+>> user.save
+>> user
+>> user.name
+>> user.email
+
+>> user = User.create(:name => "A Nother", :email => "another@example.org") // equivalent to new + save
+>> user.destroy
+
+-- ACTIVE RECORD --
+-------------------
+
+>> User.find(1)
+>> User.find_by_email("mhartl@example.com")
+>> User.first
+>> User.all
+
+>> user.email = "mhartl@example.net"
+>> user.save
+
+>> user.update_attributes(:name => "The Dude", :email => "dude@abides.org")	// equivalent to set + save. Must have used attr_accessible
+
+// make sure test database is uptodate with development datatbase
+$ rake db:test:prepare
+
+
+
+class User < ActiveRecord::Base
+  attr_accessible(:name, :email)
+  validates(:name, :presence => true)
+end
+
+$ rails console --sandbox
+>> user = User.new(:name => "", :email => "mhartl@example.com")
+>> user.save
+=> false
+>> user.valid?
+=> false
+>> user.errors.full_messages
+
+
+// create bang! wtf?
+  it "should create a new instance given valid attributes" do
+    User.create!(@attr)
+  end
+
+(We use the noisy method create!, first seen in Listing 6.10, so that it will raise an exception if anything goes wrong. Using create, without the bang !, risks having a silent error in our test, a potential source of elusive bugs.
+
+If you need to look up a user by email you need to index by email
+$ rails generate migration add_email_uniqueness_index
+$ rake db:migrate
+
+-----------------------------------
+----------- old version -----------
 
 Model (ActiveRecord )
 View ( ActionView )

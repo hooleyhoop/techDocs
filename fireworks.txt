@@ -1,0 +1,86 @@
+var expSetDir = fw.appExportSettingsDir;  // fw references the Fireworks global object
+
+
+fw.documents[documentIndex].functionName();
+
+"#rrggbbaa"
+The format for a point is {x:float, y:float}
+The format for a rectangle is {left:float, top:float, right: float, bottom: float}
+
+firstSelection = fw.selection[0]; 
+if (firstSelection == "[object Text]"){ 
+	alert("I am a text block"); 
+}
+
+Hotspot
+SliceHotspot (basically, a slice)
+Path
+Group
+Instance
+Text
+RectanglePrimitive
+PathAttrs
+Image
+
+fw.getDocumentDOM().addNewHotspot(); // operates on active document
+
+
+To Use the create symbol Script Command - you must first name your 'elements' ? Layers in the symbol ?
+
+If you edit the symbol it wont automatically be saved to the common library. Choose 'save to common library'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                  

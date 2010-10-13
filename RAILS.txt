@@ -15,7 +15,7 @@ $ ruby script/console
 $ sudo rails new first_app
 $ cd first_app/
 $ mate Gemfile            // setup dependencies
-$ sudo bundle install         // install dependencies
+$ sudo bundle install     // install dependencies
 $ rails server            // run app
 $ git init
 $ git add .
@@ -158,6 +158,22 @@ If you need to look up a user by email you need to index by email
 $ rails generate migration add_email_uniqueness_index
 $ rake db:migrate
 
+# run our custom rake task to generate some data
+$ rake db:populate
+
+// virtual password property on model - not stored in database
+attr_accessor :password
+
+
+$ rails console --sandbox
+>> user = User.new
+>> user.respond_to?(:password)
+=> true
+>> user.respond_to?(:encrypted_password)
+=> false
+
+$ rails generate migration add_password_to_users encrypted_password:string
+
 -----------------------------------
 ----------- old version -----------
 
@@ -229,3 +245,236 @@ $ /Users/shooley/Sites/rails/static/script/autospec
 
 tail -f log/development.log
 
+
+TEstting conrollers will need instances of model objects with pre defined values - Use factories
+
+
+
+
+
+Rails
+------
+$ cd ~/rails_projects
+$ rails new demo_app -T		// -T dont add default Raisls test dir
+$ cd demo_app
+
+$ rails generate controller Pages home contact
+$ rails generate integration_test layout_links
+$ rails generate model User name:string email:string
+$ rails generate model Relationship follower_id:integer followed_id:integer
+
+$ annotate
+$ rails server --environment production
+$ rails console
+
+rspec
+------
+$ rails generate rspec:install
+$ rspec spec/
+$ rspec spec/controllers/
+$ rspec spec/controllers/pages_controller_spec.rb
+
+
+Bundle
+------
+$ bundle install
+
+Git
+------
+$ git init
+$ git add .
+$ git commit -m "Initial commit"
+$ git remote add origin git@github.com:<username>/demo_app.git
+$ git push origin master
+$ git push heroku
+
+$ git checkout -b static-pages	// out
+
+$ git checkout master
+$ git merge static-pages				// In
+
+Rake
+------
+$ rake -T db		// see all database tasks
+$ rake -T				// see all rake tasks
+$ rake db:migrate
+$ rake db:rollback
+$ rake db:test:prepare
+$ rake db:migrate RAILS_ENV=production
+$ rake db:reset
+$ rake db:populate	// fill with faker data
+
+heroku
+------
+$ [sudo] gem install heroku
+$ heroku keys:add
+$ heroku create
+
+$ git push heroku master
+$ heroku rake db:migrate
+$ heroku open							// launch in browser
+
+$ heroku rename railstutorial
+
+$ [sudo] gem install taps	// optionally push your db data to heroku
+$ heroku db:pu
+
+$ git push heroku
+
+REST - see http://guides.rubyonrails.org/routing.html
+------
+Created
+Read
+Updated
+Deleted
+
+-- Routes
+resources :microposts 	// quickly declare all of the common routes for a given resourceful controller, eg  index, show, new, edit, create, update and destroy actions
+
+
+GET			/microposts					index			page to list all microposts
+GET			/microposts/1				show			page to show micropost with id 1
+GET			/microposts/new			new				page to make a new micropost
+POST		/microposts					create		create a new micropost
+GET			/microposts/1/edit	edit			page to edit micropost with id 1
+PUT			/microposts/1				update		update micropost with id 1
+DELETE	/microposts/1				destroy		delete micropost with id 1
+
+microposts_path 		returns /microposts
+new_photo_path 			returns /microposts/new
+edit_photo_path			returns /microposts/edit
+micropost_path(id)	returns /microposts/:id (for instance, photo_path(10) returns /microposts/10)
+
+Each of these helpers has a corresponding _url helper (such as microposts_url)
+
+- singular
+match "profile" => "users#show"		// /profile rather than /profile/:id
+
+
+resource :geocoder
+GET			/geocoder/new			new					return an HTML form for creating the geocoder
+POST		/geocoder					create			create the new geocoder
+GET			/geocoder					show				display the one and only geocoder resource
+GET			/geocoder/edit		edit				return an HTML form for editing the geocoder
+PUT			/geocoder					update			update the one and only geocoder resource
+DELETE	/geocoder					destroy			delete the geocoder resource
+
+new_geocoder_path 		returns /geocoder/new
+edit_geocoder_path 		returns /geocoder/edit
+geocoder_path 				returns /geocoder
+
+As with plural resources, the same helpers ending in _url will also include the host, port and path prefix.
+
+- Namespaces
+namespace "admin" do
+  resources :posts, :comments
+end
+
+GET			/admin/photos						index			admin_photos_path
+GET			/admin/photos/new				new	 			new_admin_photos_path
+POST		/admin/photos						create		admin_photos_path
+GET			/admin/photos/1					show	 		admin_photo_path(id)
+GET			/admin/photos/1/edit		edit	 		edit_admin_photo_path(id)
+PUT			/admin/photos/1					update	 	admin_photo_path(id)
+DELETE	/admin/photos/1					destroy	 	admin_photo_path(id)
+
+If you want to route /photos (without the prefix /admin) to Admin::PostsController, you could use
+
+scope :module => "admin" do
+  resources :posts, :comments
+end
+
+or, for a single case
+
+resources :posts, :module => "admin"
+
+If you want to route /admin/photos to PostsController (without the Admin:: module prefix), you could use
+
+scope "/admin" do
+  resources :posts, :comments
+end
+
+or, for a single case
+
+resources :posts, :path => "/admin"
+
+- Nested resources
+------------------
+
+if you had these models:-
+class Magazine < ActiveRecord::Base
+  has_many :ads
+end
+
+class Ad < ActiveRecord::Base
+  belongs_to :magazine
+end
+
+you could have the routing:-
+resources :magazines do
+  resources :ads
+end
+
+GET			/magazines/1/ads					index				display a list of all ads for a specific magazine
+GET			/magazines/1/ads/new			new					return an HTML form for creating a new ad belonging to a specific magazine
+POST		/magazines/1/ads					create			create a new ad belonging to a specific magazine
+GET			/magazines/1/ads/1				show				display a specific ad belonging to a specific magazine
+GET			/magazines/1/ads/1/edit		edit				return an HTML form for editing an ad belonging to a specific magazine
+PUT			/magazines/1/ads/1				update			update a specific ad belonging to a specific magazine
+DELETE	/magazines/1/ads/1				destroy			delete a specific ad belonging to a specific magazine
+
+magazine_ads_url(@magazine)
+edit_magazine_ad_path(@magazine)
+
+** Resources should never be nested more than 1 level deep **
+
+these do the same thing
+<%= link_to "Ad details", magazine_ad_path(@magazine, @ad) %>
+<%= link_to "Ad details", url_for(@magazine, @ad) %>
+<%= link_to "Ad details", [@magazine, @ad] %>
+<%= link_to "Magazine details", @magazine %>
+
+You are not limited to the seven routes that RESTful routing creates by default
+resources :photos do
+  member do
+    get 'preview'
+  end
+end
+
+This will recognize /photos/1/preview with GET, and route to the preview action of PhotosController. It will also create the preview_photo_url and preview_photo_path helpers.
+
+Old style Non-Resourceful Routes - ie arbitrary routes
+--------------------------------
+
+
+  match '/contact', :to => 'pages#contact'
+  match '/about',   :to => 'pages#about'
+  match '/help',    :to => 'pages#help'
+
+
+
+
+class Micropost < ActiveRecord::Base
+  attr_accessible :content
+
+  belongs_to :user
+end
+
+class User < ActiveRecord::Base
+  attr_accessor :password
+  attr_accessible :name, :email, :password, :password_confirmation
+
+  has_many :microposts
+end
+
+
+micropost.user								Return the User object associated with the micropost.
+user.microposts								Return an array of the userÕs microposts.
+user.microposts.create(arg)		Create a micropost (user_id = user.id).
+user.microposts.create!(arg)	Create a micropost (exception on failure).
+user.microposts.build(arg)		Return a new Micropost object (user_id = user.id).
+
+Single Table Inheritance
+-------------------------
+
+You can have 1 table for User , then different subclasses of users - eg, Admin, Temporary, Super, all in the same table

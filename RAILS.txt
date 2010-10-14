@@ -478,3 +478,26 @@ Single Table Inheritance
 -------------------------
 
 You can have 1 table for User , then different subclasses of users - eg, Admin, Temporary, Super, all in the same table
+
+
+DO NOT PUT CODE IN THE VIEW
+---------------------------
+
+That is what helpers are for
+
+BlogController will get a helper module called BlogHelper in the file blog_helper.rb
+
+eg, <h3><%= @page_title || "Pragmatic Store" %></h3>
+
+module BlogHelper
+	def page_title
+		@page_title || "Pragmatic Store"
+end
+
+now looks like >   <h3><%= page_title %></h3>
+
+1)You have a global helper application_helper.rb
+2)You can import a different helper > 	helper: date_helper
+3)You can include a Class as a helper	> helper DateFormat
+
+

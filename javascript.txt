@@ -1,0 +1,37 @@
+Anywhere you see this 'this' keyword you can improve it with closures
+
+In JavaScript, if you use the function keyword inside another function, you are creating a closure.
+
+// anonymous function
+(function() {
+	alert("In HooPage Constructor");
+})(); -- NB: The closed brackets here call the function
+
+As Opposed to
+
+(function() {
+	alert("In HooPage Constructor");
+});	-- this just defines the function but doesn't call it
+
+
+
+Great Class Stuff
+-----------------
+
+// HooPage Class
+(function() {
+	var global = this;
+	global.HooPage = function() {
+
+		// ivars
+		var _title = "freddy Kruger's home page";
+
+		(function() {
+			alert("In HooPage Constructor");
+		})();
+
+		return {
+			title: _title,
+		};
+	};
+})();

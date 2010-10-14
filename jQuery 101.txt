@@ -1,8 +1,6 @@
 // paragraph with image
 $("p:has(img)")
 
- 
-
 $(document).ready(function() {
    // do stuff when DOM is ready
  });
@@ -24,4 +22,8 @@ $("#orderedlist > li").addClass("blue");
 
 
 	<script type="text/javascript" language="javascript" src="/javascript/jquery-ui-1/js/jquery-ui-1.7.1.custom.min.js"> </script>
-	<link type="text/css" href="/javascript/jquery-ui-1/development-bundle/themes/smoothness/ui.all.css" rel="Stylesheet" />	
+	<link type="text/css" href="/javascript/jquery-ui-1/development-bundle/themes/smoothness/ui.all.css" rel="Stylesheet" />
+
+
+TEMPLATES
+----------

@@ -503,4 +503,41 @@ now looks like >   <h3><%= page_title %></h3>
 2)You can import a different helper > 	helper: date_helper
 3)You can include a Class as a helper	> helper DateFormat
 
+- render partial as string -
+		partialAsString = render_to_string :partial =>"test_partial"
+		render :text => partialAsString
 
+render :js => "alert("fuck");"
+
+
+.. get some ajax ..
+
+	function testLoadSomeHTMLByAjax() {
+		$.ajax({
+			url: '/pages/_ajaxHTML',
+			data:{"urlpath":"hello steven"},
+			success: function(data,textStatus,xmlhttprequestobject) {
+					$(data).appendTo($('#resizable'));
+				},
+			dataType:"html"
+		});
+	}
+
+
+// Check out Haml Docs
+http://haml-lang.com/docs/yardoc/Haml/Engine.html
+
+// I can render some haml from a string
+haml_string = "%p Haml-tastic!"
+engine = Haml::Engine.new(haml_string)
+hamlResult = engine.render
+render :text => hamlResult
+
+/* Partial Law */
+
+/
+	render blueView partial 3 times with each view
+	because 'views' is a pluralised collection the partial will be rendered views.length times
+	and each have a variable 'blueView' (name of the partial) which is the item from the the collection
+
+= render :partial=>"blueView", :object=>@window.views

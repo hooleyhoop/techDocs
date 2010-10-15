@@ -54,6 +54,9 @@ http://railstutorial.org/chapters/static-pages#top
 $ bundle install
 $ rails generate rspec:install
 
+gem 'jquery-rails'
+$ rails generate jquery:install
+
 // lets do some work on a new branch
 git checkout -b static-pages
 

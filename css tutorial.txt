@@ -1,3 +1,58 @@
+// http://www.vision.to/articles/the-difference-between-the-flow-and-positioning-for-web-pages.php
+
+All block elements are by default just as wide as the container surrounding them, and they always stack up vertically, one atop another, unless you alter the arrangement by forcing them out of their normal locations via relative shifting or negative margining.
+block elements stack vertically
+This remains true even if their widths are made less than the natural width of their containing element
+
+Tables are an exception tho, in that they do stack vertically but don't automatically widen to fill a containing element
+Tables are an exception tho, in that they do stack vertically but don't automatically widen to fill a containing element. Instead they "shrink-to-fit" around their internal content, so if you want them to act like other block elements you must assign them a width of 100%. Be careful tho, because in that case any side borders or paddings will be added to that 100% width, unlike natural block elements which have a default width of "auto".
+
+Inline elements stack sideways, starting from the left and extending to the right as each new inline element is read by the browser. 
+When a browser runs out of inline elements for a given line, or when it needs to make a new line, the heights of all the elements in the line being formed are measured. Then a "line box" is created that is the same height as the tallest measured element, and the line box is wrapped around them all. This line box is never visible, but you may get an idea of where it is by applying a background-color to a span element that wraps a set of inline elements.
+Each time the browser creates a line box it is added below the previous one, so line boxes behave much like block elements, altho some of the properies governing them are different. For instance, a text character in a line box does not sit on the bottom of the line box, but instead on something called the baseline which is usually a few pixels above the bottom of the line box. This way characters with "descenders" (like the hook on the bottom of a small "g") have room for those descenders to hang down while allowing the main bodies of the characters to remain aligned.
+
+You cannot specifically create a line box; they are strictly for use by the browser in organizing groups of inline elements. Also, line boxes will always be the full width of whatever container they occupy, even when they hold only one character. There can never be two separate line boxes of different heights side-by-side.
+
+Block elements may contain both inline elements and other block elements, but inline elements may contain only other inline elements. It's illegal to place a block element inside an inline element like this ie div in span
+
+CSS features a property called display, which allows you to change a block element into an inline one and vice versa. This can be very useful, but be aware that while making a paragraph inline does cause it to act like a span, it doesn't make it legal to place that paragraph inside a span!
+
+Block boxes are always rectangles and can be given widths and heights, but inline elements ignore those properties, since they must occupy an unknown set of line boxes. Both block and inline elements can have padding and margins, but using these on inline elements might show inconsistent results across browsers, and in any case only the side paddings and margins are obeyed for inline elements.
+
+If you think about it you will see why this must be so. If a span did obey vertical paddings for instance, then the lines above and below would be pushed away. When the specs were made it was decided that this was not desirable, thus top and bottom paddings and margins are ignored for inline elements, as shown in the two live demos with the colored borders. The word "paddings" above has been wrapped in a span that has a red border and 2em of padding, and the word "margins" has similar margins and a green border. You can see how only the side paddings and margins are obeyed, while the vertical ones are ignored.
+
+To repeat, absolutely positioned elements are not part of any flow. Instead, an AP element is always located in reference to some parent element using horizontal and vertical coordinates
+
+But which parent? If the AP element's direct parent is not itself "positioned" (meaning any position other than static) then the inner AP element does not use that direct parent as its base of reference. Instead it will look further out until it finds an "ancestor" that is positioned and uses that as its base. If no such positioned ancestor exist, the HTML element is the default positioned parent. 
+ 
+There is one exception to the "positioned parent" rule, and that is when the horizontal or vertical positioning properties are allowed to remain at the default "auto" value. If both the left and right properties are auto, the AP element will locate itself horizontally as if it were a static element. Thus if a static flowed box were normally displayed halfway across the page width, an AP box with side auto values and the same source location would also display at that page location. This does not mean that the AP element is now in the flow; it's still on its own separate layer. Only its displayed location is controlled by the flow. Any flowed elements that follow it will display without noticing the presence of the AP element, and they can sometimes be covered by that AP element. The same thing applies to AP elements with auto top and bottom values, but vertically rather horizontally.
+I call this effect "auto positioning" but it really just means absolute positioning that is controlled by the flow via auto side values. It's a bit tricky and will be covered in a later article. To avoid the issue just be sure to always use at least two side positional vaues (preferably left and top) when placing AP elements
+
+Relatively positioned elements have another function besides being able to shift around, and that is to serve as a "positioned base" for AP elements. See what this means? Relative elements do participate in the flow, yet they may also provide a positioned base that AP children can use to calculate their own locations. That's why it's called "relative positioning," because those elements relate and join the world of the flow to the world of absolute positioning.
+
+TO SUMMERIZE
+------------
+
+• ELEMENTS ARE IN THE FLOW (relative or default)
+• NOT IN THE FLOW - ABSOLUTELY POSITIONED
+• AUTO POSITIONED - NOT IN THE FLOW, BUT POSITIONED BY TH FLOW - (Following elements wont notice it)
+• POSITIONED ABSOLUTELY TO A RELATIVE ITEM (IE NOT IN, BUT LINKED TO THE FLOW a relative layer is the link between an item in the flow and an absolutely positioned)
+
+A lot of Internet Explorer's rendering inconsistencies can be fixed by giving an element “layout.”
+In “non-layout” elements, hasLayout is not triggered, i.e. a pure div without a dimension can be a “non-layout ancestor”.
+
+AUTO POSITIONING CONTINUED
+--------------------------
+
+If the auto position is where we want it to be everything is hunky-dory. If not
+YOU CANT ADD A DIMENSION OR POSITION because then it wont be auto positioned
+...but you can tweak the position by using margins.
+
+The specs say that margins work on all AP elements and never collapse with other margins, greatly simplifying the situation.
+(AP elements are not in the flow so margins cannot collapse)
+YOU can only apply a left margin if left:0, similarly for top mrgin to be seen top must be top:0
+AN AUTO POSITIONED ELEMENT is considered to be set top and left
+
 dt:nth-of-type(1) { background: #b44835; }
 dd:nth-of-type(1) { background: #b44835; }
 
@@ -152,7 +207,7 @@ h1 + p + p {color: green;}
 
 
 Margins ans stuff collapse on some elements but not if you have borders or padding.
-
+only stuff in the flow?
 Define the same element multiple times eg
 
 style.css

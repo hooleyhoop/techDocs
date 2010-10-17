@@ -541,3 +541,64 @@ render :text => hamlResult
 	and each have a variable 'blueView' (name of the partial) which is the item from the the collection
 
 = render :partial=>"blueView", :object=>@window.views
+
+
+remember - render partial with layout wraps the partial in the layout
+ie partial goes where yield is in layout
+
+
+THIS IS IMPORTANT
+# You can also apply a layout to a block within any template:
+#
+   <%# app/views/users/_chief.html.erb &>
+   <%= render(:layout => "administrator", :locals => { :user => chief }) do %>
+     Title: <%= chief.title %>
+   <% end %>
+
+ ...this will return:
+
+   <div id="administrator">
+     Budget: $<%= user.budget %>
+     Title: <%= chief.name %>
+   </div>
+
+** Soooooo, contents of block get inserted where the yield is in the template **
+** the layout shares the locals
+* if you pass arguments to the yield they will be passed to the block
+
+i dont get this
+
+  # You can also yield multiple times in one layout and use block arguments to differentiate the sections.
+
+     <%# app/views/users/index.html.erb &>
+     <%= render :layout=>@users do |user, section| %>		// wrap this block in the layout
+       <%- case section when :header -%>
+         Title: <%= user.title %>
+       <%- when :footer -%>
+         Deadline: <%= user.deadline %>
+       <%- end -%>
+     <% end %>
+     
+     <%# app/views/users/_user.html.erb &>
+     <div class="user">
+       <%= yield user, :header %>
+       Budget: $<%= user.budget %>
+       <%= yield user, :footer %>
+     </div>
+  
+So the layout is a way to wrap content and compose
+  
+  go to the source
+  http://github.com/rails/rails/blob/ab7830d66cf69316142a6cda847756faa73f8cd5/actionpack/lib/action_view/render/partials.rb 
+  
+  
+    <head>
+  <%= yield :head %>
+  </head>
+  
+  
+  <% content_for :head do %>
+  <title>A simple page</title>
+<% end %>
+
+<p>Hello, Rails!</p>

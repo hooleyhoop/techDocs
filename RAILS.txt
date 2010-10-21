@@ -476,6 +476,11 @@ user.microposts								Return an array of the user’s microposts.
 user.microposts.create(arg)		Create a micropost (user_id = user.id).
 user.microposts.create!(arg)	Create a micropost (exception on failure).
 user.microposts.build(arg)		Return a new Micropost object (user_id = user.id).
+self.inspect
+self.to_yaml
+debug self
+self.methods
+self.instance_variable_names
 
 Single Table Inheritance
 -------------------------
@@ -578,25 +583,25 @@ i dont get this
          Deadline: <%= user.deadline %>
        <%- end -%>
      <% end %>
-     
+
      <%# app/views/users/_user.html.erb &>
      <div class="user">
        <%= yield user, :header %>
        Budget: $<%= user.budget %>
        <%= yield user, :footer %>
      </div>
-  
+
 So the layout is a way to wrap content and compose
-  
+
   go to the source
-  http://github.com/rails/rails/blob/ab7830d66cf69316142a6cda847756faa73f8cd5/actionpack/lib/action_view/render/partials.rb 
-  
-  
+  http://github.com/rails/rails/blob/ab7830d66cf69316142a6cda847756faa73f8cd5/actionpack/lib/action_view/render/partials.rb
+
+
     <head>
   <%= yield :head %>
   </head>
-  
-  
+
+
   <% content_for :head do %>
   <title>A simple page</title>
 <% end %>

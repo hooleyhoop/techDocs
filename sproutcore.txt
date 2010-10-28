@@ -1,0 +1,78 @@
+Order Of Includes
+******************
+
+he build tools replace sc_super()  with
+arguments.callee.base.apply(this,arguments)
+
+
+var newObject = SC.Object.create()
+var newSet = SC.Set.create()
+var newArray = SC.SparseArray.create()
+
+javascript arrays are sproutcore arrays
+
+-- runtime
+Core.js
+ObserverSet.js
+Observable.js
+Enumerator
+Enumerable
+range_Observer
+Array
+Comparable
+Copyable
+delegate_support
+Freezable
+Set.js
+observer_queue.js
+Object.js
+
+chain_observer
+binding.js
+Cookie
+Error
+Index_set
+logger
+runloop
+selection_set
+sparse_array
+
+
+-- system
+
+
+
+/*
+ * MyClassA
+*/
+MyClassA = SC.Object.extend({
+
+	foo: "foo1",
+
+	init: function() {
+		arguments.callee.base.apply(this,arguments);
+		console.log("inited!");
+	},
+
+	bar: function() {
+		return "bar";
+	},
+
+	myMethod: function() {
+		console.log('myMethod1');
+	}
+});
+
+MyClassA.prototype.foo = "foo1"
+
+
+/*
+ * MyClassB
+*/
+MyClassB = MyClassA.extend({
+
+	myMethod: function() {
+		arguments.callee.base.apply(this,arguments);
+		console.log("myMethod2");
+	}
+});

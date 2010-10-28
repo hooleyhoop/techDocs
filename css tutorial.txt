@@ -1,3 +1,7 @@
+img is inline so you get extra padding at the bottom - try making it inline-block or block
+
+if you want to set a width on a block item consider making it inline-block
+
 // http://www.vision.to/articles/the-difference-between-the-flow-and-positioning-for-web-pages.php
 
 All block elements are by default just as wide as the container surrounding them, and they always stack up vertically, one atop another, unless you alter the arrangement by forcing them out of their normal locations via relative shifting or negative margining.
@@ -7,7 +11,7 @@ This remains true even if their widths are made less than the natural width of t
 Tables are an exception tho, in that they do stack vertically but don't automatically widen to fill a containing element
 Tables are an exception tho, in that they do stack vertically but don't automatically widen to fill a containing element. Instead they "shrink-to-fit" around their internal content, so if you want them to act like other block elements you must assign them a width of 100%. Be careful tho, because in that case any side borders or paddings will be added to that 100% width, unlike natural block elements which have a default width of "auto".
 
-Inline elements stack sideways, starting from the left and extending to the right as each new inline element is read by the browser. 
+Inline elements stack sideways, starting from the left and extending to the right as each new inline element is read by the browser.
 When a browser runs out of inline elements for a given line, or when it needs to make a new line, the heights of all the elements in the line being formed are measured. Then a "line box" is created that is the same height as the tallest measured element, and the line box is wrapped around them all. This line box is never visible, but you may get an idea of where it is by applying a background-color to a span element that wraps a set of inline elements.
 Each time the browser creates a line box it is added below the previous one, so line boxes behave much like block elements, altho some of the properies governing them are different. For instance, a text character in a line box does not sit on the bottom of the line box, but instead on something called the baseline which is usually a few pixels above the bottom of the line box. This way characters with "descenders" (like the hook on the bottom of a small "g") have room for those descenders to hang down while allowing the main bodies of the characters to remain aligned.
 
@@ -23,8 +27,8 @@ If you think about it you will see why this must be so. If a span did obey verti
 
 To repeat, absolutely positioned elements are not part of any flow. Instead, an AP element is always located in reference to some parent element using horizontal and vertical coordinates
 
-But which parent? If the AP element's direct parent is not itself "positioned" (meaning any position other than static) then the inner AP element does not use that direct parent as its base of reference. Instead it will look further out until it finds an "ancestor" that is positioned and uses that as its base. If no such positioned ancestor exist, the HTML element is the default positioned parent. 
- 
+But which parent? If the AP element's direct parent is not itself "positioned" (meaning any position other than static) then the inner AP element does not use that direct parent as its base of reference. Instead it will look further out until it finds an "ancestor" that is positioned and uses that as its base. If no such positioned ancestor exist, the HTML element is the default positioned parent.
+
 There is one exception to the "positioned parent" rule, and that is when the horizontal or vertical positioning properties are allowed to remain at the default "auto" value. If both the left and right properties are auto, the AP element will locate itself horizontally as if it were a static element. Thus if a static flowed box were normally displayed halfway across the page width, an AP box with side auto values and the same source location would also display at that page location. This does not mean that the AP element is now in the flow; it's still on its own separate layer. Only its displayed location is controlled by the flow. Any flowed elements that follow it will display without noticing the presence of the AP element, and they can sometimes be covered by that AP element. The same thing applies to AP elements with auto top and bottom values, but vertically rather horizontally.
 I call this effect "auto positioning" but it really just means absolute positioning that is controlled by the flow via auto side values. It's a bit tricky and will be covered in a later article. To avoid the issue just be sure to always use at least two side positional vaues (preferably left and top) when placing AP elements
 
@@ -63,26 +67,26 @@ ul li { margin: 0 0 5px 0; }
 ul > li { margin: 0 0 5px 0; }
 
 /* Selects an unordered list that directly follows the element with ID title */
-#title + ul { margin-top: 0; } 
+#title + ul { margin-top: 0; }
 
 
 css moves right to left. Rightmost is called the key selector
 
-.editor_button img { // gets all images, selects those that are inside an element with class .editor_button 
+.editor_button img { // gets all images, selects those that are inside an element with class .editor_button
 
 IE BOX FIX
-.box 
-{ 
-width: 75px; 
-height: 35px; 
+.box
+{
+width: 75px;
+height: 35px;
 }
 
-html<body .box 
-{ 
-width: auto; 
-height: auto; 
-min-width: 75px; 
-min-height: 35px; 
+html<body .box
+{
+width: auto;
+height: auto;
+min-width: 75px;
+min-height: 35px;
 }
 
 
@@ -109,7 +113,7 @@ display: -webkit-box
 
 
 check out the structural pseudo elements
-http://help.dottoro.com/lcmdfspk.php 
+http://help.dottoro.com/lcmdfspk.php
 
   width: -webkit-calc(100%/2)
 
@@ -196,7 +200,7 @@ p.imgCap_number:after {
 
 
 // attribute selectors
--- -- 
+-- --
 
 // wow, you can style something depending that it follows
 
@@ -225,12 +229,12 @@ sidebar.css
 
 • YOU CAN POSITION SOMETHING ABSOLSUTE ie position:absolute; top: -100px; relative to it's enclosing DIV!!!!!
 
-So we can assign multiple class names to a single element? 
+So we can assign multiple class names to a single element?
 That means we can change the style sheet so it looks like this:
 
 <div class="boxOut oddBoxOut">
 
-.oddBoxOut, 
+.oddBoxOut,
 .evenBoxOut {
   width: 12em;
   padding: 0.5em;
@@ -309,7 +313,7 @@ This can only match at most 1 item as id's should be unique
 
 3	•	zero or more class selectors
 4	•	zero or more pseudo-classes
-a.external:visited - a type selector, class selector and psuedo class 
+a.external:visited - a type selector, class selector and psuedo class
 
 5	•	zero or more attribute selectors
 
@@ -357,3 +361,10 @@ img.class-name { vertical-align: 2px }
   * * * * * * { outline: 1px solid green }
   * * * * * * * { outline: 1px solid orange }
   * * * * * * * * { outline: 1px solid blue }
+
+REALLY, WTF!!!!!!!!!!
+
+adding 1 word in bold, eg
+
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+	non proident, sunt in culpa qui officia deserunt mollit anim id est <span style="font-weight:bold;">laborum</span>.

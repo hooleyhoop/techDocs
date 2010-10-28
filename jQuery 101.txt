@@ -25,5 +25,29 @@ $("#orderedlist > li").addClass("blue");
 	<link type="text/css" href="/javascript/jquery-ui-1/development-bundle/themes/smoothness/ui.all.css" rel="Stylesheet" />
 
 
+
+var $list = $( "#widgetSelect > li" );
+$.each( $list, function(index, value) {
+	$each = $(value);
+	// alert($each.text());
+
+	// given $each is a htmlElement
+	// get the anchor inside it
+	$anchor = $('a', $each);
+
+	//alert( $anchor.attr( "href" ) );
+	$anchor.attr( "href", "#" );
+	$anchor.mousedown( function( ) {
+
+		var fn = window[ '#{_.targetFunctionName}' ];
+		if(typeof fn === 'function') {
+			fn();
+		}
+
+	});
+});
+
+
+
 TEMPLATES
 ----------

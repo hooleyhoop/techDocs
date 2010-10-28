@@ -532,7 +532,7 @@ render :js => "alert("fuck");"
 // Check out Haml Docs
 http://haml-lang.com/docs/yardoc/Haml/Engine.html
 
-// I can render some haml from a string
+// I can render some haml from a string!!
 haml_string = "%p Haml-tastic!"
 engine = Haml::Engine.new(haml_string)
 hamlResult = engine.render
@@ -607,3 +607,78 @@ So the layout is a way to wrap content and compose
 <% end %>
 
 <p>Hello, Rails!</p>
+
+
+
+LOGGING
+(*********
+
+    logger.info( GUI::HooLoremIpsumView.name )
+
+ RAILS_DEFAULT_LOGGER.info self.window
+
+
+FUNKY METHOD CALLING
+**********
+def myFunc( *arg )
+  #arg is an array
+end
+myFunc( one, two, three );
+
+def myFunc( arg )
+  #arg is an hash
+end
+myFunc( :val1=>one, :val2=>two, :val3=>three ) is equivalent to myFunc( {:val1=>one, :val2=>two, :val3=>three} )
+
+
+
+
+SPECCING THE MODEL
+$ ./script/generate rspec_model User
+
+context "A user (in general)" do
+  setup do
+    @user = User.new
+  end
+
+  specify "must have a username" do
+
+  end
+end
+
+
+That’s not bad, but it could be better. We’ve expressed a requirement in our code but we haven’t said anything about the behaviour of a User object. What about this instead:
+
+context "A user (in general)" do
+  setup do
+    @user = User.new
+  end
+
+  specify "should be invalid without a username" do
+
+  end
+end
+
+
+That’s better. Not only have we expressed that our user must have a username, but we’ve also expressed what behaviour should be expected from the User model if it doesn’t have one; it should be invalid.
+
+
+context "A user (in general)" do
+  setup do
+    @user = User.new
+  end
+
+  specify "should be invalid without a username" do
+    @user.should_not_be_valid
+    @user.username = 'someusername'
+    @user.should_be_valid
+  end
+end
+
+
+
+
+
+
+
+

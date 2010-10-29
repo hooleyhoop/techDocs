@@ -634,7 +634,29 @@ myFunc( :val1=>one, :val2=>two, :val3=>three ) is equivalent to myFunc( {:val1=>
 
 
 SPECCING THE MODEL
-$ ./script/generate rspec_model User
+$ ./script/generate rspec_model User					// Old way?
+
+$ rails generate controller Users new					// NB USERS is plural
+$ rails generate model User name:string email:string	// User is singular
+
+// is this not the preferred way?
+$ rails generate scaffold User name:string email:string	// make a new resource
+
+
+// Example - make a new elephant
+$ rails generate controller Elephants new				// adds the route /elephants/new
+$ rails generate model Elephant name:string email:string
+$ rake db:migrate
+$ annotate												// requires gem 'annotate-models', '1.0.4'
+important! add to model
+attr_accessible :name, :email
+$ tail -f log/development.log
+$ rails console --sandbox								// start without sandbox if you want to add an elephant into the development database
+$ elephant = Elephant.new
+$ elephant.save
+$ Elephant.create										// equivalent to new and save
+$ Elephant.create!(:name => "Michael Hartl", :email => "mhartl@example.com")
+-- add to routes: resources :elephants
 
 context "A user (in general)" do
   setup do
@@ -678,7 +700,26 @@ end
 
 
 
+**** FUUUuuuuuuuuuuu!!!!!
+An object and a hash can be used interchangebaly if the object has properties the same as the hash
+ie if you have an object with property name you can treat it as a hash and do
 
+puts myOb['name']
+
+listView.content = [
+{ 'BooTitle'=> "A lovely day",          'BooLocation'=> "Glengarry Glenross, Perthshire" },
+{ 'BooTitle'=> "way home boo",          'BooLocation'=> "Southwark, London, UK" },
+{ 'BooTitle'=> "tipsy topsy turvey",    'BooLocation'=> "New York, New York" },
+{ 'BooTitle'=> "The Shadow strikes",    'BooLocation'=> "Blackburn, lancashire" },
+{ 'BooTitle'=> "saturday morning boo",  'BooLocation'=> "Dark side of the moon" }
+];
+
+listView.content = [
+Elephant.new({:name=>"steve", :email=>"a@yahoo.com"}) ,
+Elephant.new({:name=>"M knight shamalam", :email=>"a@yahoo.com"}) ,
+Elephant.new({:name=>"country jo", :email=>"a@yahoo.com"}) ,
+Elephant.new({:name=>"doc beat", :email=>"a@yahoo.com"})
+];
 
 
 

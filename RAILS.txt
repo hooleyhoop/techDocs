@@ -505,7 +505,7 @@ end
 now looks like >   <h3><%= page_title %></h3>
 
 1)You have a global helper application_helper.rb
-2)You can import a different helper > 	helper: date_helper
+2)You can import a different helper > 	helper date_helper
 3)You can include a Class as a helper	> helper DateFormat
 
 - render partial as string -
@@ -722,4 +722,11 @@ Elephant.new({:name=>"doc beat", :email=>"a@yahoo.com"})
 ];
 
 
+open /Users/shooley/.rvm/gems/ruby-1.9.2-p0/gems/rspec-core-2.0.0.beta.22
 
+COVERAGE----
+------------
+------------
+
+$ rake -T			# see all options
+$ rake spec:rcov

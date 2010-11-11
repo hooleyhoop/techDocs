@@ -47,6 +47,13 @@ $.each( $list, function(index, value) {
 	});
 });
 
+// set all background color to none
+$('*').css('backgroundColor', 'none')
+
+$.each( $('*'), function(index, value) {
+	$each = $(value);
+}
+);
 
 
 TEMPLATES

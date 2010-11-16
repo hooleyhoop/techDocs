@@ -1,1 +1,19 @@
-a
+FACTS
+-----
+
+cat(tom).
+
+RULES
+-----
+
+// "Head is true if Body is true"
+Head :- Body.
+
+
+"is tom a cat?"
+?- cat(tom).
+Yes
+
+"what things are cats?"
+?- cat(X).
+X = tom

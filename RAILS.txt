@@ -730,3 +730,10 @@ COVERAGE----
 
 $ rake -T			# see all options
 $ rake spec:rcov
+
+
+WE NEED TO CHECK OUT LOCAL ASSIGNS
+
+  <% if local_assigns[:show_call_out] %>
+    <em><%= format @article.call_out %></em>
+  <% end %>

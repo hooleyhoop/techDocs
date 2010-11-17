@@ -4,6 +4,9 @@
 irb> 1.class
 => Fixnum
 
+'this is a string that doesnt need evaluating'
+"This is a string that will be evaluated #{avar}"
+
 CONSTANT = "The quick brown fox in a constant"
 #comment
 

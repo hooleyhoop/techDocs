@@ -737,3 +737,28 @@ WE NEED TO CHECK OUT LOCAL ASSIGNS
   <% if local_assigns[:show_call_out] %>
     <em><%= format @article.call_out %></em>
   <% end %>
+
+
+
+
+
+
+Documenting making a plugin
+----------------------------
+http://www.themodestrubyist.com/2010/03/05/rails-3-plugins---part-2---writing-an-engine/
+
+
+¥ in the gui dir
+
+>> sudo gem install jeweler
+>> rake gemspec
+>> rake build
+>> rake install (you have now installed your engine as a gem locally)
+
+[ At this point if you wanted your demo app to use your installed gem, edit the Gemfile in your demo app and remove the 'path' option from your gem line. It should look like this: ] gem ÔcheeseÕ
+>> rake gemcutter:release (this pushes your gem up to Gemcutter, a public gem repository)
+
+
+>> gem uninstall gui			// uninstall
+>> rake test (this will initialize your test database and run the basic test suite)
+

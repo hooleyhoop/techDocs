@@ -1,1 +1,155 @@
-http://nlpwp.org/book/
+http://nlpwp.org/book/chap-words.xhtml
+
+
+.in> :type 'h'
+out> 'h' :: Char															// h is a Char
+
+.in> :type ['h','e','l','l','o']
+out> ['h','e','l','l','o'] :: [Char]										// is a list of Char
+
+.in> :type "hello"
+out> "hello" :: [Char]														// is a list of Char
+
+.in> length "hello"
+out> 5
+
+.in> :type length
+out> length :: [a] -> Int													// in list > out int length
+
+.in> head "hello"
+out> 'h'
+
+.in> tail "hello"
+out> "ello"
+
+.in> reverse "hello"
+out> "olleh"
+
+LETS WRAP IT UP AS A function
+
+.in> let palindrome word = word == reverse word
+.in> palindrome "hello"
+out> False
+
+.in> head ["The", "cat", "is", "on", "the", "mat", "."]
+out> "The"
+
+.in> head (head ["The", "cat", "is", "on", "the", "mat", "."])
+out> 'T'
+
+.in> :type map
+out> map :: (a -> b) -> [a] -> [b]											// map takes to args ( (a->b), [a] ) and returns [b] where (a->b) is a function that has one arg a and returns b
+
+.in> map length ["Oh", ",", "no", ",", "flying", ",", "pink", "ponies"]		// call length for each item
+out> [2,1,2,1,6,1,4,6]
+
+.in> :type sum
+out> sum :: (Num a) => [a] -> a												// takes a list of a's and returns a. BUT WHAT IS (Num a)?? Num a is the type of input
+
+.in> sum (map length ["Oh", ",", "no", ",", "flying", ",", "pink", "ponies"])
+out> 23
+
+.in> sum (map length ["Oh", ",", "no", ",", "flying", ",", "pink", "ponies"]) / length ["Oh", ",", "no", ",", "flying", ",", "pink", "ponies"]
+out> ERROR ! No instance for (Fractional Int)
+
+WHY?
+
+.in> :type (/)
+out> (/) :: (Fractional a) => a -> a -> a									// has two args both of type Fractional and returns Fractional
+
+ASIDE
+
+(/) lets us use infix operator as normal function, eg
+
+.in> (/) 1.0 2.0
+out> 0.5
+
+JUST SO YOU KNOW
+
+.in> fromIntegral (sum (map length ["Oh", ",", "no", ",", "flying", ",", "pink", "ponies"])) / fromIntegral (length ["Oh", ",", "no", ",", "flying", ",", "pink", "ponies"])
+out> 2.875																	// Yay! we got the average length
+
+LETS WRAP IT UP AS A FUNCTION
+
+.in> let averageLength l = fromIntegral (sum (map length l)) / fromIntegral (length l)
+.in> averageLength ["Oh", ",", "no", ",", "flying", ",", "pink" ,"ponies"]
+out> 2.875
+
+WHAT??
+.in> :type averageLength
+out> verageLength :: (Fractional b) => [[a]] -> b							// takes a list of a's and returns b:Fractional, so a can be any type?
+
+.in> :type lines
+out> lines :: String -> [String]											// string to array
+
+.in> words "This is Jack ."
+out> ["This","is","Jack","."]
+
+.in> let splitTokenize text = map words (lines text)
+.in> splitTokenize "This is Jack .\nHe is a Haskeller ."
+out> [["This","is","Jack","."],["He","is","a","Haskeller","."]]
+
+
+consider the parens in the above 'map words (lines text)', to make this composition of functions easier to read you can use the . oeprator instead.
+eg.  f(g(x)) can be rewritten as (f . g) x that is 'apply function f to the outcome of g(x)' and f(g(h(x))) as (f . g . h) x
+
+so..... map words (lines text) is the same as..
+.in> let splitTokenize text = (map words . lines) text
+out>
+
+
+EH??
+
+Prelude> :type map
+map :: (a -> b) -> [a] -> [b]
+
+Prelude> :type map words
+map words :: [String] -> [[String]]
+
+Applying map to just one argument will give... another function! This process is called currying
+
+therfore Prelude> :type map words . lines
+map words . lines :: String -> [[String]]
+
+Prelude> let splitTokenize = map words . lines
+Prelude> splitTokenize "This is Jack .\nHe is a Haskeller ."
+[["This","is","Jack","."],["He","is","a","Haskeller","."]]
+
+// add an item to a list
+Prelude> 2 : [3,4,5]
+[2,3,4,5]
+
+Prelude> 1 : 2 : [3,4,5]
+[1,2,3,4,5]
+
+Prelude> "Hi" : []
+["Hi"]
+
+
+// check if an item occurs in a list
+Prelude> elem 2 [1,2,3,4,5]
+True
+Prelude> elem 6 [1,2,3,4,5]
+False
+
+// CONDITIONALS
+if expr then a else b
+
+Prelude> if 1 == 2 then "cuckoo" else "egg"
+"egg"
+Prelude> if 1 == 1 then "cuckoo" else "egg"
+"cuckoo"
+
+So.. to conditionally add an item to a list, a la
+Prelude> if elem "foo" ["foo","bar","baz"] then ["foo","bar","baz"] else "foo" : ["foo", "bar", "baz"]
+["foo","bar","baz"]
+Prelude> if elem "pony" ["foo","bar","baz"] then ["foo","bar","baz"] else "pony" : ["foo", "bar", "baz"]
+["pony","foo","bar","baz"]
+
+but as a function
+
+Prelude> let elemOrAdd e l = if elem e l then l else e:l
+Prelude> elemOrAdd "foo" ["foo", "bar", "baz"]
+["foo","bar","baz"]
+Prelude> elemOrAdd "pony" ["foo", "bar", "baz"]
+["pony","foo","bar","baz"]

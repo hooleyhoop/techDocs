@@ -1,12 +1,12 @@
-// check out a file 
+// check out a file
 git log doMenuItem.scpt
 > b2b363f13eecf1be5c6e0d721a492341c5b999f2
 git checkout b2b363f13eecf1be5c6e0d721a492341c5b999f2 /Users/shooley/Desktop/Programming/Cocoa/Blake/SHShared/Applescripts/doMenuItem.scpt
 
 // find a couple of lines
 git grep NSPointerArray $(git log -g --pretty=format:%h)
-git grep hiragino $(git log -g --pretty=format:%h)   
- 
+git grep hiragino $(git log -g --pretty=format:%h)
+
 2d0bcde:path/to/project/file.c: result = halfRemeberedNameOfFunction( data );
 65fc672:path/to/project/file.c: result = halfRemeberedNameOfFunction( data );
 24f2858:path/to/project/file.c: result = halfRemeberedNameOfFunction( data );
@@ -44,7 +44,7 @@ git log -1
 // commit all changes
 git commit -a
 
-// change branch 
+// change branch
 git checkout RB_1.0
 
 git tag 1.0 branchname
@@ -59,3 +59,13 @@ git rebase RB_1.0
  git branch -d RB_1.0
 
 $ git whatchanged -p /Users/shooley/Desktop/Programming/Cocoa/Blake/SHShared/Src/HooSenTestProbe.m
+
+
+
+NEW LOCAL REPOSITORY
+--------------------
+#On local machine
+cd foo_project
+git init
+git add *
+git commit -m "My initial commit message"

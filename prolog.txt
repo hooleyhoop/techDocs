@@ -1,7 +1,10 @@
+http://en.wikipedia.org/wiki/Prolog
+
 FACTS
 -----
 
-cat(tom).
+cat(tom).				// These are equivalent
+cat(tom) :- true.
 
 RULES
 -----
@@ -17,3 +20,66 @@ Yes
 "what things are cats?"
 ?- cat(X).
 X = tom
+
+
+EVALUATION
+
+mother_child(trude, sally).
+
+father_child(tom, sally).
+father_child(tom, erica).
+father_child(mike, tom).
+
+sibling(X, Y)      :- parent_child(Z, X), parent_child(Z, Y). 	// notice Z is assigned upon success
+
+parent_child(X, Y) :- father_child(X, Y).
+parent_child(X, Y) :- mother_child(X, Y).
+
+
+-- test
+
+?- sibling(sally, erica).
+Yes
+
+
+?- father_child(Father, Child).
+outputs possible fathers
+
+
+?-consult('name_of_the_file_with_the_program').
+?-reconsult('name_of_file_with_the_program').
+?-listing.								// inspect the current database
+?-halt.
+
+The basic meaning of :- is very simple: to match whatever is to left of the :-, the part to the right must be matched.
+
+
+f :- a, b, c.													// we need to match, in order, patterns a, b and c.
+
+f :- p; q; r.													// either p must be matched, or, if Prolog fails to match p, try to match q; if matching q fails, finally try matching r.
+
+f :- (p; q).
+is equivalent to
+f :- p.
+f :- q.
+
+Note that the semi-colon is essentially equivalent to listing patterns on separate lines; thus,
+
+->: An arrow denotes a conditional pattern rule, in other words, an "if-then-else" rule.
+
+f :- (g -> h; i).
+
+This code means that Prolog first tries to match pattern g; if the pattern can be matched, try to match the pattern h. If g cannot be matched, try to match the pattern i.
+
+f :- \+ g.
+This code means that the pattern f matches whenever the pattern g cannot be matched.
+
+variables are symbols that begin with a capital letter; for example: Var, A, Q, MATCH_ME.
+
+http://kti.ms.mff.cuni.cz/~bartak/prolog/genealogy.html
+
+http://www.learnprolognow.org/
+
+http://www.amzi.com/AdventureInProlog/
+
+http://www.cs.bham.ac.uk/~pjh/prolog_course/se207.html

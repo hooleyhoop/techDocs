@@ -762,3 +762,54 @@ http://www.themodestrubyist.com/2010/03/05/rails-3-plugins---part-2---writing-an
 >> gem uninstall gui			// uninstall
 >> rake test (this will initialize your test database and run the basic test suite)
 
+Rails::VERSION::STRING
+
+
+
+$ rails generate scaffold Member name:string email:string
+$ rails generate scaffold Group name:string
+$ rake db:migrate
+
+$ rails console
+> f = User.first
+> mp = first_user.microposts
+
+
+migrate only runs new migrations
+
+example - copy development databse to test > rake db:test:clone
+
+schema.rb is the database structure, running migrations updates schema
+
+db:reset will drop the database and load the current schema - this is not the same as running migrations
+
+# Start over, Run all migrations
+rake db:drop
+rake db:create
+rake db:migrate
+
+OR
+rake db:migrate:reset
+
+USE seeds.rb to add default values - like an adm in user
+
+rake db:test:prepare
+
+rails console
+tail -f log/development.log
+
+group = GRaoup.new
+group.save
+
+group2 = Group.create
+group2.destroy
+
+Group.find(1)
+Group.first
+Group.find_by_email("mhartl@example.com")
+Group.all
+group.email = ("chicken")
+group.save
+group.reload.email	# depending on whether we issued a save or not this would be the old value or the new value
+
+>> group.update_attributes(:name => "The Dude", :email => "dude@abides.org") 	# This does the save aswell, note that the attributes smust be marked as assecible

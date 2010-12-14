@@ -547,6 +547,7 @@ render :text => hamlResult
 
 = render :partial=>"blueView", :object=>@window.views
 
+<%= render :partial => "product", :collection => @products %>
 
 remember - render partial with layout wraps the partial in the layout
 ie partial goes where yield is in layout
@@ -755,6 +756,11 @@ http://www.themodestrubyist.com/2010/03/05/rails-3-plugins---part-2---writing-an
 >> rake build
 >> rake install (you have now installed your engine as a gem locally)
 
+rake version:bump:patch
+rake version:bump:minor
+rake version:bump:major
+
+
 [ At this point if you wanted your demo app to use your installed gem, edit the Gemfile in your demo app and remove the 'path' option from your gem line. It should look like this: ] gem ÔcheeseÕ
 >> rake gemcutter:release (this pushes your gem up to Gemcutter, a public gem repository)
 
@@ -791,11 +797,14 @@ rake db:migrate
 OR
 rake db:migrate:reset
 
+annotate
+
 USE seeds.rb to add default values - like an adm in user
 
 rake db:test:prepare
 
-rails console
+$ rails console
+$ rails console --sandbox
 tail -f log/development.log
 
 group = GRaoup.new
@@ -813,3 +822,18 @@ group.save
 group.reload.email	# depending on whether we issued a save or not this would be the old value or the new value
 
 >> group.update_attributes(:name => "The Dude", :email => "dude@abides.org") 	# This does the save aswell, note that the attributes smust be marked as assecible
+
+setting a value doesnt save it to the database!
+
+You can use composite objects - they must be immutable
+
+
+	# nb be_valid works because HooMember has valid? method. Rspec lets you test any method that returns a bool like this
+	it "should not be valid with a long name" do
+		aMember = HooMember.new( :name=>'aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa' )
+		aMember.should_not be_valid
+	end
+
+
+ooh, look at fancy array of strings
+addresses = %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp]

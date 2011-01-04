@@ -381,3 +381,9 @@ adding 1 word in bold, eg
 
 	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
 	non proident, sunt in culpa qui officia deserunt mollit anim id est <span style="font-weight:bold;">laborum</span>.
+
+
+COLUMNS
+-------
+
+given an image floated left with text that should sit to the right of it, setting 'overflow: hidden' on the text will stop it wrapping underneath the image

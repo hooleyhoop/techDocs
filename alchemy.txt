@@ -1,0 +1,3 @@
+alc-on
+cd /Users/shooley/Desktop/Organ/Programming/Cocoa/HooleyBits/HooFlac/alchemybuild
+gcc AS3_main.c -O3 -Wall -swc -o fuck_right_off.swc

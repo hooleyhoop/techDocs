@@ -381,3 +381,20 @@ adding 1 word in bold, eg
 
 	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
 	non proident, sunt in culpa qui officia deserunt mollit anim id est <span style="font-weight:bold;">laborum</span>.
+
+
+COLUMNS
+-------
+
+given an image floated left with text that should sit to the right of it, setting 'overflow: hidden' on the text will stop it wrapping underneath the image
+
+People often wonder why overflow: hidden results in floats being contained; if anything, they'd expect stuff to be hidden. Float containment is indeed just a side-effect – one that can be invoked by other properties as well (see below). What happens is that overflow: hidden makes the element establish a new block formatting context, or BFC. CSS 3 calls this a flow root. A BFC has several unique characteristics, as detailed in the sections below. The following property/value combinations will cause an element to establish a new BFC:
+
+float: left and float: right
+display: inline-block, display: inline-table, display: table-cell and display: table-caption
+position: absolute and position: fixed
+overflow: hidden, overflow: auto and overflow: scroll and their overflow-x and overflow-y counterparts.
+
+
+NB. inline-block elements have whitespace inserted between them! You need to use the haml <
+So the format of the html actually effects the rendering!

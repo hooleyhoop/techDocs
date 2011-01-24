@@ -38,29 +38,29 @@ UIComponent
 The graphic at index 1 is removed automatically.
 
 
-//	
+//
 //var textVariable:String = "some default value";
 //var numericVariable:Number = 17;
 //var dateVariable:Date;
 // x:Number
-// var birthday:Date = new Date(); 
+// var birthday:Date = new Date();
 // var student:Student = new Student();
 
     // do stuff to set initial values for properties
     // and otherwise set up the object
 //    textVariable = "Hello there!";
  //   dateVariable = new Date(2001, 5, 11);
- 
+
  // adgDoc.doSomething();
-	
+
 //	var animalCount:int = adGContentXML.animal.length();
-//	var firstAnimal:String = adGContentXML.animal[0].type;	
+//	var firstAnimal:String = adGContentXML.animal[0].type;
 //  xDoc.parseXML(adGContentXML.toXMLString());
 //  trace(xDoc.firstChild.childNodes[0]);
 
 
 
-			
+
 //			var bg:Shape = new Shape();
 //			var g:Graphics = bg.graphics;
 //			g.beginFill(0,1);
@@ -68,7 +68,7 @@ The graphic at index 1 is removed automatically.
 //			g.endFill();
 //			background = bg as DisplayObject;
 //			addChildAt(background,0);
-			
+
 //what the fuck is this shit?			addChild(_progress_small);
 
 
@@ -90,3 +90,18 @@ GLOBAL
 StyleManager.setStyle(styleName, styleValue)
 StyleManager.clearStyle(styleName)
 StyleManager.getStyle(styleName)
+
+
+-- Why is width or height different in UIComponent? --
+------------------------------------------------------
+
+1) Origin is top left
+2) XScale is todo with startWidth and current width
+3) inside draw() you should deal with each invalidated property
+
+in a sprite the width is the reported width?
+in a uicomponent it has a variable called width
+
+you can get the stage width as you set it in flash from the loader info
+
+obviously inside a component if you , say, wanted to draw around it, you would drawrect 0,0,width,height

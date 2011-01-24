@@ -130,4 +130,5 @@ Instead of the do...end keywords that we used in previous examples, curly braces
 5.upto(7) { |i| puts i }
 
 
-
+=>
+The hash rocket is dead. In Ruby 1.9, hashes whose keys are symbols can be built with a single colon

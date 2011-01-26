@@ -398,3 +398,5 @@ overflow: hidden, overflow: auto and overflow: scroll and their overflow-x and o
 
 NB. inline-block elements have whitespace inserted between them! You need to use the haml <
 So the format of the html actually effects the rendering!
+
+IMAGE IN CSS! RAILS ADDS ?TIMESTAMP TO END OF URL SO YOU HAVE TO PUT ?1 TO MAKE IT CACHE CORRECTLY

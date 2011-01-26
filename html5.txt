@@ -1,0 +1,32 @@
+BLOCK LEVEL LINKS
+-----------------
+
+# 3 identicle links
+<div class="story">
+	<h3><a href="story1.html">Bruce Lawson voted sexiest man on Earth</a></h3>
+	<p><a href="story1.html"><img src="bruce.jpg" alt="full story. " />A congress representing all the planet's women unanimously voted Bruce Lawson as sexiest man alive.</a></p>
+	<p><a href="story1.html">Read more</a></p>
+</div>
+
+becomes
+
+<article>
+<a href="story1.html">
+	<h3>Bruce Lawson voted sexiest man on Earth</h3>
+	<p><img src="bruce.jpg" alt="gorgeous lovebundle. ">A congress representing all the planet's women unanimously voted Bruce Lawson as sexiest man alive.</p>
+	<p>Read more</p>
+</a>
+</article>
+
+
+DATA ATTRIBUTES
+----------------
+
+<li class="user" data-name="John Resig" data-city="Boston"
+     data-lang="js" data-food="Bacon">
+  <b>John says:</b> <span>Hello, how are you?</span>
+</li>
+
+in haml
+
+%a{:href=>"/posts", :data => {:author_id => 123}} Posts By Author

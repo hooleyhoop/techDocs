@@ -58,3 +58,33 @@ $.each( $('*'), function(index, value) {
 
 TEMPLATES
 ----------
+
+
+CUSTOM-data
+------------
+var all_jsClass_objects = $(":customdata(jsClass)" );
+$.each( all_jsClass_objects, function( i, ob ) {
+alert( $(ob).customdata("jsClass") );
+});
+
+
+
+
+this.getForm().submit( {ob: this}, this.onClick );
+
+onClick: function( e ) {
+
+	// -- TODO: dsisable the button after clicking
+
+	$.ajax({
+		url: this.action,
+		type: 'POST',
+		data: $(this).serialize(),
+		success: function(data) {
+			alert(  e.data.ob+" muthafucking "+data.result );
+			// Toggle the button graphics
+			e.data.ob.toggleButtonState();
+		}
+	});
+	return e.preventDefault();
+},

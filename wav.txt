@@ -1,0 +1,76 @@
+little endian
+
+00: 52 49 46 46					= "RIFF"
+04: 2C F0 07 00					= data.length+44	(filesize-8?)		== 520236
+08: 57 41 56 45					= "WAVE
+
+12: 66 6D 74 20					= "fmt "								== start of fmt chunk
+16: 10 00 00 00					= 16									== fmt chunk data size, ie. length from here of this section
+20: 01 00						= 1										== compression code, means PCM
+22: 01 00						= number of channels					== 1
+24: 44 AC 00 00					= sample rate							== 44100
+28: 88 58 01 00					= rate * channels * (bits >> 3) 		== average bytes per second --- SampleRate * NumChannels * BitsPerSample/8
+32: 02 00						= channels * ( bits >> 3 )              == block align --- NumChannels * BitsPerSample/8
+34: 10 00						= bits									== bits per sample
+
+36: 64 61 74 61					= "data"
+40: 00 F0 07 00					= data length == 520192                 == NumSamples * NumChannels * BitsPerSample/8
+
+or
+
+4C 49 53 54						= "LIST"
+04 01 00 00						= 260
+49 4E 46 4F 49 4E 41 4D 26 00 00 00 41 71 75 6F
+20 56 69 73 69 74 20 2D 20 41 64 6F 62 65 20 53
+6F 75 6E 64 62 6F 6F 74 68 20 43 6F 6E 74 65 6E
+74 00 49 41 52 54 2C 00 00 00 4D 69 63 68 61 65
+
+6C 20 42 65 63 6B 65 72 2C 20 43 61 72 6F 6C 79
+6E 20 46 61 7A 69 6F 2C 20 53 74 65 76 65 20 46
+61 7A 69 6F 00 00 49 43 4D 54 54 00 00 00 55 73
+65 20 73 75 62 6A 65 63 74 20 74 6F 20 74 68 65
+
+20 74 65 72 6D 73 20 6F 66 20 74 68 65 20 41 64
+6F 62 65 20 53 6F 75 6E 64 62 6F 6F 74 68 20 43
+6F 6E 74 65 6E 74 20 45 6E 64 20 55 73 65 72 20
+4C 69 63 65 6E 73 65 20 41 67 72 65 65 6D 65 6E
+
+74 00 49 43 52 44 0C 00 00 00 32 30 30 36 2D 31
+30 2D 30 31 00 00 49 53 46 54 26 00 00 00 41 64
+6F 62 65 20 53 6F 75 6E 64 62 6F 6F 74 68 20 28
+6C 69 62 73 6E 64 66 69 6C 65 2D 31 2E 30 2E 31
+
+38 29 00 00 64 61 74 61 C0 E6 0C 00 00 00 04 00
+23 00 56 00 92 00 E3 00 D2 00 2A 01 E3 00 41 FF
+1E FE D3 FC 0D FB BF F9 EA F5 FB F0 79 F0 DA ED
+4B E9 59 E9
+
+
+- do pre data
+	- do fixed header
+		- copy first 20 bytes to pre_header_buffer
+		- nextChunkName, nextChunkLength
+
+	- do pre data chunks
+		( the next name could be data )
+		if(nextChunkName==data)
+			skip ahead
+		chunkData = cpy(nextChunkLength+8)
+		-- do work depending on chunk --
+		nextChunkName, nextChunkLength
+		
+- do data chunk
+
+
+
+-exit condition (chunkName==DATA)
+-exit condition (remaining bytes==0)
+
+loop Block( chunkName, chunkLength ) = {
+	checkExitCondition();
+		chunkData = cpy(nextChunkLength+8)
+		-- do work depending on chunk --
+		nextChunkName, nextChunkLength	
+}
+
+

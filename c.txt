@@ -32,3 +32,15 @@ arrayOf50 = malloc( sizeof *arrayOf50 + (arraySize - 1) * sizeof arrayOf50->argg
 arrayOf50->mNumberOfFloats = arraySize;
 ...
 free( arrayOf50 );
+
+
+** -- **
+
+char (*j)[20]; // j is a pointer to an array of 20 char
+j = (char(*)[20])malloc(20);
+
+const int * grape;				// object is readonly
+int const * grape;				// object is readonly
+int * const grape_jelly;		// pointer is readonly
+const int * const grape_jam;	// object and pointer readonly
+int const * const grape_jam;	// object and pointer readonly

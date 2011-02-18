@@ -76,3 +76,6 @@ MyClassB = MyClassA.extend({
 		console.log("myMethod2");
 	}
 });
+
+
+init doesn't have arguments, pass a hash to create and the properties will be set

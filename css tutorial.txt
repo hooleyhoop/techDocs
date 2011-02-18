@@ -400,3 +400,42 @@ NB. inline-block elements have whitespace inserted between them! You need to use
 So the format of the html actually effects the rendering!
 
 IMAGE IN CSS! RAILS ADDS ?TIMESTAMP TO END OF URL SO YOU HAVE TO PUT ?1 TO MAKE IT CACHE CORRECTLY
+
+
+ATTRIBUTE SELECTORS ARE READY TO USE
+------------------------------------
+
+/* every img with an alt tag */
+img[alt] {
+    border: 1px solid #000;
+    padding: 7px;
+}
+
+a[rel="home"] {
+    background: url(home.png) no-repeat 0 0;
+    padding: 0 0 0 20px;
+}
+<a href="http://emilylewisdesign.com" rel="home">Home</a>
+
+img[alt~="website"] {
+    border: 1px solid #000;
+    padding: 7px;
+}
+<img src="ClientXYZ_Thumb.jpg" alt="Client XYZ website thumbnail" />
+
+<ul role="navigation">
+    <li><a href="/" rel="home">Home</a></li>
+    <li><a href="/About/">About</a></li>
+    ...
+</ul>
+ul[role="navigation"] {
+    some pretty styles here;
+}
+
+
+input[type="submit][value="Search"] {
+    now some sexy styles;
+}
+
+
+

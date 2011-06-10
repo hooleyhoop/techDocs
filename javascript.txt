@@ -35,3 +35,8 @@ Great Class Stuff
 		};
 	};
 })();
+
+
+
+// perform after delay
+ id = setTimeout(function(){  // Delay setting up the player so that other clients get chance to start observing booError events (in particular, messages.js)

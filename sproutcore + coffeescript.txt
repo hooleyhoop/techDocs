@@ -1,0 +1,288 @@
+Order Of Includes
+******************
+
+he build tools replace sc_super()  with
+arguments.callee.base.apply(this,arguments)
+
+
+var newObject = SC.Object.create()
+var newSet = SC.Set.create()
+var newArray = SC.SparseArray.create()
+
+javascript arrays are sproutcore arrays
+
+-- runtime
+Core.js
+ObserverSet.js
+Observable.js
+Enumerator
+Enumerable
+range_Observer
+Array
+Comparable
+Copyable
+delegate_support
+Freezable
+Set.js
+observer_queue.js
+Object.js
+
+chain_observer
+binding.js
+Cookie
+Error
+Index_set
+logger
+runloop
+selection_set
+sparse_array
+
+
+-- system
+
+
+
+/*
+ * MyClassA
+*/
+MyClassA = SC.Object.extend({
+
+	foo: "foo1",
+
+	init: function() {
+		arguments.callee.base.apply(this,arguments);
+		console.log("inited!");
+	},
+
+	bar: function() {
+		return "bar";
+	},
+
+	myMethod: function() {
+		console.log('myMethod1');
+	}
+});
+
+MyClassA.prototype.foo = "foo1"
+
+
+/*
+ * MyClassB
+*/
+MyClassB = MyClassA.extend({
+
+	myMethod: function() {
+		arguments.callee.base.apply(this,arguments);
+		console.log("myMethod2");
+	}
+});
+
+
+init doesn't have arguments, pass a hash to create and the properties will be set
+
+
+	HooKVOTests = SC.Object.extend({
+
+	  showFullName: NO,
+
+	  sendChangesToServer: function(key) {
+	  	// ... send changes to the server
+	  	alert("This really works");
+	  }.observes('showFullName')
+
+	});
+
+	var kvoTest = HooKVOTests.create();
+	kvoTest.set('showFullName', YES);
+
+// trigerred when contact changes
+user.addObserver("contact", function() {
+  console.log('contact did change');
+});
+
+// triggered when contact or contact.firstName changes
+user.addObserver('contact.firstName', function() {
+  console.log('contact.firstName did change');
+});
+
+
+// Try not to use closures for observing.. hurts performance!
+user.addObserver('contact.firstName', user, user.contactFirstNameDidChange);
+user.addObserver('contact.firstName', user, 'contactFirstNameDidChange');
+contact.removeObserver('firstName', contact, 'firstNameDidChange');
+
+
+* Important!
+private vars begin with an underscore public ones dont
+
+use contact.get('firstName'); and set only for the public ones
+
+contact.getPath('address.city');
+contact.set('firstName', 'John');
+contact.setPath('address.city', 'Los Altos');
+
+** Computed Properties **
+
+fullName: function() {
+  return this.get('firstName') + " " + this.get('lastName');
+}.property()
+
+** dependant keys **
+fullName: function() {
+  return this.get('firstName') + ' ' + this.get('lastName');
+}.property('firstName', 'lastName')
+
+// you can cache these computed properties.. worth it?
+
+
+.cacheable()
+
+
+eek! destroy()
+
+Instead, if you want to check than a value is null or undefined use SC.none()
+If you want to check that a value is null, undefined, or an empty string use SC.empty()
+
+
+invokeOnce() will make sure something only happens once at the end of the current runloop
+
+Use invokeLater() instead of setTimeout()
+
+
+
+// SPROUTCORE 2
+
+sc_assert('must pass a valid object', !!obj);
+
+newOb = SC.create( ob, params )
+
+if( SC.none( anItem ) ) {
+}
+
+
+forEach( callback, target )
+map
+filter
+find
+findProperty
+reduce
+invoke
+     if (people.every(isEngineer)) { Paychecks.addBigBonus(); }
+
+when manually catching events i think i need to run the run loop
+
+try using sproutcores event handling - setupHandler('mousedown', 'mouseDown');
+
+
+// COFFESCRIPT
+
+you never need to write var
+
+
+# Assignment:
+number   = 42
+opposite = true
+
+# Conditions:
+number = -42 if flag
+
+# Functions:
+square = (x) -> x * x
+
+# Arrays:
+list = [1, 2, 3, 4, 5]
+
+# Objects:
+math =
+  root:   Math.sqrt
+  square: square
+  cube:   (x) -> x * square x
+
+# Existence:
+alert "I knew it!" if elvis?
+
+# Array comprehensions:
+cubes = (math.cube num for num in list)
+
+console.log sys.inspect object → console.log(sys.inspect(object));
+
+# default args
+fill = (container, liquid = "coffee") ->
+  "Filling the #{container} with #{liquid}..."
+
+if happy and knowsIt
+  clapsHands()
+  chaChaCha()
+else
+  showIt()
+
+  eat food for food in ['toast', 'cheese', 'wine']
+
+
+  only the while loop
+
+For single-line statements, unless can be used as the inverse of if.
+
+As a shortcut for this.property, you can use @property.
+
+You can use in to test for array presence, and of to test for JavaScript object-key presence.
+
+CoffeeScript	JavaScript
+is	===
+isnt	!==
+not	!
+and	&&
+or	||
+true, yes, on	true
+false, no, off	false
+@, this	this
+of	in
+in	no JS equivalent
+
+solipsism = true if mind? and not world?
+
+speed ?= 75
+
+footprints = yeti ? "bear"
+
+
+// FAT ARROW SWIZZLES THE VALUE OF THIS TO BE CORRECT
+  $('.shopping_cart').bind 'click', (event) =>
+    @customer.purchase @cart
+
+
+healthy = 200 > cholesterol > 60
+
+sentence = "#{ 22 / 7 } is a decent approximation of π"
+
+
+Hndlebars template are strings of nordmal html that have to be compiled then you can use them in your views
+The view has the properties that the template displays.
+
+ie. for this template:-
+
+My new car is {{color}}.
+
+The view must have a property 'color'. When the property changes - the display changes
+
+You make a hierarchy of views - each view needs a template
+
+
+http://www.handlebarsjs.com/
+
+// TODO!
+• SCViews automatically get mouseevemnts
+• can we make our stuff a view?
+
+// for events that sproutcore doesn't listen for you must start and end your own runloop
+$('my-input').on('copy', function() {
+	SC.RunLoop.begin(); ... SC.RunLoop.end()})`.
+
+using SC.Request ensures that a Run Loop is triggered when the browser receives a response from the server, and using SC.Timer ensures that a Run Loop is triggered when the timer expires.
+
+runloop functions -
+- end
+• invokeLater
+• invokeOnce
+• changes to bound properties
+• invokeLast

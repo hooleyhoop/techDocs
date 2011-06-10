@@ -59,7 +59,8 @@ The graphic at index 1 is removed automatically.
 //  trace(xDoc.firstChild.childNodes[0]);
 
 
-
+All drawing in graphics is done behind containg children on the stage.
+You can draw inside a shape, Sprite or Movieclip in that order of complexity
 
 //			var bg:Shape = new Shape();
 //			var g:Graphics = bg.graphics;
@@ -71,6 +72,8 @@ The graphic at index 1 is removed automatically.
 
 //what the fuck is this shit?			addChild(_progress_small);
 
+Flash Player 10.1 introduced new drawing api! More object orientated, drawPath
+You can store an entire drawing in an object
 
 STYLES
 -------
@@ -105,3 +108,24 @@ in a uicomponent it has a variable called width
 you can get the stage width as you set it in flash from the loader info
 
 obviously inside a component if you , say, wanted to draw around it, you would drawrect 0,0,width,height
+
+
+XML
+---
+
+EX4 to parse xml in flash
+
+
+
+
+	// woo woo! new (to me) keyword. 'dynamic', ie - dynamically add properties at runtime
+
+	/*
+	 * // add an undeclared property
+	 * dyna.extraProperty = "Dynamically added property";
+	 *
+	 * // add an undeclared function
+	 * dyna.extraFunction = function() {
+	 *    trace( dyna.extraProperty );
+	 * }
+	*/

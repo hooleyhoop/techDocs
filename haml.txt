@@ -16,7 +16,7 @@ and in haml
     Maybee some content here.
     = content_box do
       Content that goes in the content_box like news or stuff
-      
+
 
 NESTED LAYOUTS
 --------------
@@ -37,21 +37,21 @@ NESTED LAYOUTS
 
 <% content_for :head do %>
   <%= GMap.header %>
-  <%= @map.to_html %> 
+  <%= @map.to_html %>
 <% end %>
 
 <%= yield :head %>
-  
-  
+
+
 HELPER METHODS
 --------------
 
 booVolume {
-  - 5.times do 
+  - 5.times do
     %div
       %img light.png
 
-}     
+}
 
 booHeader {
   -splitPane do
@@ -172,3 +172,106 @@ and might compile to
 
 
   #profilePic(style="-webkit-mask-box-image:url(../images/vignette-mask.png) 75 stretch;")
+
+
+haml_tag('div', :class => outer_class) do
+      haml_tag('div', :class => "#{inner_class} bgWhite roundedSmall inset spaceAfter") do
+        yield
+      end
+    end
+
+haml_concat link_to("Listen on audioboo.fm!", '${accessURL}')
+
+
+
+/* An Example helper using haml concat */
+
+module HamlburgerHelper
+  def display_grid(objects, options={})
+    options = {
+      :table_class        => 'display_grid',
+      :table_id           => "display_grid_#{objects.first.class.to_s.underscore.pluralize}",
+      :heading_class      => 'display_grid_heading',
+      :heading_id         => "display_grid_heading_#{objects.first.class.to_s.underscore.pluralize}",
+      :th_class           => 'display_grid_th',
+      :tr_class           => 'display_grid_tr',
+      :td_class           => 'display_grid_td',
+      :even_odd           => true,
+      :format_date        => nil, #nil | lambda{|datetime|}
+      :numeric_td_class   => 'numeric',
+      :date_td_class      => 'date',
+      :string_td_class    => 'string',
+
+      :show_action        => nil, # lambda{|object| link_to '', my_path(object)}
+      :edit_action        => nil, # lambda{|object|}
+      :destroy_action     => nil, # lambda{|object|}
+
+    }.merge(options)
+
+    # if row_layout are provided use the names in the row_layout, otherwise find all the to_s attributes and select the keys
+    columns = options[:row_layout] ? options[:row_layout] :
+      objects.first.attributes.select{|k,v| v.respond_to?(:to_s)}.collect{|a| a[0]}
+
+    show_action_links = options[:show_action] || options[:edit_action] || options[:destroy_action]
+
+    capture_haml do
+      haml_tag :table, {:id => options[:table_id], :class => options[:table_class]} do
+
+        # Column headings
+        haml_tag :tr, { :id => options[:heading_id], :class => [options[:heading_class], options[:tr_class]].join(' ') } do
+          columns.each do |col|
+            haml_tag :th, { :class => options[:td_class]} do
+              haml_concat col.to_s.capitalize.humanize
+            end
+          end
+
+          haml_tag :th, { :class => options[:td_class]} do
+            haml_concat 'Actions'
+          end if show_action_links
+        end
+
+        objects.each_with_index do |obj,idx|
+          tr_classes = [ options[:tr_class] ]
+          tr_classes << ((idx + 1).odd? ? 'odd' : 'even') if options[:even_odd]
+
+          haml_tag :tr, { :id => "#{obj.class.to_s.underscore}_#{obj.id}", :class => tr_classes.join(' ')} do
+            columns.each do |col|
+              td_classes  = [options[:td_class], col]
+              td_value    = obj.send(col)
+
+              case td_value.class.to_s
+              when "String"
+                td_classes << options[:string_td_class]
+              when "Numeric"
+                td_classes << options[:numeric_td_class]
+              when "Time", "Date", "DateTime","ActiveSupport::TimeWithZone"
+                td_value = options[:format_date].call(td_value) if options[:format_date]
+                td_classes << options[:date_td_class]
+              end
+
+              haml_tag :td, { :class => td_classes.join(' ')} do
+                haml_concat td_value
+              end
+            end
+
+            if show_action_links
+              haml_tag :td, { :class => "#{options[:td_class]} actions" } do
+                [:show_action, :edit_action, :destroy_action].each do |obj_action|
+                  haml_concat options[obj_action].call(obj) if options[obj_action]
+                end
+              end
+            end
+
+          end
+        end #end row capture
+      end #end rows capture
+    end #end table capture
+  end #end def display_grid
+end
+
+
+capture_haml - haml to string via a new context
+haml_concat - write to the buffer
+haml_tag
+
+so you can render a partial in a helper     - render :partial => 'subtotal', :locals => {:downloads => downloads, :date => date} - and concat it into a buffer

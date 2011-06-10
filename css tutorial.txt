@@ -222,6 +222,7 @@ Elements where margins do not collapse
 • cleared elements (They do not collapse their top margins with their parent block’s bottom margin.)
 • the root element
 
+SOO, a block is normally full width right? if you take it out of the flow it will be the width of its contents
 
 
 
@@ -289,6 +290,15 @@ div.product {
 .product .price {
 ....							any price objects inside the product object should have these properties.
 }
+
+
+.borderradius.rgba.boxshadow		any element with class borderradius && rgba && boxshadow
+	.hoo_sliding_doors_panel, .hoo_sliding_doors_panel.panel_style_inner
+		border: none
+		-webkit-box-shadow: rgba(0,0,0,0.05) 1px 2px 2px
+		-moz-box-shadow: rgba(0,0,0,0.05) 1px 2px 2px
+		box-shadow: rgba(0,0,0,0.05) 1px 2px 2px
+
 
 
 
@@ -436,6 +446,21 @@ ul[role="navigation"] {
 input[type="submit][value="Search"] {
     now some sexy styles;
 }
+
+
+inline-block NEEDs a HACK on ie
+
+*display:inline; zoom:1;
+
+
+button elements are like input elements with type button but can have content
+
+    <button type="submit" class="positive">
+        <img src="/images/icons/tick.png" alt=""/>
+        Save
+    </button>
+
+SO, it looks like BUTTON renders better than INPUT type='submit' but a button is no good without a form..
 
 
 

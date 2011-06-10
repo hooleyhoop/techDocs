@@ -1,0 +1,1 @@
+When you navigate between viewControllers the navigation controller wraps your view in a new transition view and swaps them out

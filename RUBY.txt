@@ -132,3 +132,26 @@ Instead of the do...end keywords that we used in previous examples, curly braces
 
 =>
 The hash rocket is dead. In Ruby 1.9, hashes whose keys are symbols can be built with a single colon
+
+/* DIY Mass assignment */
+
+  def initialize( args={} )
+    super();
+    args.each do |key, value|
+      # note, this wont use the setter
+      # instance_variable_set( "@#{key}", value );
+
+      # this will call the setter mileage=
+      #self.send("#{key}=", value)
+
+      # ie the setter for foo is foo=
+      setterMethodName = "#{key}="
+      if( respond_to?( setterMethodName ) )
+        self.send( setterMethodName, value );
+      else
+        instanceVarName = "@#{key}"
+        instance_variable_set( instanceVarName, value );
+      end
+    end
+  end
+

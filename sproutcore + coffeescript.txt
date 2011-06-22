@@ -286,3 +286,53 @@ runloop functions -
 • invokeOnce
 • changes to bound properties
 • invokeLast
+
+willInsertElement:
+ didInsertElement: function() {
+    this._super();
+    this.$("p:even").addClass("even");
+  }
+
+  and tear doen - useful for hooking up stuff
+
+
+SPROUTCORE 2
+------------
+
+You can set the root element. in sproutcore 1 it was always body. Then sproutcore wont hijack all events for the page, only for the element you specify.
+
+!! SHIT SHIT SHIT. does this mean my stuff wont work with other stuff on the page? !!
+
+Computed properties with dependant keys are !important. The key to clean binding and good MVC
+
+WOW - TEMPLATES http://guides.sproutcore.com/using_handlebars.html
+---------------
+
+-- bindAttr is good for styling
+you also have, {{#with}}
+{{#unless hasPaid}}{{/unless}}
+{{#if person}}{{else}}{{/if}}
+class is different, only adds the dasherized version if that property is true <div {{bindAttr class="isUrgent priority"}}> would add class is-urgent only when isUrgent is true
+
+localised strings!
+{{loc myLocalizedString}}
+add a subview! {{view App.InfoView}}
+
+template = SC.Handlebars.compile( "<div {{bindAttr class=\"normalClass\"}} style='font-size:16px; background-color:orange'>{{firstBindingTest}}<div>" )
+
+	remainingString: (() ->
+		remaining = @get('remaining')
+		return remaining + ( remaining==1 ? " item" : " items" )
+	).property('remaining').cacheable()	# property remaining string depends on remaining
+
+{{#collection}} supports select/option tags (thanks Trek!)
+SC.Button supports the type attribute (thanks Erik!)
+SC.Views support attribute bindings
+SC.View now defers rendering until after bindings have finished syncing
+Applications can specify custom events to dispatch to views
+
+// you can set the binding variable from a template like this
+// you can actually set any variable this way, but maybe you should make a subclass ?
+{{#view ABoo.MockViewTest counterBinding="ABoo.#{_.varName}.counterString"}}
+
+

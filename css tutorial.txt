@@ -464,3 +464,42 @@ SO, it looks like BUTTON renders better than INPUT type='submit' but a button is
 
 
 
+body>div						// child of
+body div						// child at any level below parent
+p:first-child					// first-child
+body > :first-child
+p + p {...}						// adjacent
+p:first-child + p {...}
+p[id] {color: green}			// paragraph with id
+*[id] {color: green}			// any element with id
+p[class="warning"] {color: red}	// attribute with value
+[class~="warning"] {color: red}	// attribute partial match
+:hover
+:active
+:focus
+
+// unvistide links
+a.warning:link {
+  color: red;
+}
+// vistide links
+a:visited {
+  color: red;
+}
+
+// "body .sc-button.is-active" element must have class 'sc-button' & 'is-active'. Doesn't work in ie7
+
+REDUNDANT RULES
+---------------
+
+anything floating is a block
+if you set position: absolute, then float: none is forced
+The top, right, bottom, left properties will not have any effect unless position has been set to a value other than the default of static.
+
+
+MARGIN & PADDING
+----------------
+Margin is on the outside of block elements while padding is on the inside.
+use margin to separate the block from things outside it, padding to move the contents away from the edges of the block.
+
+Keep in mind that padding adds to the total width of your element.

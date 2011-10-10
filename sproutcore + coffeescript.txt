@@ -111,6 +111,8 @@ user.addObserver('contact.firstName', user, user.contactFirstNameDidChange);
 user.addObserver('contact.firstName', user, 'contactFirstNameDidChange');
 contact.removeObserver('firstName', contact, 'firstNameDidChange');
 
+contactFirstNameDidChange: function (sender, key) {
+}
 
 * Important!
 private vars begin with an underscore public ones dont
@@ -276,7 +278,7 @@ http://www.handlebarsjs.com/
 
 // for events that sproutcore doesn't listen for you must start and end your own runloop
 $('my-input').on('copy', function() {
-	SC.RunLoop.begin(); ... SC.RunLoop.end()})`.
+	SC.RunLoop.begin(); ... SC.RunLoop.end()})`. !deprecated `#js:SC.run.begin()`
 
 using SC.Request ensures that a Run Loop is triggered when the browser receives a response from the server, and using SC.Timer ensures that a Run Loop is triggered when the timer expires.
 
@@ -286,6 +288,8 @@ runloop functions -
 • invokeOnce
 • changes to bound properties
 • invokeLast
+
+SC.run.next ?
 
 willInsertElement:
  didInsertElement: function() {
@@ -336,3 +340,73 @@ Applications can specify custom events to dispatch to views
 {{#view ABoo.MockViewTest counterBinding="ABoo.#{_.varName}.counterString"}}
 
 
+
+!!!!!!!
+// To include a template in the javascript..
+
+ABoo.MockViewTest2 = SC.View.extend({
+	// we didnt really need the subclass. Could setup the binding here if we wanted.
+	defaultTemplate: SC.Handlebars.compile('<label><input type="checkbox" {{bindAttr checked="value"}}>{{title}}</label>'),
+	title: "Hiya"
+	// attribute bindings can go here!
+});
+
+var comeonReallyDidYouExpectThisToWork = ABoo.MockViewTest2.create();
+comeonReallyDidYouExpectThisToWork.appendTo(this.div$);
+
+
+
+// jquery animation test
+jQuery(this).animate({sliderValue: 50},
+{
+	duration: 10000,
+	step: function(now, fx) {
+		console.log("Anim: "+fx.elem.id + ' ' + fx.prop + ': ' + now);
+	}
+});
+
+
+// Reeallly confused about class methods!
+
+ABoo.HooCanvasClassMethods = SC.Mixin.create({
+})
+
+// OR ?
+
+ABoo.HooCanvasClassMethods = {
+}
+
+SC.mixin( ABoo.HooCanvas, ABoo.HooCanvasClassMethods );
+
+
+
+MOUSEEVENTS
+  /** @private */
+  _bubbleEvent: function(view, evt, eventName) {
+    var result = true, handler,
+        self = this;
+
+      SC.run(function() {
+      	//console.log(eventName);
+      	if(view[eventName]){ // mousedown, etc
+        	handler = view[eventName];
+        	if (SC.typeOf(handler) === 'function') {
+          	result = handler.call(view, evt);
+        	}
+        }
+      });
+
+
+
+All SproutCore objects have either an isClass or isInstance property, describing whether the object is a class or an instance.
+
+** NEW **
+SC.addObserver(observedObject, 'foo', observerObject, observerObject.fooDidChange, "extra data");
+
+SC.run(myObject, myObject.doRuntimeStuff, "extra", "data");
+
+
+** Debugging handlebars **
+
+{{log path.to.property}}
+{{debugger}}

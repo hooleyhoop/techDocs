@@ -1,5 +1,9 @@
 RAILS
 -----
+
+# Run Tests
+AUTOFEATURE=true bundle exec autotest
+
 http://articles.sitepoint.com/article/learn-ruby-on-rails
 http://articles.sitepoint.com/article/rails-for-beginners/3
 
@@ -837,3 +841,45 @@ You can use composite objects - they must be immutable
 
 ooh, look at fancy array of strings
 addresses = %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp]
+
+
+
+
+GETTING AUDIOBOO UP AND running
+--------------------------------
+
+git checkout origin/hooview
+git checkout -b hooview
+cat .gitmodules
+git submodule update --init
+bundle install
+
+NB database_local.yml is not checked into git:-
+
+development:
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  sql_sock: /tmp/mysql.sock
+  database: audioboo_development
+  username: root
+  password: NGPrague
+
+test: &test
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  database: audioboo_test
+  username: root
+  password: NGPrague
+
+import the database:
+> mysql5 -u root -p audioboo_development < /Users/shooley/Downloads/ab_dump_020811.sql
+
+ensure you have an upto-date local config
+
+¥ environment.rb
+¥ database.yml
+¥ database_local.yml
+¥ _local_config.rb
+

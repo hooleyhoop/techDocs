@@ -40,3 +40,18 @@ Great Class Stuff
 
 // perform after delay
  id = setTimeout(function(){  // Delay setting up the player so that other clients get chance to start observing booError events (in particular, messages.js)
+
+
+// psudococde
+myObj.click() {
+	//do something
+}
+
+myObj.doodah() {
+	//do something
+}
+
+$(myObj).bind( 'click', doodah );
+
+// calls click and doodah
+$(myObj).trigger('click');

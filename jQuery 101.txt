@@ -92,3 +92,7 @@ onClick: function( e ) {
 
 // you can pass data into bind that you want your function to receive
 // $('.booPlayerHolder').bind('foo', { 'bar' : 'bam' }, function(e) { alert(e.data.bar); });
+
+
+
+The bind to delegate stuff is amazing

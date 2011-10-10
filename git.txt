@@ -1,3 +1,55 @@
+** UPDATED **
+
+// create a new local branch based on a remote branch
+git checkout --track -b refactored origin/refactored
+
+// list remote tracking branches
+git branch -r
+
+// update remote tracking branches
+git fetch origin
+
+// see what changed
+git diff master origin/master
+> q
+
+// merge
+git merge origin/master
+
+// push back
+git push origin experimental
+
+
+# STASH #
+
+// push on to stash stack
+git stash save
+
+git stash list
+> stash@{0}: WIP on hooview: 8f5c203 better colours in sidebar
+> stash@{1}: WIP on master: 707496e Merge remote branch 'origin/master'
+
+// apply
+git stash apply stash@{0}
+
+// clean stash stack
+git stash drop stash@{0}
+git stash pop
+git stash clear
+
+
+gitosis manages the repositories
+
+git@git.audioboo.fm:gitosis-admin.git
+audioboo-payments
+
+// save uncommited changes to a new branch
+git checkout -b new_branch_name
+git push origin new_branch_name
+
+** OLD **
+
+
 // check out a file
 git log doMenuItem.scpt
 > b2b363f13eecf1be5c6e0d721a492341c5b999f2

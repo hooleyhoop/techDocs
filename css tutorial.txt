@@ -503,3 +503,25 @@ Margin is on the outside of block elements while padding is on the inside.
 use margin to separate the block from things outside it, padding to move the contents away from the edges of the block.
 
 Keep in mind that padding adds to the total width of your element.
+
+YOU SHOULD BE USING ATTRIBUTE SELECTORS TO DO THIS
+---------------------------------------------------
+
+a[href='http://designshack.co.uk/'] {color: blue;}
+
+<ul>
+    <li><a href="#" rel="friend">Larry</a></li>
+    <li><a href="#" rel="contact">Curly</a></li>
+    <li><a href="#" rel="contact">Moe</a></li>
+    <li><a href="#" rel="contact">Curly Joe</a></li>
+    <li><a href="#" rel="friend">Shemp</a></li>
+</ul>
+
+li a[rel='friend'] {font-weight: bold;}
+li a[rel='contact'] {font-weight: 200;}
+
+margin and padding top/bottom don't do anything on inline elements. (height comes from lineheight)
+
+so you can move stuff downwards by having a negative bottom margin - who knew?
+
+-# NB When using inline-block you get the extra space for the descenders - you must use vertical-align:bottom!

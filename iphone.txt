@@ -1,0 +1,16 @@
+Navigation Controller 
+
+• Install it directly in your application’s main window.
+• Install it as the root view controller of a tab in a tab bar interface.
+• Install it as one of the two root view controllers in a split view interface. (iPad only)
+• Present it modally or otherwise use it as a standalone view controller that you can display and dismiss as needed.
+• Display it from a popover. (iPad only)
+
+Tab bar controller
+
+• Install it directly in your application’s main window.
+• Install it as one of the two root views in a split view interface. (iPad only)
+• Present it modally to display some data that requires its own mode-based organization.
+• Display it from a popover. (iPad only)
+
+ Although a navigation controller can be embedded inside a tab, the reverse is not true. 

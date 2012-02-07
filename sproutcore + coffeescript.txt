@@ -318,6 +318,8 @@ you also have, {{#with}}
 {{#if person}}{{else}}{{/if}}
 class is different, only adds the dasherized version if that property is true <div {{bindAttr class="isUrgent priority"}}> would add class is-urgent only when isUrgent is true
 
+// BY DEAFULT IT BINDS TO THE VIEW INSTANCE, FOR BETTER MVC YOU WOULD SPECIFY A CUSTOM BINDING TO YOUR MODEL
+
 localised strings!
 {{loc myLocalizedString}}
 add a subview! {{view App.InfoView}}
@@ -410,3 +412,59 @@ SC.run(myObject, myObject.doRuntimeStuff, "extra", "data");
 
 {{log path.to.property}}
 {{debugger}}
+
+
+--- Custom view render ? Think this is for sproutcore 1 --
+
+Macchiato.EventSummaryView = SC.View.extend(SC.ContentDisplay, {
+
+	contentDisplayProperties: 'eventDesc eventDate'.w(),
+
+	render: function(context, firstTime) {
+		var desc = '';
+		var evtDate = '';
+		var category = '';
+
+		if (firstTime) {
+			console.log("Say yeah!");
+		} else {
+			console.log("Say Nay!");
+		}
+
+		var eventContent = this.get('content');
+
+		if((eventContent != undefined) && (eventContent != null)) {
+			desc = eventContent.get('eventDesc');
+			evtDate = eventContent.get('eventDate');
+			category = eventContent.get('category');
+			console.log('will now add a new event: desc = ' + desc + " date = " + evtDate);
+		}
+
+		var cls_name = "";
+		cls_name = cls_name.concat("event-summary-view-", category);
+
+    context = context.begin('div').addClass(cls_name);
+    context = context.begin('div').addClass('event-summary-view-desc').push(desc).end();
+    context = context.begin('div').addClass('event-summary-view-date').push(evtDate).end();
+    context = context.end();
+    context = context.end();
+		sc_super();
+	}	
+});
+
+
+-- wrap an arbitrary div in a container View --
+
+ABoo.containerViewForHtmlElement = function( htmlElementToWrap ) {
+
+	var htmlContainerView = SC.ContainerView.create();
+	htmlContainerView.get('childViews').addArrayObserver(htmlContainerView, {
+		willChange: 'childViewsWillChange', didChange: 'childViewsDidChange'
+	});
+	// instead of letting sproutcore create a div for us we will suply one in situ - requires hacking
+	$(htmlElementToWrap).wrap("<div id="+htmlContainerView[SC.GUID_KEY]+" class='sc-view' />");
+	var fakeSproutcoreHTMLDivElementToWrap = $(htmlElementToWrap).parent()[0];
+	htmlContainerView.set( 'element', fakeSproutcoreHTMLDivElementToWrap );
+	return htmlContainerView;         
+};
+

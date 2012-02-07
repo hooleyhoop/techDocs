@@ -37,6 +37,7 @@ git stash drop stash@{0}
 git stash pop
 git stash clear
 
+git cherry-pick SHA1 --no-commit
 
 gitosis manages the repositories
 
@@ -46,6 +47,10 @@ audioboo-payments
 // save uncommited changes to a new branch
 git checkout -b new_branch_name
 git push origin new_branch_name
+
+
+-- copy changes from a different branch for a single file
+git checkout otherbranch myfile.txt
 
 ** OLD **
 

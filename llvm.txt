@@ -1,0 +1,47 @@
+llvm
+----
+          
+• compile
+clang hello.c
+llvm-gcc hello.c -o hello	// -S and -c arguments work as usual (producing a native .s or .o file, respectively).
+
+• preprocess 
+clang hello.c -E
+
+• type checking
+$ clang hello.c -fsyntax-only -pedantic
+
+• pretty print
+clang -cc1 hello.c -ast-print
+
+$ clang hello.c -S -emit-llvm -o hello
+clang -fomit-frame-pointer -O3 -S -o - hello.c
+llvm-gcc -O3 -emit-llvm hello.c -c -o hello.bc	// bit code - -S or -c options to emit an LLVM ".ll" or ".bc" file
+
+• run a program
+% lli hello.bc
+
+
+•llvm-as
+The assembler transforms the human readable LLVM assembly to LLVM bitcode.
+•llvm-dis
+The disassembler transforms the LLVM bitcode to human readable LLVM assembly.
+•lli
+lli is the LLVM interpreter, which can directly execute LLVM bitcode (although very slowly...). For architectures that support it (currently x86, Sparc, and PowerPC), by default, lli will function as a Just-In-Time compiler (if the functionality was compiled in), and will execute the code much faster than the interpreter.
+•llc
+llc is the LLVM backend compiler, which translates LLVM bitcode to a native code assembly file or to C code (with the -march=c option).
+
+
+• Use the llvm-dis utility to take a look at the LLVM assembly code:
+llvm-dis < hello.bc | less
+
+• Compile the program to native assembly using the LLC code generator:
+% llc hello.bc -o hello.s
+
+• Assemble the native assembly language file into a program:
+Solaris: % /opt/SUNWspro/bin/cc -xarch=v9 hello.s -o hello.native
+Others:  % gcc hello.s -o hello.native
+% ./hello.native
+
+-S	Human readable
+-c	machine

@@ -525,3 +525,23 @@ margin and padding top/bottom don't do anything on inline elements. (height come
 so you can move stuff downwards by having a negative bottom margin - who knew?
 
 -# NB When using inline-block you get the extra space for the descenders - you must use vertical-align:bottom!
+
+DONT PUT UNITS ON LINE HEIGHTS! 1.5 ! THIS WAY THE CORRECT VALUE WILL BE CALCULATED FOR DESCENDENTS, AND NOT A PRECALCULATED VALUE FOR THE PARENT THAT IS PASSED DOWN
+
+
+// PROBLEM: THE BOX WIDTH WONT BE 50%
+#element {
+	width: 50%;
+	border 1px solid #000;
+	padding: 0 5px;
+}
+
+#element {
+	box-sizing: border-box;
+	width: 50%;
+	border 1px solid #000;
+	padding: 0 5px;
+}
+
+Note difference between width: auto and width 100%.
+100% will mean border is extra, wont if you use auto

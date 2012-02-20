@@ -1,2 +1,79 @@
-Begginninngg Node
+Beginning Node
 -----------------
+
+var http = require("http");
+
+http.createServer( function(req, res) {
+
+	var html = "<!doctype html>" + 
+		"<html><head><title>Hello world</title></head>" +
+		"<body><h1>Hello, world!</h1></body></html>"; 
+		
+	res.writeHead(200, { 
+		// set the type of content we're returning
+		"Content-Type": "text/html",
+		// set the length of our content 
+		"Content-Length" : html.length
+	});	
+	// end the response, sending it and returning our HTML
+	res.end(html);
+}).listen(8000, "127.0.0.1");
+
+
+http://127.0.0.1:8000/
+
+Look at Weld and JSDOM for templating
+
+
+var http = require("http"),
+// utilities for working with file paths
+path = require("path"),
+// utilities for accessing the file system 
+fs = require("fs"),
+extensions = {
+	".html": "text/html",
+	".css": "text/css",
+	".js": "application/javascript",
+	".png": "image/png",
+	".gif": "image/gif", 
+	".jpg": "image/jpeg"
+};
+
+http.createServer(function(req, res) { 
+	// look for a filename in the URL, default to index.html 
+	var filename = path.basename(req.url) || "index.html", 
+		ext = path.extname(filename),
+		dir = path.dirname(req.url).substring(1),
+		localPath = __dirname + "/public/";
+	
+	if (extensions[ext]) { 
+		localPath += (dir ? dir + "/" : "") + filename;
+		path.exists(localPath, function(exists) { 
+			if (exists) { 
+				getFile(localPath, extensions[ext], res); 
+			} else { 
+				res.writeHead(404); 
+				res.end();
+			}
+		});
+	}
+}).listen(8000);
+
+function getFile(localPath, mimeType, res) { 
+	fs.readFile(localPath, function(err, contents) { 
+		if (!err) { 
+			res.writeHead(200, { "Content-Type": mimeType, "Content-Length": contents.length });
+			res.end(contents);
+		} else { 
+			res.writeHead(500);
+			res.end();
+		}
+	});
+}
+
+All this can be replaced with:-
+
+connect = require("connect"); connect(connect.static(__dirname + "/public")).listen(8000);
+
+// make sure you are in your app root
+$ npm install connect

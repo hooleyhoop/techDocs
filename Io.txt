@@ -1,0 +1,143 @@
+Keywords
+---------
+
+;		// separate
+=		// update existing
+:=		// assign new and update
+
+
+Io> """Hello world!""" 	// triple quoted strings can have newlines
+
+Io> "There are " .. (8*10)+19 .. " bottles of beer on that very wall, over there."
+
+
+everything is returned. Return nil when that is what you mean.
+
+Io> 2 sqrt
+==> 1.414214
+
+Io> b := 2 * 3
+==> 6
+
+
+CONDITIONS
+
+Io> if(a == 1) then(writeln("a is one")) else(writeln("a is not one"))
+
+
+LISTS
+
+Io> d := List clone append(30, 10, 5, 20)    
+==> list(30, 10, 5, 20)   
+
+Io> d print
+==> list(30, 10, 5, 20)
+
+Io> d := d sort
+==> list(5, 10, 20, 30)
+
+Io> d first
+==> 5
+
+Io> d last
+==> 30
+
+Io> d at(2)
+==> 20
+
+Io> d remove(30)
+==> list(5, 10, 20)
+
+Io> d atPut(1, 123)
+==> list(5, 123, 20)
+
+Io> list(30, 10, 5, 20) select(>10)
+==> list(30, 20)
+
+Io> list(30, 10, 5, 20) detect(>10)
+==> 30
+
+Io> list(30, 10, 5, 20) map(*2)
+==> list(60, 20, 10, 40)
+
+Io> list(30, 10, 5, 20) map(v, v*2)
+==> list(60, 20, 10, 40)
+
+
+Loops
+
+Io> for(i, 1, 10, write(i, " "))
+1 2 3 4 5 6 7 8 9 10 
+
+Io> d foreach(i, v, writeln(i, ": ", v))
+0: 5
+1: 123
+3: 20
+
+Io> list("abc", "def", "ghi") foreach(println)
+abc
+def
+ghi
+
+Strings
+
+Io> a := "foo"
+==> "foo"
+
+Io> b := "bar"
+==> "bar"
+
+Io> c := a .. b
+==> "foobar"
+
+Io> c at(0)
+==> 102
+
+Io> c at(0) asCharacter
+==> "f"
+
+Io> s := "this is a test"
+==> "this is a test"
+
+Io> words := s split(" ", "\t") print
+"this", "is", "a", "test"
+
+Io> s findSeq("is")
+==> 2
+
+Io> s findSeq("test")
+==> 10
+
+Io> s slice(10)
+==> "test"
+
+Io> s slice(2, 10)
+==> "is is a "
+
+
+Io> someObject slotNames
+Io> someObject slotNames sort
+Io> someObject slotSummary
+
+Inspecting a method will print a decompiled version of it:
+
+Io> Lobby getSlot("forward")
+==> # io/Z_Importer.io:65
+method(
+    Importer import(call)
+)
+
+doFile and doString
+
+A script can be run from the interactive mode using the doFile method:
+doFile("scriptName.io")
+The evaluation context of doFile is the receiver, which in this case would be the lobby. To evaluate the script in the context of some other object, simply send the doFile message to it:
+someObject doFile("scriptName.io")
+The doString method can be used to evaluate a string:
+Io> doString("1+1")
+==> 2
+And to evaluate a string in the context of a particular object:
+someObject doString("1 + 1")
+
+Syntax
+

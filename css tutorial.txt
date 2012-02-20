@@ -545,3 +545,18 @@ DONT PUT UNITS ON LINE HEIGHTS! 1.5 ! THIS WAY THE CORRECT VALUE WILL BE CALCULA
 
 Note difference between width: auto and width 100%.
 100% will mean border is extra, wont if you use auto
+
+BOX BOX BOX
+BOX BOX BOX
+
+/* apply a natural box layout model to all elements */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+BOX BOX BOX
+BOX BOX BOX
+
+
+A nifty trick for vertically centering text inside of an element is to set the line-height to be the desired height of the element, and remove any vertical padding. This will keep the height fixed and the text centered, even if the font-face, font-size, or font-weight changes.
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+

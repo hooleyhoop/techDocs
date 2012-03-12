@@ -560,3 +560,15 @@ A nifty trick for vertically centering text inside of an element is to set the l
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+
+
+
+// NO MAGIC NUMBER
+.dropdown-nav li:hover ul{ top:37px; }
+
+// YES! How does this work?
+.dropdown-nav li:hover ul{ top:100%; }
+
+
+
+

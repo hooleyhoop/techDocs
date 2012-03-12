@@ -155,3 +155,15 @@ The hash rocket is dead. In Ruby 1.9, hashes whose keys are symbols can be built
     end
   end
 
+--------------------------------------------------------------------------------------------
+NEW START
+--------------------------------------------------------------------------------------------\\
+
+defining a method name ending in an equals sign makes that name eligible to appear on the left-hand side of an assignment.
+
+  def duration=(newDuration)
+    @duration = newDuration
+  end
+
+ def Example.classMeth     # class method
+end

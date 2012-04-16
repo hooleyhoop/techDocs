@@ -1,3 +1,7 @@
+-- start interactive
+ghci -XNoMonomorphismRestriction
+
+
 http://nlpwp.org/book/chap-words.xhtml
 
 

@@ -141,3 +141,49 @@ someObject doString("1 + 1")
 
 Syntax
 
+Io> plus := block(a, b, a + b)
+==> method(a, b, 
+        a + b
+    )
+Io> plus call(2, 3)
+==> 5
+Io> plus argumentNames
+==> list("a", "b")
+Io> plus code
+==> block(a, b, a +(b))
+Io> plus message name
+==> a
+Io> plus message next setName("-")
+==> -(b)
+Io> plus
+==> method(a, b, 
+        a - b
+    )
+Io> plus call(2, 3)
+==> -1
+Io> plus message next
+==> +(b)
+Io> plus message next name
+==> +
+
+
+Builder := Object clone
+Builder forward := method(
+  tag(call message name, call message argAt(0))
+)
+This forward method intercepts all messages. So the html message is going to hit that slot
+
+One vital bit here: the method lists no arguments. Its argument list is empty. However, it really does take arguments. Normally, in Io, you’ll use html := method(arg1, arg2, ...) to tell the method to receive two arguments. This would unpause The Matrix, though, and run all the messages like languages normally do.
+
+If you send arguments to a method (or a block) without naming them, then Io will go lazy on us. It’ll attach those arguments to our Call object, but it’ll skip actually running them.
+
+So, the code call message name and call message argAt(0) gets the method name and the arguments from the Call object.
+
+
+Io> call message name
+==> html
+Io> call message argAt(0)
+==> head(title("Lazy Bricks, Lazy Mortar")) ;
+body(div(p("Here's a bit more Io...") ;
+p("Previously on Hackety Org...")) ;
+div(p("Adieu, friends and uncles.")))

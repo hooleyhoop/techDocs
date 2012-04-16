@@ -1,3 +1,34 @@
+http://www.git-legit.org/
+
+$ git switch <branch>
+# Switches to branch. Stashes and restores unstaged changes.
+
+$ git sync
+# Syncronizes current branch. Auto-merge/rebase, un/stash.
+
+$ git publish <branch>
+# Publishes branch to remote server.
+
+$ git unpublish <branch>
+# Removes branch from remote server.
+
+$ git harvest <branch>
+# Auto-merge/rebase commits from given branch.
+
+$ git sprout <branch>
+# Sprout a new branch from the current branch.
+
+$ git graft <branch>
+# Merge unpublished branch into current branch, then remove it.
+
+$ git branches
+# Nice & pretty list of branches + publication status.
+
+
+
+git submodule foreach git pull
+git submodule foreach git pull origin master
+
 ** UPDATED **
 
 // create a new local branch based on a remote branch

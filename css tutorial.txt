@@ -560,3 +560,51 @@ A nifty trick for vertically centering text inside of an element is to set the l
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+
+
+
+http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+
+http://www.stubbornella.org/content/2009/07/23/overflow-a-secret-benefit/
+
+Overflow – a secret benefit
+Overflow does some cool things you should know about.
+
+Creates Block Formatting Context
+Clears Floats
+
+The <wbr> tag is very useful but unfortunately too little known. I use it liberally in the great compatibility tables on my site.
+
+
+good word breaking
+
+ -ms-word-break: break-all;
+     word-break: break-all;
+
+     // Non standard for webkit
+     word-break: break-word;
+
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
+
+-- USE FOR GRIDS!
+Internet Explorer 8 will support many new values for the CSS display property, including the table-related values: table, table-row, and table-cell—and it’s the last major browser to come on board with this support. This e
+
+:before and :after go on the parent
+
+
+** FLOATING ORDER IS A BITCH **
+
+if we want the text to take up available room with img on the right
+eg. blah blah <img>			
+
+you must
+
+%img (float:right)
+%p blah blah blah
+
+if you doing the other way around the img will be pushed down 
+
+TO MAKE A PARAGRAPH HAVE A MINIMUM width
+Add a :before dive with a width

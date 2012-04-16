@@ -1,0 +1,67 @@
+emacs -nw
+tutorial 	CTRL-h t
+quit 		C-x C-c
+abort cmd	C-g.
+
+-- must use alt a meta key, otherwise it is ESC
+
+C-v			view next screen
+M-v			view previous screen
+
+C-l 		cursor pos to centre / top / bottom
+
+C-p 		Previous line, 
+C-n 		Next line
+
+C-b			Backward
+C-f			forwards
+
+M-f 		forwards word
+M-b			backwards word
+
+C-a			begining of line
+C-e			end of line
+
+M-a			beginig of paragraph
+M-e			beginning of paragraph
+
+M-< 		beginning (requires shift)
+M-> 		end (requires shift)
+
+M-x package-list-packages and press i on clojure-mode, slime and slime-repl, then x to start installation
+
+------------------------
+
+C-h a and then frame.
+
+http://jeremy.zawodny.com/emacs/emacs-2.html
+
+Keystrokes  Function           Description
+-------------------------------------------------------------------
+C-x C-s     save-buffer        Save the current buffer to disk
+C-x u       undo               Undo the last operation
+C-x C-f     find-file          Open a file from disk
+C-s         isearch-forward    Search forward for a string
+C-r         isearch-backward   Search backward for a string
+            replace-string     Search & replace for a string
+            replace-regexp     Search & replace using regexp
+C-h t       help-with-tutorial Use the interactive tutorial
+C-h f       describe-function  Display help for a function
+C-h v       describe-variable  Display help for a variable
+C-h x       describe-key       Display what a key sequence does
+C-h a       apropos            Search help for string/regexp
+C-h F       view-emacs-FAQ     Display the Emacs FAQ
+C-h i       info               Read the Emacs documentation
+C-x r m     bookmark-set       Set a bookmark. Useful in searches
+C-x r b     bookmark-jump      Jump to a bookmark.
+-------------------------------------------------------------------
+
+
+All ``command keystrokes'' in Emacs (those that are M-x something or C-something) are actually just shortcuts to functions which are part of Emacs. You can call any of those functions by typing M-x function-name and hitting Enter. You can also use the keyboard shortcut for that function (if it has one).
+
+For example, the Emacs function which saves a buffer to disk is called save-buffer. By default it is also bound to C-x C-s. So, you can either use they shortcut to save the current buffer, or you could type M-x save-buffer and achieve the exact same result.
+To execute Control commands, written as CTRL-letter, hold down the Control key while typing the letter indicated. 
+To execute Escape commands, written as ESC letter, press the Escape key (once) and then type the letter indicated.ttththt
+
+As an example, try M-x search and then hit Tab. Emacs will append a hyphen to indicate that there are several possible completions but they all have a hyphen as the next character. Hit Tab once more and Emacs will display a list of the possible matches for you to choose from. Notice that it does so in a new window. It temporarily splits your display into two windows: one which contains the buffer you were editing and the other contains the list of possible completions for ``search-''. You may hit C-g to exit out of the selection process and close the new window.
+

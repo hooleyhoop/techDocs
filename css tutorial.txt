@@ -608,3 +608,14 @@ if you doing the other way around the img will be pushed down
 
 TO MAKE A PARAGRAPH HAVE A MINIMUM width
 Add a :before dive with a width
+
+
+// NO MAGIC NUMBER
+.dropdown-nav li:hover ul{ top:37px; }
+
+// YES! How does this work?
+.dropdown-nav li:hover ul{ top:100%; }
+
+
+
+
